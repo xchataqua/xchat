@@ -2163,6 +2163,9 @@ sound_find_command (void)
 void
 sound_play (const char *file, gboolean quiet)
 {
+#ifdef FE_AQUA
+  fe_play_wave (file);
+#else
 	char buf[512];
 	char wavfile[512];
 	char *file_fs;
@@ -2228,6 +2231,7 @@ sound_play (const char *file, gboolean quiet)
 	}
 
 	g_free (file_fs);
+#endif /* FE_AQUA */
 }
 
 void
