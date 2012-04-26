@@ -318,6 +318,10 @@ get_xdir_fs (void)
 	return xdir_fs;
 }
 
+#elif FE_AQUA || FE_IOS
+
+extern char *get_xdir_fs(void);
+
 #else
 
 char *
@@ -566,6 +570,9 @@ const struct prefs vars[] = {
 
 	{"url_grabber", P_OFFINT (url_grabber), TYPE_BOOL},
 	{"url_grabber_limit", P_OFFINT (url_grabber_limit), TYPE_INT},
+#ifdef FE_AQUA
+#   include "Sources/XAVars.h"
+#endif
 	{0, 0, 0},
 };
 
@@ -686,6 +693,9 @@ load_config (void)
 	prefs.url_grabber_limit = 0; /* 0 means unlimited for backcompat */
 #ifdef WIN32
 	prefs.identd = 1;
+#endif
+#ifdef FE_AQUA
+#   include "Sources/XADefaults.h"
 #endif
 	strcpy (prefs.stamp_format, "[%H:%M] ");
 	strcpy (prefs.timestamp_log_format, "%b %d %H:%M:%S ");
