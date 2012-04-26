@@ -306,6 +306,10 @@ struct xchatprefs
 		This is so that we continue using internal defaults (which can
 		change in the next release) until the user edits them. */
 	unsigned int save_pevents:1;
+  /* XCA specific preferences: */
+#ifdef FE_AQUA
+#  include "Sources/XAPrefs.h"
+#endif
 };
 
 /* Session types */
