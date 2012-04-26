@@ -134,8 +134,13 @@ ctcp_handle (session *sess, char *to, char *nick, char *ip,
 
 	if (!strcasecmp (msg, "VERSION") && !prefs.hidever)
 	{
+#ifdef FE_AQUA || FE_IOS
+        snprintf (outbuf, sizeof (outbuf), "VERSION X-Chat Aqua %s (xchat "PACKAGE_VERSION") %s",
+              MYVERSION, get_cpu_str ());
+#else
 		snprintf (outbuf, sizeof (outbuf), "VERSION xchat "PACKAGE_VERSION" %s",
 					 get_cpu_str ());
+#endif
 		serv->p_nctcp (serv, nick, outbuf);
 	}
 
