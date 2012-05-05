@@ -308,17 +308,11 @@
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "XChat"
 
-/* Define to the full name and version of this package. */
-#define PACKAGE_STRING "XChat 2.8.8-svn1504"
-
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "xchat"
 
 /* Define to the home page for this package. */
 #define PACKAGE_URL "http://xchataqua.github.com/"
-
-/* Define to the version of this package. */
-#define PACKAGE_VERSION "2.8.8-svn1504"
 
 #define PREFIX "/tmp/local"
 
@@ -392,9 +386,8 @@
 # define FORK_DISABLED 1
 #endif
 
+#include "config.package_name.in.h"
 #include "build_number.h"
-
-#define MYVERSION XCHAT_AQUA_VERSION_STRING
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
