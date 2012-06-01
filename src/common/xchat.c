@@ -609,7 +609,11 @@ static char defaultconf_commands[] =
 	"NAME WII\n"			"CMD quote WHOIS %2 %2\n\n";
 
 static char defaultconf_urlhandlers[] =
+#ifndef FE_AQUA
 		"NAME Open Link in Opera\n"		"CMD !opera -remote 'openURL(%s)'\n\n";
+#else
+		"";
+#endif
 
 #ifdef USE_SIGACTION
 /* Close and open log files on SIGUSR1. Usefull for log rotating */
