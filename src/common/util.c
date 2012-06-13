@@ -1350,7 +1350,7 @@ rfc_ncasecmp (char *str1, char *str2, int n)
 	register unsigned char *s2 = (unsigned char *) str2;
 	register int res;
 
-	while ((res = rfc_tolower (*s1) - rfc_tolower (*s2)) == 0)
+	while ((res = hal_casecomp(s1,s2)) == 0)
 	{
 		s1++;
 		s2++;
@@ -1359,6 +1359,25 @@ rfc_ncasecmp (char *str1, char *str2, int n)
 			return 0;
 	}
 	return (res);
+}
+
+int
+hal_casecomp ( char *s1, char *s2)
+{
+
+/* This function, called by rfc_ncasecmp, enables enhanced tab
+ * completition: It completes te<tab> to Test but not Te<tab> to
+ * test2. (This is useful if you have two users Test1 and test2 in
+ * the channel. Can be toggeled wit /set completion_cinsens (0|1)
+ *
+ *  -- Mathias Weyland <mathias@weyland.ch>, 6.9.2004
+*/
+	if((*s2 - rfc_tolower (*s2)) || prefs.completion_cinsens)
+	{
+		return (rfc_tolower (*s1) - rfc_tolower (*s2));
+	} else {
+		return (*s1 - *s2);
+	}
 }
 
 const unsigned char rfc_tolowertab[] =
