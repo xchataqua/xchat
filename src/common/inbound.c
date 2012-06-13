@@ -186,6 +186,9 @@ inbound_privmsg (server *serv, char *from, char *ip, char *text, int id)
 
 	inbound_make_idtext (serv, idtext, sizeof (idtext), id);
 
+	if (alert_match_word (from, prefs.irc_no_hilight))
+		return;
+
 	sess = find_session_from_nick (from, serv);
 	if (!sess)
 	{
@@ -435,6 +438,9 @@ inbound_chanmsg (server *serv, session *sess, char *chan, char *from, char *text
 	}
 
 	inbound_make_idtext (serv, idtext, sizeof (idtext), id);
+
+	if (alert_match_word (from, prefs.irc_no_hilight))
+		return;
 
 	if (is_hilight (from, text, sess, serv))
 		hilight = TRUE;
@@ -1025,6 +1031,8 @@ check_autojoin_channels (server *serv)
 
 	/* this is really only for re-connects when you
     * join channels not in the auto-join list. */
+	channels = NULL;
+	keys = NULL;
 	while (list)
 	{
 		sess = list->data;
@@ -1034,18 +1042,28 @@ check_autojoin_channels (server *serv)
 			{
 				strcpy (sess->waitchannel, sess->willjoinchannel);
 				sess->willjoinchannel[0] = 0;
-				serv->p_join (serv, sess->waitchannel, sess->channelkey);
+
 				po = strchr (sess->waitchannel, ',');
 				if (po)
 					*po = 0;
 				po = strchr (sess->waitchannel, ' ');
 				if (po)
 					*po = 0;
+
+				channels = g_slist_append (channels, g_strdup (sess->waitchannel));
+				keys = g_slist_append (keys, g_strdup (sess->channelkey));
 				i++;
 			}
 		}
 		list = list->next;
 	}
+
+	if (channels)
+	{
+		serv->p_join_list (serv, channels, keys);
+		joinlist_free (channels, keys);
+	}
+
 	serv->joindelay_tag = 0;
 	fe_server_event (serv, FE_SE_LOGGEDIN, i);
 	return FALSE;
