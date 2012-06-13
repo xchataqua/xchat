@@ -386,6 +386,8 @@ const struct prefs vars[] = {
 	{"completion_auto", P_OFFINT (nickcompletion), TYPE_BOOL},
 	{"completion_sort", P_OFFINT (completion_sort), TYPE_INT},
 	{"completion_suffix", P_OFFSET (nick_suffix), TYPE_STR},
+	
+	{"completion_cinsens", P_OFFINT (completion_cinsens), TYPE_BOOL},
 
 	{"dcc_auto_chat", P_OFFINT (autodccchat), TYPE_INT},
 	{"dcc_auto_resume", P_OFFINT (autoresume), TYPE_BOOL},
