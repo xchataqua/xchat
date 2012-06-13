@@ -925,18 +925,22 @@ try_browser (const char *browser, const char *arg, const char *url)
 static void
 fe_open_url_inner (const char *url)
 {
+	char buf[256];
+
 #ifdef WIN32
 	ShellExecute (0, "open", url, NULL, NULL, SW_SHOWNORMAL);
 #else
 	/* universal desktop URL opener (from xdg-utils). Supports gnome,kde,xfce4. */
 	if (try_browser ("xdg-open", NULL, url))
 		return;
+	fprintf( stderr, "fe_open_url_inner: failed to open %s with xdg-open\n", url );
 
 	/* try to detect GNOME */
 	if (g_getenv ("GNOME_DESKTOP_SESSION_ID"))
 	{
 		if (try_browser ("gnome-open", NULL, url)) /* Gnome 2.4+ has this */
 			return;
+		fprintf( stderr, "fe_open_url_inner: failed to open %s with gnome-open\n", url );
 	}
 
 	/* try to detect KDE */
@@ -944,14 +948,21 @@ fe_open_url_inner (const char *url)
 	{
 		if (try_browser ("kfmclient", "exec", url))
 			return;
+		fprintf( stderr, "fe_open_url_inner: failed to open %s with kfmclient\n", url );
 	}
 
 	/* everything failed, what now? just try firefox */
 	if (try_browser ("firefox", NULL, url))
 		return;
+	fprintf( stderr, "fe_open_url_inner: failed to open %s with firefox\n", url );
+
+	if (try_browser ("mozilla", NULL, url))
+		return;
+	fprintf( stderr, "fe_open_url_inner: failed to open %s with mozilla\n", url );
 
 	/* fresh out of ideas... */
-	try_browser ("mozilla", NULL, url);
+	snprintf (buf, sizeof (buf), "Failed to open url:\n\n%s", url);
+	fe_message (buf, FE_MSG_ERROR);
 #endif
 }
 
