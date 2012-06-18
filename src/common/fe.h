@@ -160,3 +160,6 @@ void fe_tray_set_tooltip (const char *text);
 void fe_tray_set_balloon (const char *title, const char *text);
 
 #endif
+#if defined(FE_AQUA) || defined(FE_IOS)
+void fe_play_wave(const char *file);
+#endif
