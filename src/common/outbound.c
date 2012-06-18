@@ -2459,6 +2459,8 @@ cmd_load (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 #else
 #if defined(__hpux)
 	if (len > 3 && strcasecmp (".sl", word[2] + len - 3) == 0)
+#elif defined (FE_AQUA)
+    if (len > 3 && strcasecmp (".so", word[2] + len - 3) == 0 || len > 7 && strcasecmp (".bundle", word[2] + len - 7) == 0)
 #else
 	if (len > 3 && strcasecmp (".so", word[2] + len - 3) == 0)
 #endif

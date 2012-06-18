@@ -40,6 +40,12 @@ typedef struct session xchat_context;
 
 #include "xchatc.h"
 
+#ifdef __APPLE__
+extern char *get_appdir_fs();
+extern char *get_appplugindir_fs();
+extern char *get_plugin_bundle_path(char *filename);
+#endif
+
 /* the USE_PLUGIN define only removes libdl stuff */
 
 #ifdef USE_PLUGIN
@@ -372,6 +378,16 @@ plugin_load (session *sess, char *filename, char *arg)
 #ifndef RTLD_NOW
 #define RTLD_NOW 0
 #endif
+    
+#ifdef __APPLE__
+    int filenamelen = strlen(filename);
+    if (filenamelen > 7 && strcasecmp(".bundle", filename + filenamelen - 7) == 0) {
+        filename = get_plugin_bundle_path(filename);
+        if (filename == NULL) {
+            return _("Invalid Mac OS X bundle or required Mac OS X version is not satisfied");
+        }
+    }
+#endif
 
 	/* get the filename without path */
 	filepart = file_part (filename);
@@ -441,8 +457,12 @@ plugin_auto_load (session *sess)
 	for_files (get_xdir_fs (), "*.sl", plugin_auto_load_cb);
 #elif defined(FE_AQUA) || defined(FE_IOS)
     //TODO: hide plugins into app bundle
-  for_files ("./plugins", "*.so", plugin_auto_load_cb);   // X-Chat Aqua
-  for_files (get_xdir_fs (), "*.so", plugin_auto_load_cb);
+	for_files (get_appplugindir_fs(), "*.bundle", plugin_auto_load_cb); // X-Chat Aqua
+	int len = strlen(get_xdir_fs()) + 10;
+	char buf[len];
+	strcpy(buf, get_xdir_fs());
+	strcat(buf, "/plugins");
+	for_files (buf, "*.bundle", plugin_auto_load_cb); // User configuration
 #else
 	for_files (XCHATLIBDIR"/plugins", "*.so", plugin_auto_load_cb);
 	for_files (get_xdir_fs (), "*.so", plugin_auto_load_cb);
