@@ -807,7 +807,11 @@ for_files (char *dirname, char *mask, void callback (char *file))
 	{
 		while ((ent = readdir (dir)))
 		{
+			#if defined(FE_AQUA) || defined(FE_IOS)
+			if (ent->d_name[0] != '.')
+			#else
 			if (strcmp (ent->d_name, ".") && strcmp (ent->d_name, ".."))
+			#endif
 			{
 				if (match (mask, ent->d_name))
 				{
