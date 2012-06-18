@@ -422,7 +422,7 @@
 
 /* #undef USING_LINUX */
 
-#define XCHATLIBDIR "/tmp/local/lib/xchat"
+#define XCHATLIBDIR get_appdir_fs()
 
 #define XCHATSHAREDIR "${prefix}/share"
 
