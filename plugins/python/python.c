@@ -1144,6 +1144,7 @@ Plugin_New(char *filename, PyMethodDef *xchat_methods, PyObject *xcoobj)
 	}
 
 	PySys_SetArgv(1, argv);
+	PyRun_SimpleString("import sys; sys.path = filter(None, sys.path)");
 	PySys_SetObject("__plugin__", (PyObject *) plugin);
 
 	/* Set stdout and stderr to xchatout. */
@@ -2166,6 +2167,7 @@ xchat_plugin_init(xchat_plugin *plugin_handle,
 	Py_SetProgramName("xchat");
 	Py_Initialize();
 	PySys_SetArgv(1, argv);
+	PyRun_SimpleString("import sys; sys.path = filter(None, sys.path)");
 
 	Plugin_Type.ob_type = &PyType_Type;
 	Context_Type.ob_type = &PyType_Type;

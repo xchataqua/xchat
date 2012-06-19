@@ -2281,8 +2281,10 @@ togitem:
 													 mymenu[i].state);*/
 			if (mymenu[i].key != 0)
 				gtk_widget_add_accelerator (item, "activate", accel_group,
-									mymenu[i].key, mymenu[i].id == MENU_ID_AWAY ?
-									away_mask : GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+									mymenu[i].key,
+									mymenu[i].id == MENU_ID_AWAY ? away_mask :
+									mymenu[i].key == GDK_F9 ? 0 :
+									GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 			if (mymenu[i].callback)
 				g_signal_connect (G_OBJECT (item), "toggled",
 										G_CALLBACK (mymenu[i].callback), 0);
