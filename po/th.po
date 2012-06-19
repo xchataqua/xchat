@@ -1,18 +1,17 @@
 # Translation of xchat to Thai.
-# Copyright (C) 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xchat package.
-# Seksan Poltree <seksan.poltree@gmail.com>, 2007.
 #
+# Seksan Poltree <seksan.poltree@gmail.com>, 2007-2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: xchat 2.8.4\n"
+"Project-Id-Version: xchat 2.8.8\n"
 "Report-Msgid-Bugs-To: www.xchat.org\n"
-"POT-Creation-Date: 2007-06-24 13:05+1000\n"
-"PO-Revision-Date: 2007-12-13 00:21+0700\n"
+"POT-Creation-Date: 2010-05-30 13:56+1000\n"
+"PO-Revision-Date: 2010-06-14 15:20+0700\n"
 "Last-Translator: Seksan Poltree <seksan.poltree@gmail.com>\n"
 "Language-Team: Thai <translation-team-th@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Thai\n"
 "X-Poedit-Country: THAILAND\n"
@@ -21,15 +20,15 @@ msgstr ""
 msgid "Cannot create ~/.xchat2"
 msgstr "ไม่สามารถสร้าง ~/.xchat2"
 
-#: src/common/cfgfiles.c:712
+#: src/common/cfgfiles.c:713
 msgid "I'm busy"
 msgstr "ฉันไม่ว่าง"
 
-#: src/common/cfgfiles.c:713
+#: src/common/cfgfiles.c:714
 msgid "Leaving"
 msgstr "กำลังออก"
 
-#: src/common/cfgfiles.c:760
+#: src/common/cfgfiles.c:761
 msgid ""
 "* Running IRC as root is stupid! You should\n"
 "  create a User Account and use that to login.\n"
@@ -53,7 +52,7 @@ msgstr "ล้มเหลว"
 msgid "Done"
 msgstr "เรียบร้อย"
 
-#: src/common/dcc.c:71 src/fe-gtk/menu.c:797
+#: src/common/dcc.c:71 src/fe-gtk/menu.c:942
 msgid "Connect"
 msgstr "เชื่อมต่อ"
 
@@ -61,14 +60,14 @@ msgstr "เชื่อมต่อ"
 msgid "Aborted"
 msgstr "ถูกยกเลิกกลางคัน"
 
-#: src/common/dcc.c:1886 src/common/outbound.c:2452
+#: src/common/dcc.c:1886 src/common/outbound.c:2449
 #, c-format
 msgid "Cannot access %s\n"
 msgstr "ไม่สามารถเข้าถึง %s\n"
 
-#: src/common/dcc.c:1887 src/common/text.c:1164 src/common/text.c:1202
-#: src/common/text.c:1213 src/common/text.c:1220 src/common/text.c:1233
-#: src/common/text.c:1250 src/common/text.c:1350 src/common/util.c:352
+#: src/common/dcc.c:1887 src/common/text.c:1261 src/common/text.c:1299
+#: src/common/text.c:1310 src/common/text.c:1317 src/common/text.c:1330
+#: src/common/text.c:1347 src/common/text.c:1447 src/common/util.c:353
 msgid "Error"
 msgstr "ข้อผิดพลาด"
 
@@ -121,111 +120,101 @@ msgstr "ไม่มีแชนแนลที่ทำการเข้าร
 msgid "Not connected. Try /server <host> [<port>]\n"
 msgstr "ไม่ได้เชื่อมต่อ. ลอง /server <โฮสต์> [<พอร์ต>]\n"
 
-#: src/common/outbound.c:339
+#: src/common/outbound.c:338
 #, c-format
 msgid "Already marked away: %s\n"
 msgstr "ทำเครื่องหมายว่าไม่อยู่แล้ว: %s\n"
 
-#: src/common/outbound.c:409
+#: src/common/outbound.c:411
 msgid "Already marked back.\n"
 msgstr "ทำเครื่องหมายว่ากลับมาแล้ว.\n"
 
-#: src/common/outbound.c:1814
+#: src/common/outbound.c:1777
 msgid "I need /bin/sh to run!\n"
 msgstr "ฉันจำเป็นต้องมี /bin/sh เพื่อทำงาน!\n"
 
-#: src/common/outbound.c:2185
+#: src/common/outbound.c:2146
 msgid "Commands Available:"
 msgstr "คำสั่งที่มี:"
 
-#: src/common/outbound.c:2199
+#: src/common/outbound.c:2160
 msgid "User defined commands:"
 msgstr "คำสั่งที่ผู้ใช้นิยามขึ้น:"
 
-#: src/common/outbound.c:2215
+#: src/common/outbound.c:2176
 msgid "Plugin defined commands:"
 msgstr "คำสั่งที่ปลั๊กอินนิยามขึ้น:"
 
-#: src/common/outbound.c:2226
+#: src/common/outbound.c:2187
 msgid "Type /HELP <command> for more information, or /HELP -l"
 msgstr "พิมพ์ /HELP <คำสั่ง> สำหรับรายละเอียดที่มากขึ้น, หรือ /HELP -l"
 
-#: src/common/outbound.c:2301
+#: src/common/outbound.c:2272
 #, c-format
 msgid "Unknown arg '%s' ignored."
 msgstr "อาร์กิวเมนต์ที่ไม่รู้จัก '%s' ถูกเพิกเฉย."
 
-#: src/common/outbound.c:3235
+#: src/common/outbound.c:3221
 msgid "No such plugin found.\n"
 msgstr "ไม่พบปลั๊กอินใดๆ\n"
 
-#: src/common/outbound.c:3240 src/fe-gtk/plugingui.c:186
+#: src/common/outbound.c:3226 src/fe-gtk/plugingui.c:184
 msgid "That plugin is refusing to unload.\n"
 msgstr "ปลั๊กอินนั้นกำลังปฎิเสธการโหลดออก.\n"
 
-#: src/common/outbound.c:3509
+#: src/common/outbound.c:3495
 msgid "ADDBUTTON <name> <action>, adds a button under the user-list"
 msgstr "ADDBUTTON <ชื่อ> <ปฏิบัติการ>, เพิ่มปุ่มภายใต้รายชื่อผู้ใช้งาน"
 
-#: src/common/outbound.c:3511
+#: src/common/outbound.c:3497
 msgid "ALLCHAN <cmd>, sends a command to all channels you're in"
 msgstr "ALLCHAN <คำสั่ง>, ส่งคำสั่งไปยังทุกแชนแนลที่คุณเข้าอยู่"
 
-#: src/common/outbound.c:3513
+#: src/common/outbound.c:3499
 msgid "ALLCHANL <cmd>, sends a command to all channels you're in"
 msgstr "ALLCHANL <คำสั่ง>, ส่งคำสั่งไปยังทุกแชนแนลที่คุณเข้าอยู่"
 
-#: src/common/outbound.c:3515
+#: src/common/outbound.c:3501
 msgid "ALLSERV <cmd>, sends a command to all servers you're in"
 msgstr "ALLSERV <คำสั่ง>, ส่งคำสั่งไปยังทุกเซิร์ฟเวอร์ที่คุณเข้าอยู่"
 
-#: src/common/outbound.c:3516
+#: src/common/outbound.c:3502
 msgid "AWAY [<reason>], sets you away"
 msgstr "AWAY [<เหตุผล>], ตั้งค่าให้คุณไม่อยู่"
 
-#: src/common/outbound.c:3517
+#: src/common/outbound.c:3503
 msgid "BACK, sets you back (not away)"
 msgstr "BACK, ตั้งค่าให้คุณกลับมา (ไม่ใช่ไม่อยู่)"
 
-#: src/common/outbound.c:3519
+#: src/common/outbound.c:3505
 msgid "BAN <mask> [<bantype>], bans everyone matching the mask from the current channel. If they are already on the channel this doesn't kick them (needs chanop)"
 msgstr "BAN <มาสก์> [<รูปแบบการแบน>], ประกาศสั่งห้ามทุก ๆ คนที่ตรงกับมาสก์จากแชนแนลปัจจุบัน. ถ้าพวกเขาอยู่ที่แชนแนลนี้แล้ว นี่จะไม่ได้เตะพวกเขาออกไป (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3521
-msgid ""
-"Set per channel options\n"
-"CHANOPT CONFMODE ON|OFF - Toggle conf mode/showing of join and part messages\n"
-"CHANOPT COLORPASTE ON|OFF - Toggle color paste\n"
-"CHANOPT BEEP ON|OFF - Toggle beep on message\n"
-"CHANOPT TRAY ON|OFF - Toggle tray blink on message"
-msgstr ""
-"ตั้งค่าตัวเลือกในแต่ละแชนแนล\n"
-"CHANOPT CONFMODE ON|OFF - สวิตช์ตัวเลือกโหมดปรับแต่ง/แสดงการเข้าร่วมและส่วนของข้อความ\n"
-"CHANOPT COLORPASTE ON|OFF - สวิตช์ตัวเลือกเพลตสี\n"
-"CHANOPT BEEP ON|OFF - สวิตช์ตัวเลือกเสียงบี๊บเมื่อมีข้อความ\n"
-"CHANOPT TRAY ON|OFF - สวิตช์ตัวเลือกการกระพริบของถาดเมื่อมีข้อความ"
+#: src/common/outbound.c:3506
+msgid "CHANOPT [-quiet] <variable> [<value>]"
+msgstr "CHANOPT [-quiet] <ตัวแปร> [<ค่า>]"
 
-#: src/common/outbound.c:3528
+#: src/common/outbound.c:3508
 msgid "CLEAR [ALL|HISTORY], Clears the current text window or command history"
 msgstr "CLEAR [ALL|HISTORY], ล้างหน้าต่างข้อความ หรือประวัติคำสั่งปัจจุบัน "
 
-#: src/common/outbound.c:3529
+#: src/common/outbound.c:3509
 msgid "CLOSE, Closes the current window/tab"
 msgstr "CLOSE, ปิดหน้าต่าง/แท็บปัจจุบัน"
 
-#: src/common/outbound.c:3532
+#: src/common/outbound.c:3512
 msgid "COUNTRY [-s] <code|wildcard>, finds a country code, eg: au = australia"
 msgstr "COUNTRY [-s] <รหัส|ไวลด์การ์ด>, ค้นหารหัสประเทศ, เช่น: au = ออสเตรเลีย"
 
-#: src/common/outbound.c:3534
+#: src/common/outbound.c:3514
 msgid "CTCP <nick> <message>, send the CTCP message to nick, common messages are VERSION and USERINFO"
 msgstr "CTCP <ชื่อเล่น> <ข้อความ>, ส่งข้อความ CTCP ไปยัง 'ชื่อเล่น', ข้อความโดยปกติได้แก่ VERSION และ USERINFO"
 
-#: src/common/outbound.c:3536
+#: src/common/outbound.c:3516
 msgid "CYCLE [<channel>], parts the current or given channel and immediately rejoins"
 msgstr "CYCLE [<channel>], แยกแชนแนลปัจจุบันหรือที่เสนอให้ และกลับเข้าร่วมในทันที"
 
-#: src/common/outbound.c:3538
+#: src/common/outbound.c:3518
 msgid ""
 "\n"
 "DCC GET <nick>                      - accept an offered file\n"
@@ -247,75 +236,75 @@ msgstr ""
 "DCC CLOSE <รูปแบบ> <ชื่อเล่น> <ไฟล์>         ตัวอย่าง:\n"
 "         /dcc close send johnsmith file.tar.gz"
 
-#: src/common/outbound.c:3550
+#: src/common/outbound.c:3530
 msgid "DEHOP <nick>, removes chanhalf-op status from the nick on the current channel (needs chanop)"
 msgstr "DEHOP <ชื่อเล่น>, ลบสถานะ chanhalf-op จาก 'ชื่อเล่น' ในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3552
+#: src/common/outbound.c:3532
 msgid "DELBUTTON <name>, deletes a button from under the user-list"
 msgstr "DELBUTTON <ชื่อ>, ลบปุ่มภายใต้รายชื่อผู้ใช้"
 
-#: src/common/outbound.c:3554
+#: src/common/outbound.c:3534
 msgid "DEOP <nick>, removes chanop status from the nick on the current channel (needs chanop)"
 msgstr "DEOP <ชื่อเล่น>, ลบสถานะ chanop จาก 'ชื่อเล่น' ในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3556
+#: src/common/outbound.c:3536
 msgid "DEVOICE <nick>, removes voice status from the nick on the current channel (needs chanop)"
 msgstr "DEVOICE <nick>, สบสถานะประกาศจาก 'ชื่อเล่น' ในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3557
+#: src/common/outbound.c:3537
 msgid "DISCON, Disconnects from server"
 msgstr "DISCON, ตัดการเชื่อมต่อจากเซิร์ฟเวอร์"
 
-#: src/common/outbound.c:3558
+#: src/common/outbound.c:3538
 msgid "DNS <nick|host|ip>, Finds a users IP number"
 msgstr "DNS <ชื่อเล่น|โฮสต์|ไอพี>, ค้นหาหมายเลขไอพีของผู้ใช้งาน"
 
-#: src/common/outbound.c:3559
+#: src/common/outbound.c:3539
 msgid "ECHO <text>, Prints text locally"
 msgstr "ECHO <ข้อความ>, พิมพ์ข้อความแบบโลคอล"
 
-#: src/common/outbound.c:3562
+#: src/common/outbound.c:3542
 msgid "EXEC [-o] <command>, runs the command. If -o flag is used then output is sent to current channel, else is printed to current text box"
 msgstr "EXEC [-o] <คำสั่ง>, เรียกใช้คำสั่ง. ถ้าใช้เครื่องหมาย -o แล้วผลที่ได้จะถูกส่งไปยังแชนแนลปัจจุบัน, ไม่ก็จะถูกพิมพ์ไปยังกล่องข้อความปัจจุบัน"
 
-#: src/common/outbound.c:3564
+#: src/common/outbound.c:3544
 msgid "EXECCONT, sends the process SIGCONT"
 msgstr "EXECCONT, ส่ง SIGCONT ไปยังโพรเซส"
 
-#: src/common/outbound.c:3567
+#: src/common/outbound.c:3547
 msgid "EXECKILL [-9], kills a running exec in the current session. If -9 is given the process is SIGKILL'ed"
 msgstr "EXECKILL [-9], ฆ่า exec ที่กำลังทำงานในวาระปัจจุบัน. ถ้าใช้เครื่องหมาย -9 โพรเซสจะถูก SIGKILL"
 
-#: src/common/outbound.c:3569
+#: src/common/outbound.c:3549
 msgid "EXECSTOP, sends the process SIGSTOP"
 msgstr "EXECSTOP, ส่ง SIGSTOP ไปยังโพรเซส"
 
-#: src/common/outbound.c:3570
+#: src/common/outbound.c:3550
 msgid "EXECWRITE, sends data to the processes stdin"
 msgstr "EXECWRITE, ส่งข้อมูลไปยังทางป้อนข้อมูลมาตรฐานของโพรเซส"
 
-#: src/common/outbound.c:3574
+#: src/common/outbound.c:3554
 msgid "FLUSHQ, flushes the current server's send queue"
 msgstr "FLUSHQ, ล้างคิวการส่งปัจจุบันของเซิร์ฟเวอร์"
 
-#: src/common/outbound.c:3576
+#: src/common/outbound.c:3556
 msgid "GATE <host> [<port>], proxies through a host, port defaults to 23"
 msgstr "GATE <โฮสต์> [<พอร์ต>], พร็อกซี่ไปยังโฮต์, ค่าพอร์ตมาตรฐานเป็น 23"
 
-#: src/common/outbound.c:3580
-msgid "GHOST <nick> <password>, Kills a ghosted nickname"
+#: src/common/outbound.c:3560
+msgid "GHOST <nick> [password], Kills a ghosted nickname"
 msgstr "GHOST <ชื่อเล่น> <รหัสผ่าน>, kill 'ชื่อเล่น' ที่ถูกโกสต์"
 
-#: src/common/outbound.c:3585
+#: src/common/outbound.c:3565
 msgid "HOP <nick>, gives chanhalf-op status to the nick (needs chanop)"
 msgstr "HOP <ชื่อเล่น>, ให้สถานะ chanhalf-op กับ 'ชื่อเล่น' (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3586
+#: src/common/outbound.c:3566
 msgid "ID <password>, identifies yourself to nickserv"
 msgstr "ID <รหัสผ่าน>, ระบุตัวตนของคุณเองไปยังเซิร์ฟเวอร์ชื่อเล่น"
 
-#: src/common/outbound.c:3588
+#: src/common/outbound.c:3568
 msgid ""
 "IGNORE <mask> <types..> <options..>\n"
 "    mask - host mask to ignore, eg: *!*@*.aol.com\n"
@@ -329,155 +318,155 @@ msgstr ""
 "            PRIV, CHAN, NOTI, CTCP, DCC, INVI, ALL\n"
 "    options - NOSAVE, QUIET"
 
-#: src/common/outbound.c:3595
+#: src/common/outbound.c:3575
 msgid "INVITE <nick> [<channel>], invites someone to a channel, by default the current channel (needs chanop)"
 msgstr "INVITE <ชื่อเล่น> [<แชนแนล>], เชิญชวนใครซักคนเข้าสู่แชนแนลหนึ่ง ๆ, โดยปกติคือแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3596
+#: src/common/outbound.c:3576
 msgid "JOIN <channel>, joins the channel"
 msgstr "JOIN <แชนแนล>, เข้าร่วม 'แชนแนล'"
 
-#: src/common/outbound.c:3598
+#: src/common/outbound.c:3578
 msgid "KICK <nick>, kicks the nick from the current channel (needs chanop)"
 msgstr "KICK <ชื่อเล่น>, เตะ 'ชื่อเล่น' ออกจากแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3600
+#: src/common/outbound.c:3580
 msgid "KICKBAN <nick>, bans then kicks the nick from the current channel (needs chanop)"
 msgstr "KICKBAN <ชื่อเล่น>, แบนและเตะ 'ชื่อเล่น' ออกจากแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3603
+#: src/common/outbound.c:3583
 msgid "LAGCHECK, forces a new lag check"
 msgstr "LAGCHECK, บังคับการตรวจสอบอย่างช้าใหม่"
 
-#: src/common/outbound.c:3605
+#: src/common/outbound.c:3585
 msgid "LASTLOG <string>, searches for a string in the buffer"
 msgstr "LASTLOG <สตริง>, ค้นหา 'สตริง' ที่อยู่ในบัฟเฟอร์"
 
-#: src/common/outbound.c:3607
+#: src/common/outbound.c:3587
 msgid "LOAD [-e] <file>, loads a plugin or script"
 msgstr "LOAD [-e] <ไฟล์>, โหลดปลั๊กอินหรือสคริป"
 
-#: src/common/outbound.c:3610
+#: src/common/outbound.c:3590
 msgid "MDEHOP, Mass deop's all chanhalf-ops in the current channel (needs chanop)"
 msgstr "MDEHOP, Mass deop ของ chanhalf-ops ทั้งหมดในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3612
+#: src/common/outbound.c:3592
 msgid "MDEOP, Mass deop's all chanops in the current channel (needs chanop)"
 msgstr "MDEOP, Mass deop ของ chanops ทั้งหมดในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3614
+#: src/common/outbound.c:3594
 msgid "ME <action>, sends the action to the current channel (actions are written in the 3rd person, like /me jumps)"
 msgstr "ME <ปฏิบัติการ>, ส่งการปฏิบัติการไปยังแชนแนลปัจจุบัน (การปฏิบิการถูกเขียนขึ้นโดยบุคคลที่ 3, อย่างเช่น /me jumps)"
 
-#: src/common/outbound.c:3618
+#: src/common/outbound.c:3598
 msgid "MKICK, Mass kicks everyone except you in the current channel (needs chanop)"
 msgstr "MKICK, เตะทุกคนออกจากแชนแนลปัจจุบันยกเว้นคุณ (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3621
+#: src/common/outbound.c:3601
 msgid "MOP, Mass op's all users in the current channel (needs chanop)"
 msgstr "MOP, Mass op ของผู้ใช้ทั้งหมดในแชนแนลปัจจุบัน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3622
+#: src/common/outbound.c:3602
 msgid "MSG <nick> <message>, sends a private message"
 msgstr "MSG <ชื่อเล่น> <ข้อความ>, ส่งข้อความส่วนตัว"
 
-#: src/common/outbound.c:3625
+#: src/common/outbound.c:3605
 msgid "NAMES, Lists the nicks on the current channel"
 msgstr "NAMES, แสดงรายชื่อชื่อเล่นบนแชนแนลปัจจุบัน"
 
-#: src/common/outbound.c:3627
+#: src/common/outbound.c:3607
 msgid "NCTCP <nick> <message>, Sends a CTCP notice"
 msgstr "NCTCP <ชื่อเล่น> <ข้อความ>, ส่งประกาศ CTCP"
 
-#: src/common/outbound.c:3628
+#: src/common/outbound.c:3608
 msgid "NEWSERVER [-noconnect] <hostname> [<port>]"
 msgstr "NEWSERVER [-noconnect] <ชื่อโฮต์> [<พอร์ต>]"
 
-#: src/common/outbound.c:3629
+#: src/common/outbound.c:3609
 msgid "NICK <nickname>, sets your nick"
 msgstr "NICK <ชื่อเล่น>, ตั้งชื่อเล่นของคุณ"
 
-#: src/common/outbound.c:3632
+#: src/common/outbound.c:3612
 msgid "NOTICE <nick/channel> <message>, sends a notice. Notices are a type of message that should be auto reacted to"
 msgstr "OTICE <nick/channel> <message>, ส่งประกาศ. ประกาศเป็นชนิดของข้อความที่ควรจะตอบสนองกลับอัตโนมัติ"
 
-#: src/common/outbound.c:3634
+#: src/common/outbound.c:3614
 msgid "NOTIFY [-n network1[,network2,...]] [<nick>], displays your notify list or adds someone to it"
 msgstr "NOTIFY [-n เครือข่าย1[,เครือข่าย2,...]] [<ชื่อเล่น>], แสดงรายการแจ้งเตือนของคุณหรือเพิ่มบางคนไปยังรายการ"
 
-#: src/common/outbound.c:3636
+#: src/common/outbound.c:3616
 msgid "OP <nick>, gives chanop status to the nick (needs chanop)"
 msgstr "OP <ชื่อเล่น>, ให้สถานะ chanop กับ 'ชื่อเล่น' (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3638
+#: src/common/outbound.c:3618
 msgid "PART [<channel>] [<reason>], leaves the channel, by default the current one"
 msgstr "PART [<แชนแนล>] [<เหตุผล>], ออกจากแชนแนล, โดยปกติคือหนึ่งแชนแนลปัจจุบัน"
 
-#: src/common/outbound.c:3640
+#: src/common/outbound.c:3620
 msgid "PING <nick | channel>, CTCP pings nick or channel"
 msgstr "PING <nick | channel>, ส่ง CTCP เพื่อ ping ชื่อเล่นหรือแชนแนล"
 
-#: src/common/outbound.c:3642
+#: src/common/outbound.c:3622
 msgid "QUERY [-nofocus] <nick>, opens up a new privmsg window to someone"
 msgstr "QUERY [-nofocus] <ชื่อเล่น>, เปิดหน้าต่างข้อความส่วนตัวกับใครบางคน"
 
-#: src/common/outbound.c:3644
+#: src/common/outbound.c:3624
 msgid "QUIT [<reason>], disconnects from the current server"
 msgstr "QUIT [<เหตุผล>], ตัดการเชื่อมต่อจากเซิร์ฟเวอร์ปัจจุบัน"
 
-#: src/common/outbound.c:3646
+#: src/common/outbound.c:3626
 msgid "QUOTE <text>, sends the text in raw form to the server"
 msgstr "QUOTE <ข้อความ>, ส่งข้อความในรูปแบบข้อมูลดิบไปยังเซิร์ฟเวอร์"
 
-#: src/common/outbound.c:3649
+#: src/common/outbound.c:3629
 msgid "RECONNECT [-ssl] [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers"
 msgstr "RECONNECT [-ssl] [<โฮสต์>] [<พอร์ต>] [<รหัสผ่าน>], สามารถเรียกเพียง /RECONNECT เพื่อที่จะทำการเชื่อมต่ออีกครั้งกับเซิร์ฟเวอร์ปัจจุบัน หรือด้วย /RECONNECT ALL สำหรับทำการเชื่อมต่ออีกครั้งกับเซิร์ฟเวอร์ทั้งหมดที่เปิดอยู่"
 
-#: src/common/outbound.c:3652
+#: src/common/outbound.c:3632
 msgid "RECONNECT [<host>] [<port>] [<password>], Can be called just as /RECONNECT to reconnect to the current server or with /RECONNECT ALL to reconnect to all the open servers"
 msgstr "RECONNECT [<โฮสต์>] [<พอร์ต>] [<รหัสผ่าน>], สามารถถูกเรียกเพียง /RECONNECT เพื่อที่จะทำการเชื่อมต่ออีกครั้งกับเซิร์ฟเวอร์ปัจจุบัน หรือด้วย /RECONNECT ALL สำหรับทำการเชื่อมต่ออีกครั้งกับเซิร์ฟเวอร์ทั้งหมดที่เปิดอยู่"
 
-#: src/common/outbound.c:3654
+#: src/common/outbound.c:3634
 msgid "RECV <text>, send raw data to xchat, as if it was received from the irc server"
 msgstr "RECV <ข้อความ>, ส่งข้อมูลดิบไปยัง xchat, ตามที่ได้หากรับมาจากเซิร์ฟเวอร์ irc"
 
-#: src/common/outbound.c:3657
+#: src/common/outbound.c:3637
 msgid "SAY <text>, sends the text to the object in the current window"
 msgstr "SAY <ข้อความ>, ส่งข้อความไปยังวัตถุในหน้าต่างปัจจุบัน"
 
-#: src/common/outbound.c:3658
+#: src/common/outbound.c:3638
 msgid "SEND <nick> [<file>]"
 msgstr "SEND <ชื่อเล่น> [<ไฟล์>]"
 
-#: src/common/outbound.c:3661
+#: src/common/outbound.c:3641
 msgid "SERVCHAN [-ssl] <host> <port> <channel>, connects and joins a channel"
 msgstr "SERVCHAN [-ssl] <โฮสต์> <พอร์ต> <แชนแนล>, เชื่อมต่อและเข้าร่วมแชนแนล"
 
-#: src/common/outbound.c:3664
+#: src/common/outbound.c:3644
 msgid "SERVCHAN <host> <port> <channel>, connects and joins a channel"
 msgstr "SERVCHAN <โฮสต์> <พอร์ต> <แชนแนล>, เชื่อมต่อและเข้าร่วมแชนแนล"
 
-#: src/common/outbound.c:3668
+#: src/common/outbound.c:3648
 msgid "SERVER [-ssl] <host> [<port>] [<password>], connects to a server, the default port is 6667 for normal connections, and 9999 for ssl connections"
 msgstr "SERVER [-ssl] <เครื่องแม่ข่าย> [<พอร์ต>] [<รหัสผ่าน>], เชื่อมต่อไปยังเซิร์ฟเวอร์. โดยพอร์ตมาตรฐานสำหรับการเชื่อมต่อปกติคือ 6667, และ 9999 สำหรับการเชื่อมต่อโดยใช้ ssl"
 
-#: src/common/outbound.c:3671
+#: src/common/outbound.c:3651
 msgid "SERVER <host> [<port>] [<password>], connects to a server, the default port is 6667"
 msgstr "SERVER <host> [พอร์ต>] [<รหัสผ่าน>], เชื่อมต่อไปยังเซิร์ฟเวอร์, พอร์ตมาตรฐานคือ 6667"
 
-#: src/common/outbound.c:3673
-msgid "SET [-e] [-or] [-quiet] <variable> [<value>]"
+#: src/common/outbound.c:3653
+msgid "SET [-e] [-off|-on] [-quiet] <variable> [<value>]"
 msgstr "SET [-e] [-or] [-quiet] <ตัวแปร> [<ค่า>]"
 
-#: src/common/outbound.c:3674
+#: src/common/outbound.c:3654
 msgid "SETCURSOR [-|+]<position>"
 msgstr "SETCURSOR [-|+]<ตำแหน่ง>"
 
-#: src/common/outbound.c:3679
+#: src/common/outbound.c:3659
 msgid "TOPIC [<topic>], sets the topic if one is given, else shows the current topic"
 msgstr "TOPIC [<หัวเรื่อง>], ตั้งหัวเรื่องถ้าบางคนได้รับมา, หรือแสดงหัวเรื่องปัจจุบัน"
 
-#: src/common/outbound.c:3681
+#: src/common/outbound.c:3661
 msgid ""
 "\n"
 "TRAY -f <timeout> <file1> [<file2>] Blink tray between two icons.\n"
@@ -493,44 +482,44 @@ msgstr ""
 "TRAY -t <ข้อความ>                     ตั้งค่าข้อความช่วยเหลือของถาด.\n"
 "TRAY -b <ชื่อเรื่อง> <ข้อความ>              ตั้งค่าบอลลูนของถาด."
 
-#: src/common/outbound.c:3688
+#: src/common/outbound.c:3668
 msgid "UNBAN <mask> [<mask>...], unbans the specified masks."
 msgstr "UNBAN <mask> [<mask>...], ยกเลิกแบนสำหรับมาสก์ที่กำหนด."
 
-#: src/common/outbound.c:3689
+#: src/common/outbound.c:3669
 msgid "UNIGNORE <mask> [QUIET]"
 msgstr "UNIGNORE <มาสก์> [QUIET]"
 
-#: src/common/outbound.c:3690
+#: src/common/outbound.c:3670
 msgid "UNLOAD <name>, unloads a plugin or script"
 msgstr "UNLOAD <ชื่อ>, โหลดปลั๊กอินหรือสคริปออกไป"
 
-#: src/common/outbound.c:3691
+#: src/common/outbound.c:3671
 msgid "URL <url>, opens a URL in your browser"
 msgstr "URL <url>, เปิด URL ในบราวเซอร์ของคุณ"
 
-#: src/common/outbound.c:3693
+#: src/common/outbound.c:3673
 msgid "USELECT [-a] [-s] <nick1> <nick2> etc, highlights nick(s) in channel userlist"
 msgstr "USELECT [-a] [-s] <ชื่อเล่น1> <ชื่อเล่น2> etc, เน้นชื่อเล่น(s) ในรายชื่อผู้ใช้ของแชนแนล"
 
-#: src/common/outbound.c:3696
+#: src/common/outbound.c:3676
 msgid "VOICE <nick>, gives voice status to someone (needs chanop)"
 msgstr "VOICE <ชื่อเล่น>, ให้สถานะประกาศกับใครบางคน (จำเป็นต้องมี chanop)"
 
-#: src/common/outbound.c:3698
+#: src/common/outbound.c:3678
 msgid "WALLCHAN <message>, writes the message to all channels"
 msgstr "WALLCHAN <ข้อความ>, เขียนข้อความไปยังแชนแนลทั้งหมด"
 
-#: src/common/outbound.c:3700
+#: src/common/outbound.c:3680
 msgid "WALLCHOP <message>, sends the message to all chanops on the current channel"
 msgstr "WALLCHOP <ข้อความ>, ส่งข้อความไปยัง chanops ทั้งหมดในแชนแนลปัจจุบัน"
 
-#: src/common/outbound.c:3733
+#: src/common/outbound.c:3713
 #, c-format
 msgid "Usage: %s\n"
 msgstr "วิธีใช้: %s\n"
 
-#: src/common/outbound.c:3738
+#: src/common/outbound.c:3718
 msgid ""
 "\n"
 "No help available on that command.\n"
@@ -538,19 +527,19 @@ msgstr ""
 "\n"
 "ไม่มีข้อความช่วยเหลือสำหรับคำสั่งนั้น.\n"
 
-#: src/common/outbound.c:3744
+#: src/common/outbound.c:3724
 msgid "No such command.\n"
 msgstr "ไม่ใช่คำสั่ง.\n"
 
-#: src/common/outbound.c:4074
+#: src/common/outbound.c:4055
 msgid "Bad arguments for user command.\n"
 msgstr "อาร์กิวเมนต์ไม่ถูกต้องสำหรับคำสั่งผู้ใช้งาน.\n"
 
-#: src/common/outbound.c:4230
+#: src/common/outbound.c:4215
 msgid "Too many recursive usercommands, aborting."
 msgstr "คำสั่งเรียกตัวเองซ้ำซ้อนมากเกินไป, ทำการยกเลิกกลางคัน."
 
-#: src/common/outbound.c:4307
+#: src/common/outbound.c:4298
 msgid "Unknown Command. Try /help\n"
 msgstr "คำสั่งที่ไม่รู้จัก. ลอง /help\n"
 
@@ -575,12 +564,12 @@ msgstr ""
 msgid "Proxy traversal failed.\n"
 msgstr "Proxy traversal ล้มเหลว.\n"
 
-#: src/common/servlist.c:643
+#: src/common/servlist.c:667
 #, c-format
 msgid "Cycling to next server in %s...\n"
 msgstr "วนไปยังเซิร์ฟเวอร์ถัดไปใน %s...\n"
 
-#: src/common/servlist.c:1074
+#: src/common/servlist.c:1118
 #, c-format
 msgid "Warning: \"%s\" character set is unknown. No conversion will be applied for network %s."
 msgstr "คำเตือน: ไม่รู้จักชุดอักขระ \"%s\". ไม่มีการสนทนาที่จะถูกนำมาใช้กับเครือข่าย %s."
@@ -936,135 +925,135 @@ msgstr "%C22*%O$tการตอบรับการ ping จาก $1: $2 ว�
 msgid "%C22*%O$tNo ping reply for $1 seconds, disconnecting."
 msgstr "%C22*%O$tไม่มีการตอบรับการ ping  เป็นเวลา $1 วินาที, กำลังตัดการเชื่อมต่อ."
 
-#: src/common/textevents.h:309
+#: src/common/textevents.h:315
 msgid "%C22*%O$tA process is already running"
 msgstr "%C22*%O$tโปรเซสหนึ่งได้ทำงานอยู่แล้ว"
 
-#: src/common/textevents.h:312
+#: src/common/textevents.h:318
 msgid "%C23*%O$t%C23$1 has quit (%O%C23%B%B$2%O%C23)"
 msgstr "%C23*%O$t%C23$1 ได้ออกจาก (%O%C23%B%B$2%O%C23)"
 
-#: src/common/textevents.h:315
+#: src/common/textevents.h:321
 msgid "%C22*%O$t$1 sets modes%B %C30[%O$2%B%C30]"
 msgstr "%C22*%O$t$1 ตั้งค่าโหมด%B %C30[%O$2%B%C30]"
 
-#: src/common/textevents.h:318
+#: src/common/textevents.h:324
 msgid "%C28-%C29$1/Wallops%C28-%O$t$2"
 msgstr "%C28-%C29$1/Wallops%C28-%O$t$2"
 
-#: src/common/textevents.h:321
+#: src/common/textevents.h:327
 msgid "%C22*%O$tLooking up IP number for%C26 $1%O..."
 msgstr "%C22*%O$tค้นหาหมายเลขไอพีสำหรับ%C26 $1%O..."
 
-#: src/common/textevents.h:324
+#: src/common/textevents.h:330
 msgid "%C22*%O$t%C22Connected."
 msgstr "%C22*%O$t%C22เชื่อมต่อแล้ว."
 
-#: src/common/textevents.h:330
+#: src/common/textevents.h:336
 msgid "%C22*%O$t%C22Looking up $1"
 msgstr "%C22*%O$t%C22ค้นหา $1"
 
-#: src/common/textevents.h:339
+#: src/common/textevents.h:348
 msgid "%C22*%O$tStopped previous connection attempt (pid=$1)"
 msgstr "%C22*%O$tหยุดการพยายามเชื่อมต่อก่อนหน้า (pid=$1)"
 
-#: src/common/textevents.h:342
+#: src/common/textevents.h:351
 msgid "%C29*%O$t%C29Topic for $1%C %C29is: $2"
 msgstr "%C29*%O$t%C29หัวข้อสำหรับ $1%C %C29is: $2"
 
-#: src/common/textevents.h:345
+#: src/common/textevents.h:354
 msgid "%C22*%O$t$1 has changed the topic to: $2"
 msgstr "%C22*%O$t$1 ได้เปลี่ยนหัวข้อไปเป็น: $2"
 
-#: src/common/textevents.h:348
+#: src/common/textevents.h:357
 msgid "%C29*%O$t%C29Topic for $1%C %C29set by $2%C %C29at $3"
 msgstr "%C29*%O$t%C29หัวข้อสำหรับ $1%C %C29ตั้งโดย $2%C %C29ที่ $3"
 
-#: src/common/textevents.h:351
+#: src/common/textevents.h:360
 msgid "%C22*%O$tUnknown host. Maybe you misspelled it?"
 msgstr "%C22*%O$tไม่รู้จักโฮสต์. บางทีคุณอาจสะกดผิดหรือเปล่า?"
 
-#: src/common/textevents.h:354
+#: src/common/textevents.h:363
 msgid "%C22*%O$tCannot join%C26 %B$1 %O(User limit reached)."
 msgstr "%C22*%O$tไม่สามาระเข้าร่วม%C26 %B$1 %O(ถึงขีดจำกัดจำนวนผู้ใช้)."
 
-#: src/common/textevents.h:357
+#: src/common/textevents.h:366
 msgid "%C22*%O$t%C26Users on $1:%C $2"
 msgstr "%C22*%O$t%C26ผู้ใช้ บน $1:%C $2"
 
-#: src/common/textevents.h:360
+#: src/common/textevents.h:369
 msgid "%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3"
 msgstr "%C22*%O$t%C28[%O$1%C28] %O$2%C27 $3"
 
-#: src/common/textevents.h:363
+#: src/common/textevents.h:372
 msgid "%C22*%O$t%C28[%O$1%C28] %Cis away %C30(%O$2%O%C30)"
 msgstr "%C22*%O$t%C28[%O$1%C28] %Cไม่อยู่ %C30(%O$2%O%C30)"
 
-#: src/common/textevents.h:366 src/common/textevents.h:372
-#: src/common/textevents.h:387 src/common/textevents.h:390
+#: src/common/textevents.h:375 src/common/textevents.h:381
+#: src/common/textevents.h:396 src/common/textevents.h:399
 msgid "%C22*%O$t%C28[%O$1%C28]%O $2"
 msgstr "%C22*%O$t%C28[%O$1%C28]%O $2"
 
-#: src/common/textevents.h:369
+#: src/common/textevents.h:378
 msgid "%C22*%O$t%C28[%O$1%C28] %OEnd of WHOIS list."
 msgstr "%C22*%O$t%C28[%O$1%C28] %Oสิ้นสุดของรายการ WHOIS."
 
-#: src/common/textevents.h:375
+#: src/common/textevents.h:384
 msgid "%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2"
 msgstr "%C22*%O$t%C28[%O$1%C28]%O ว่างอยู่%C26 $2"
 
-#: src/common/textevents.h:378
+#: src/common/textevents.h:387
 msgid "%C22*%O$t%C28[%O$1%C28]%O idle%C26 $2%O, signon:%C26 $3"
 msgstr "%C22*%O$t%C28[%O$1%C28]%O ว่างอยู่%C26 $2%O, เข้าระบบ:%C26 $3"
 
-#: src/common/textevents.h:381
+#: src/common/textevents.h:390
 msgid "%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4"
 msgstr "%C22*%O$t%C28[%O$1%C28] %C30(%O$2@$3%C30)%O: $4"
 
-#: src/common/textevents.h:384
+#: src/common/textevents.h:393
 msgid "%C22*%O$t%C28[%O$1%C28] %Oreal user@host%C27 $2%O, real IP%C27 $3"
 msgstr "%C22*%O$t%C28[%O$1%C28] %Oผู้ใช้จริง@โฮสต์%C27 $2%O, ไอพีจริง%C27 $3"
 
-#: src/common/textevents.h:393
+#: src/common/textevents.h:402
 msgid "%C19*%O$t%C19Now talking on $2"
 msgstr "%C19*%O$t%C19กำลังพูดคุยบน $2"
 
-#: src/common/textevents.h:396
+#: src/common/textevents.h:405
 msgid "%C23*$tYou have been kicked from $2 by $3 ($4%O%C23)"
 msgstr "%C23*$tคุณได้ถูกเตะออกจาก $2 โดย $3 ($4%O%C23)"
 
-#: src/common/textevents.h:399
+#: src/common/textevents.h:408
 #, c-format
 msgid "%C23*$tYou have left channel $3"
 msgstr "%C23*$tคุณได้ออกจากแชนแนล $3"
 
-#: src/common/textevents.h:402
+#: src/common/textevents.h:411
 msgid "%C23*$tYou have left channel $3 (%O%C23%B%B$4%O%C23)"
 msgstr "%C23*$tคุณได้ออกจากแชนแนล $3 (%O%C23%B%B$4%O%C23)"
 
-#: src/common/textevents.h:408
+#: src/common/textevents.h:417
 msgid "%C22*%O$tYou've invited%C26 $1%O to%C26 $2%O (%C26$3%O)"
 msgstr "%C22*%O$tคุณได้เชิญชวน%C26 $1%O ไปยัง%C26 $2%O (%C26$3%O)"
 
-#: src/common/textevents.h:414
+#: src/common/textevents.h:423
 msgid "%C22*%O$tYou are now known as $2"
 msgstr "%C22*%O$tตอนนี้คุณได้รับการรู้จักเป็น $2"
 
-#: src/common/text.c:287
+#: src/common/text.c:347
 msgid "Loaded log from"
 msgstr "โหลดบันทึกการทำงานจาก"
 
-#: src/common/text.c:305
+#: src/common/text.c:366
 #, c-format
 msgid "**** ENDING LOGGING AT %s\n"
 msgstr "**** จบการบันทึกการทำงานที่ %s\n"
 
-#: src/common/text.c:514
+#: src/common/text.c:575
 #, c-format
 msgid "**** BEGIN LOGGING AT %s\n"
 msgstr "**** เริ่มบันทึกการทำงานที่ %s\n"
 
-#: src/common/text.c:533
+#: src/common/text.c:594
 #, c-format
 msgid ""
 "* Can't open log file(s) for writing. Check the\n"
@@ -1073,453 +1062,458 @@ msgstr ""
 "* ไม่สามารถเปิดบันทึกการทำงาน(s) เพื่อการเขียน. ตรวจสอบ\n"
 "  ตรวจสอบสิทธิการเข้าถึงบน %s/xchatlogs"
 
-#: src/common/text.c:871
+#: src/common/text.c:961
 msgid "Left message"
 msgstr "ข้อความทางซ้าย"
 
-#: src/common/text.c:872
+#: src/common/text.c:962
 msgid "Right message"
 msgstr "ข้อความทางขวา"
 
-#: src/common/text.c:876
+#: src/common/text.c:966
 msgid "The nick of the joining person"
 msgstr "ชื่อเล่นของคนที่เข้าร่วม"
 
-#: src/common/text.c:877
+#: src/common/text.c:967
 msgid "The channel being joined"
 msgstr "แชนแนลที่ถูกเข้าร่วม"
 
-#: src/common/text.c:878 src/common/text.c:925 src/common/text.c:976
+#: src/common/text.c:968 src/common/text.c:1016 src/common/text.c:1067
 msgid "The host of the person"
 msgstr "โฮสต์ของบุคคล"
 
-#: src/common/text.c:882 src/common/text.c:888 src/common/text.c:895
-#: src/common/text.c:1083 src/common/text.c:1090 src/common/text.c:1095
-#: src/common/text.c:1100 src/common/text.c:1105 src/common/text.c:1111
-#: src/common/text.c:1116 src/common/text.c:1120 src/common/text.c:1126
-#: src/common/text.c:1132 src/common/text.c:1178 src/common/text.c:1189
-#: src/common/text.c:1194 src/common/text.c:1199 src/common/text.c:1208
-#: src/common/text.c:1219 src/common/text.c:1226 src/common/text.c:1232
-#: src/common/text.c:1237 src/common/text.c:1242 src/common/text.c:1249
-#: src/common/text.c:1255 src/common/text.c:1261 src/common/text.c:1266
-#: src/common/text.c:1271 src/common/text.c:1275 src/common/text.c:1281
-#: src/common/text.c:1289 src/common/text.c:1323 src/common/text.c:1328
+#: src/common/text.c:972 src/common/text.c:979 src/common/text.c:986
+#: src/common/text.c:1174 src/common/text.c:1181 src/common/text.c:1186
+#: src/common/text.c:1191 src/common/text.c:1196 src/common/text.c:1202
+#: src/common/text.c:1207 src/common/text.c:1211 src/common/text.c:1217
+#: src/common/text.c:1223 src/common/text.c:1275 src/common/text.c:1286
+#: src/common/text.c:1291 src/common/text.c:1296 src/common/text.c:1305
+#: src/common/text.c:1316 src/common/text.c:1323 src/common/text.c:1329
+#: src/common/text.c:1334 src/common/text.c:1339 src/common/text.c:1346
+#: src/common/text.c:1352 src/common/text.c:1358 src/common/text.c:1363
+#: src/common/text.c:1368 src/common/text.c:1372 src/common/text.c:1378
+#: src/common/text.c:1386 src/common/text.c:1420 src/common/text.c:1425
 msgid "Nickname"
 msgstr "ชื่อเล่น"
 
-#: src/common/text.c:883
+#: src/common/text.c:973
 msgid "The action"
 msgstr "การปฏิบัติการ"
 
-#: src/common/text.c:884 src/common/text.c:890
+#: src/common/text.c:974 src/common/text.c:981
 msgid "Mode char"
 msgstr "ตัวหนังสือโหมด"
 
-#: src/common/text.c:889
-msgid "The text"
-msgstr "ข้อความ"
-
-#: src/common/text.c:891 src/common/text.c:897
+#: src/common/text.c:975 src/common/text.c:982 src/common/text.c:988
 msgid "Identified text"
 msgstr "ข้อความแสดงตัว"
 
-#: src/common/text.c:896 src/common/text.c:953 src/common/text.c:959
+#: src/common/text.c:980
+msgid "The text"
+msgstr "ข้อความ"
+
+#: src/common/text.c:987 src/common/text.c:1044 src/common/text.c:1050
 msgid "The message"
 msgstr "ข้อความ"
 
-#: src/common/text.c:901 src/common/text.c:963
+#: src/common/text.c:992 src/common/text.c:1054
 msgid "Old nickname"
 msgstr "ชื่อเล่นเดิม"
 
-#: src/common/text.c:902 src/common/text.c:964
+#: src/common/text.c:993 src/common/text.c:1055
 msgid "New nickname"
 msgstr "ชื่อเล่นใหม่"
 
-#: src/common/text.c:906
+#: src/common/text.c:997
 msgid "Nick of person who changed the topic"
 msgstr "ชื่อเล่นของคนที่เปลี่ยนหัวข้อ"
 
-#: src/common/text.c:907 src/common/text.c:913 src/fe-gtk/chanlist.c:756
-#: src/fe-gtk/chanlist.c:859
+#: src/common/text.c:998 src/common/text.c:1004 src/fe-gtk/chanlist.c:766
+#: src/fe-gtk/chanlist.c:869
 msgid "Topic"
 msgstr "หัวข้อ"
 
-#: src/common/text.c:908 src/common/text.c:912 src/common/text.c:1343
-#: src/fe-gtk/chanlist.c:754 src/fe-gtk/ignoregui.c:176
+#: src/common/text.c:999 src/common/text.c:1003 src/common/text.c:1440
+#: src/fe-gtk/chanlist.c:764 src/fe-gtk/ignoregui.c:174
+#: src/fe-gtk/servlistgui.c:896
 msgid "Channel"
 msgstr "แชนแนล"
 
-#: src/common/text.c:917 src/common/text.c:970
+#: src/common/text.c:1008 src/common/text.c:1061
 msgid "The nickname of the kicker"
 msgstr "ชื่อของคนที่เตะ"
 
-#: src/common/text.c:918 src/common/text.c:968
+#: src/common/text.c:1009 src/common/text.c:1059
 msgid "The person being kicked"
 msgstr "คนที่กำลังถูกเตะ"
 
-#: src/common/text.c:919 src/common/text.c:926 src/common/text.c:930
-#: src/common/text.c:935 src/common/text.c:969 src/common/text.c:977
-#: src/common/text.c:984
+#: src/common/text.c:1010 src/common/text.c:1017 src/common/text.c:1021
+#: src/common/text.c:1026 src/common/text.c:1060 src/common/text.c:1068
+#: src/common/text.c:1075
 msgid "The channel"
 msgstr "แชนแนล"
 
-#: src/common/text.c:920 src/common/text.c:971 src/common/text.c:978
+#: src/common/text.c:1011 src/common/text.c:1062 src/common/text.c:1069
 msgid "The reason"
 msgstr "เหตุผล"
 
-#: src/common/text.c:924 src/common/text.c:975
+#: src/common/text.c:1015 src/common/text.c:1066
 msgid "The nick of the person leaving"
 msgstr "ชื่อเล่นของคนที่กำลังจากไป"
 
-#: src/common/text.c:931 src/common/text.c:937
+#: src/common/text.c:1022 src/common/text.c:1028
 msgid "The time"
 msgstr "เวลา"
 
-#: src/common/text.c:936
+#: src/common/text.c:1027
 msgid "The creator"
 msgstr "ผู้สร้าง"
 
-#: src/common/text.c:941 src/fe-gtk/dccgui.c:763 src/fe-gtk/dccgui.c:994
+#: src/common/text.c:1032 src/fe-gtk/dccgui.c:768 src/fe-gtk/dccgui.c:1001
 msgid "Nick"
 msgstr "ชื่อเล่น"
 
-#: src/common/text.c:942 src/common/text.c:1195
+#: src/common/text.c:1033 src/common/text.c:1292
 msgid "Reason"
 msgstr "เหตุผล"
 
-#: src/common/text.c:943 src/common/text.c:1085 src/common/text.c:1168
+#: src/common/text.c:1034 src/common/text.c:1176 src/common/text.c:1265
 msgid "Host"
 msgstr "โฮสต์"
 
-#: src/common/text.c:947 src/common/text.c:952 src/common/text.c:957
+#: src/common/text.c:1038 src/common/text.c:1043 src/common/text.c:1048
 msgid "Who it's from"
 msgstr "ใครที่มันมาจาก"
 
-#: src/common/text.c:948
+#: src/common/text.c:1039
 msgid "The time in x.x format (see below)"
 msgstr "เวลาในรูปแบบ x.x  (ดูด้านล่าง)"
 
-#: src/common/text.c:958 src/common/text.c:995
+#: src/common/text.c:1049 src/common/text.c:1086
 msgid "The Channel it's going to"
 msgstr "แชนแนลที่มันกำลังไป"
 
-#: src/common/text.c:982
+#: src/common/text.c:1073
 msgid "The sound"
 msgstr "เสียง"
 
-#: src/common/text.c:983 src/common/text.c:989 src/common/text.c:994
+#: src/common/text.c:1074 src/common/text.c:1080 src/common/text.c:1085
 msgid "The nick of the person"
 msgstr "ชื่อเล่นของบุคคล"
 
-#: src/common/text.c:988 src/common/text.c:993
+#: src/common/text.c:1079 src/common/text.c:1084
 msgid "The CTCP event"
 msgstr "เหตุการณ์ CTCP"
 
-#: src/common/text.c:999
+#: src/common/text.c:1090
 msgid "The nick of the person who set the key"
 msgstr "ชื่อเล่นของคนที่ตั้งค่ากุญแจ"
 
-#: src/common/text.c:1000
+#: src/common/text.c:1091
 msgid "The key"
 msgstr "กุญแจ"
 
-#: src/common/text.c:1004
+#: src/common/text.c:1095
 msgid "The nick of the person who set the limit"
 msgstr "ชื่อเล่นของคนที่ตั้งค่าขีดจำกัด"
 
-#: src/common/text.c:1005
+#: src/common/text.c:1096
 msgid "The limit"
 msgstr "ขีดจำกัด"
 
-#: src/common/text.c:1009
+#: src/common/text.c:1100
 msgid "The nick of the person who did the op'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ op'ing"
 
-#: src/common/text.c:1010
+#: src/common/text.c:1101
 msgid "The nick of the person who has been op'ed"
 msgstr "ชื่อเล่นของคนที่ได้ถูก op"
 
-#: src/common/text.c:1014
+#: src/common/text.c:1105
 msgid "The nick of the person who has been halfop'ed"
 msgstr "ชื่อเล่นของคนที่ได้ถูก halfop"
 
-#: src/common/text.c:1015
+#: src/common/text.c:1106
 msgid "The nick of the person who did the halfop'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ halfop"
 
-#: src/common/text.c:1019
+#: src/common/text.c:1110
 msgid "The nick of the person who did the voice'ing"
 msgstr "ชื่อเล่นของคนที่ทำการประกาศ"
 
-#: src/common/text.c:1020
+#: src/common/text.c:1111
 msgid "The nick of the person who has been voice'ed"
 msgstr "ชื่อเล่นของคนที่ได้ถูกประกาศ"
 
-#: src/common/text.c:1024
+#: src/common/text.c:1115
 msgid "The nick of the person who did the banning"
 msgstr "ชื่อเล่นของคนที่ทำการแบน"
 
-#: src/common/text.c:1025 src/common/text.c:1052
+#: src/common/text.c:1116 src/common/text.c:1143
 msgid "The ban mask"
 msgstr "มาสก์การแบน"
 
-#: src/common/text.c:1029
+#: src/common/text.c:1120
 msgid "The nick who removed the key"
 msgstr "ชื่อเล่นของคนที่ลบกุญแจ"
 
-#: src/common/text.c:1033
+#: src/common/text.c:1124
 msgid "The nick who removed the limit"
 msgstr "ชื่อเล่นของคนที่ลบขีดจำกัด"
 
-#: src/common/text.c:1037
+#: src/common/text.c:1128
 msgid "The nick of the person of did the deop'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ deop"
 
-#: src/common/text.c:1038
+#: src/common/text.c:1129
 msgid "The nick of the person who has been deop'ed"
 msgstr "ชื่อเล่นของคนที่ได้ทำการ deop"
 
-#: src/common/text.c:1041
+#: src/common/text.c:1132
 msgid "The nick of the person of did the dehalfop'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ dehalfop"
 
-#: src/common/text.c:1042
+#: src/common/text.c:1133
 msgid "The nick of the person who has been dehalfop'ed"
 msgstr "ชื่อเล่นของคนที่ได้ทำการ dehalfop"
 
-#: src/common/text.c:1046
+#: src/common/text.c:1137
 msgid "The nick of the person of did the devoice'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ devoice"
 
-#: src/common/text.c:1047
+#: src/common/text.c:1138
 msgid "The nick of the person who has been devoice'ed"
 msgstr "ชื่อเล่นของคนที่ได้ทำการ devoice"
 
-#: src/common/text.c:1051
+#: src/common/text.c:1142
 msgid "The nick of the person of did the unban'ing"
 msgstr "ชื่อเล่นของคนที่ทำการ unban"
 
-#: src/common/text.c:1056
+#: src/common/text.c:1147
 msgid "The nick of the person who did the exempt"
 msgstr "ชื่อเล่นของคนที่ทำการยกเว้น"
 
-#: src/common/text.c:1057 src/common/text.c:1062
+#: src/common/text.c:1148 src/common/text.c:1153
 msgid "The exempt mask"
 msgstr "มาสก์ที่ยกเว้น"
 
-#: src/common/text.c:1061
+#: src/common/text.c:1152
 msgid "The nick of the person removed the exempt"
 msgstr "ชื่อเล่นของคนที่ลบการยกเว้น"
 
-#: src/common/text.c:1066
+#: src/common/text.c:1157
 msgid "The nick of the person who did the invite"
 msgstr "ชื่อเล่นของคนที่ทำการเชิญชวน"
 
-#: src/common/text.c:1067 src/common/text.c:1072
+#: src/common/text.c:1158 src/common/text.c:1163
 msgid "The invite mask"
 msgstr "มาสก์เชิญชวน"
 
-#: src/common/text.c:1071
+#: src/common/text.c:1162
 msgid "The nick of the person removed the invite"
 msgstr "ชื่อเล่นของคนที่ลบการเชิญชวน"
 
-#: src/common/text.c:1076
+#: src/common/text.c:1167
 msgid "The nick of the person setting the mode"
 msgstr "ชื่อเล่นของคนที่ตั้งค่าโหมด"
 
-#: src/common/text.c:1077
+#: src/common/text.c:1168
 msgid "The mode's sign (+/-)"
 msgstr "สัญญาณของโหมด (+/-)"
 
-#: src/common/text.c:1078
+#: src/common/text.c:1169
 msgid "The mode letter"
 msgstr "ตัวอักษรของโหมด"
 
-#: src/common/text.c:1079
+#: src/common/text.c:1170
 msgid "The channel it's being set on"
 msgstr "แชนแนลที่มันกำลังตั้งค่า"
 
-#: src/common/text.c:1084
+#: src/common/text.c:1175
 msgid "Username"
 msgstr "ชื่อผู้ใช้"
 
-#: src/common/text.c:1086
+#: src/common/text.c:1177
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: src/common/text.c:1091
+#: src/common/text.c:1182
 msgid "Channel Membership/\"is an IRC operator\""
 msgstr "ความเป็นสมาชิกของแชนแนล/\"เป็นผู้จัดการ IRC คนหนึ่ง\""
 
-#: src/common/text.c:1096
+#: src/common/text.c:1187
 msgid "Server Information"
 msgstr "ข้อมูลของเซิร์ฟเวอร์"
 
-#: src/common/text.c:1101 src/common/text.c:1106
+#: src/common/text.c:1192 src/common/text.c:1197
 msgid "Idle time"
 msgstr "เวลาว่าง"
 
-#: src/common/text.c:1107
+#: src/common/text.c:1198
 msgid "Signon time"
 msgstr "เวลาเข้าสู่ระบบ"
 
-#: src/common/text.c:1112
+#: src/common/text.c:1203
 msgid "Away reason"
 msgstr "เหตุผลที่ไม่อยู่"
 
-#: src/common/text.c:1121 src/common/text.c:1127 src/common/text.c:1135
-#: src/common/text.c:1315
+#: src/common/text.c:1212 src/common/text.c:1218 src/common/text.c:1226
+#: src/common/text.c:1412
 msgid "Message"
 msgstr "ข้อความ"
 
-#: src/common/text.c:1128
+#: src/common/text.c:1219
 msgid "Account"
 msgstr "บัญชี"
 
-#: src/common/text.c:1133
+#: src/common/text.c:1224
 msgid "Real user@host"
 msgstr "ชื่อผู้ใช้@โฮสต์ จริง"
 
-#: src/common/text.c:1134
+#: src/common/text.c:1225
 msgid "Real IP"
 msgstr "ไอพีจริง"
 
-#: src/common/text.c:1139 src/common/text.c:1148 src/common/text.c:1154
-#: src/common/text.c:1184 src/common/text.c:1338
+#: src/common/text.c:1230 src/common/text.c:1245 src/common/text.c:1251
+#: src/common/text.c:1281 src/common/text.c:1435
 msgid "Channel Name"
 msgstr "ชื่อแชนแนล"
 
-#: src/common/text.c:1143 src/common/text.c:1301 src/fe-gtk/menu.c:1240
-#: src/fe-gtk/menu.c:1420 src/fe-gtk/textgui.c:390
+#: src/common/text.c:1234 src/common/text.c:1240 src/common/text.c:1398
+#: src/fe-gtk/menu.c:1418 src/fe-gtk/menu.c:1606 src/fe-gtk/textgui.c:390
 msgid "Text"
 msgstr "ข้อความ"
 
-#: src/common/text.c:1144 src/common/text.c:1150 src/common/text.c:1179
-#: src/common/text.c:1297 src/common/text.c:1339
+#: src/common/text.c:1235 src/common/text.c:1241 src/common/text.c:1247
+#: src/common/text.c:1276 src/common/text.c:1394 src/common/text.c:1436
 msgid "Server Name"
 msgstr "ชื่อเซิร์ฟเวอร์"
 
-#: src/common/text.c:1149
+#: src/common/text.c:1236
+msgid "Raw Numeric or Identifier"
+msgstr "ตัวเลขดิบหรือตัวแปร"
+
+#: src/common/text.c:1246
 msgid "Nick of person who invited you"
 msgstr "ชื่อเล่นของคนที่เชิญชวนคุณ"
 
-#: src/common/text.c:1155 src/fe-gtk/chanlist.c:755
+#: src/common/text.c:1252 src/fe-gtk/chanlist.c:765
 msgid "Users"
 msgstr "ผู้ใช้"
 
-#: src/common/text.c:1159
+#: src/common/text.c:1256
 msgid "Nickname in use"
 msgstr "ชื่อเล่นถูกใช้อยู่"
 
-#: src/common/text.c:1160
+#: src/common/text.c:1257
 msgid "Nick being tried"
 msgstr "ชื่อเล่นกำลังถูกลองใช้"
 
-#: src/common/text.c:1169 src/common/text.c:1305
+#: src/common/text.c:1266 src/common/text.c:1402
 msgid "IP"
 msgstr "ไอพี"
 
-#: src/common/text.c:1170 src/common/text.c:1201
+#: src/common/text.c:1267 src/common/text.c:1298
 msgid "Port"
 msgstr "พอร์ต"
 
-#: src/common/text.c:1180 src/fe-gtk/notifygui.c:139 src/fe-gtk/setup.c:1669
+#: src/common/text.c:1277 src/fe-gtk/notifygui.c:137 src/fe-gtk/setup.c:1713
 msgid "Network"
 msgstr "เครือข่าย"
 
-#: src/common/text.c:1185 src/common/text.c:1190
+#: src/common/text.c:1282 src/common/text.c:1287
 msgid "Modes string"
 msgstr "สตริงแสดงโหมด"
 
-#: src/common/text.c:1200 src/common/text.c:1238 src/common/text.c:1243
-#: src/common/text.c:1284
+#: src/common/text.c:1297 src/common/text.c:1335 src/common/text.c:1340
+#: src/common/text.c:1381
 msgid "IP address"
 msgstr "ที่อยู่ไอพี"
 
-#: src/common/text.c:1206 src/common/text.c:1231
+#: src/common/text.c:1303 src/common/text.c:1328
 msgid "DCC Type"
 msgstr "ชนิด DCC"
 
-#: src/common/text.c:1207 src/common/text.c:1212 src/common/text.c:1217
-#: src/common/text.c:1224 src/common/text.c:1244 src/common/text.c:1248
-#: src/common/text.c:1254 src/common/text.c:1260 src/common/text.c:1267
-#: src/common/text.c:1276 src/common/text.c:1282
+#: src/common/text.c:1304 src/common/text.c:1309 src/common/text.c:1314
+#: src/common/text.c:1321 src/common/text.c:1341 src/common/text.c:1345
+#: src/common/text.c:1351 src/common/text.c:1357 src/common/text.c:1364
+#: src/common/text.c:1373 src/common/text.c:1379
 msgid "Filename"
 msgstr "ชื่อไฟล์"
 
-#: src/common/text.c:1218 src/common/text.c:1225
+#: src/common/text.c:1315 src/common/text.c:1322
 msgid "Destination filename"
 msgstr "ชื่อไฟล์ปลายทาง"
 
-#: src/common/text.c:1227 src/common/text.c:1256
+#: src/common/text.c:1324 src/common/text.c:1353
 msgid "CPS"
 msgstr "CPS"
 
-#: src/common/text.c:1262
+#: src/common/text.c:1359
 msgid "Pathname"
 msgstr "ชื่อเส้นทาง"
 
-#: src/common/text.c:1277 src/fe-gtk/dccgui.c:759
+#: src/common/text.c:1374 src/fe-gtk/dccgui.c:764
 msgid "Position"
 msgstr "ตำแหน่ง"
 
-#: src/common/text.c:1283 src/fe-gtk/dccgui.c:758
+#: src/common/text.c:1380 src/fe-gtk/dccgui.c:763
 msgid "Size"
 msgstr "ขนาด"
 
-#: src/common/text.c:1288
+#: src/common/text.c:1385
 msgid "DCC String"
 msgstr "ข้อความ DCC"
 
-#: src/common/text.c:1293
+#: src/common/text.c:1390
 msgid "Number of notify items"
 msgstr "หมายเลขของการแจ้งเตือนรายการ"
 
-#: src/common/text.c:1309
+#: src/common/text.c:1406
 msgid "Old Filename"
 msgstr "ชื่อไฟล์เดิม"
 
-#: src/common/text.c:1310
+#: src/common/text.c:1407
 msgid "New Filename"
 msgstr "ชื่อไฟล์ใหม่"
 
-#: src/common/text.c:1314
+#: src/common/text.c:1411
 msgid "Receiver"
 msgstr "ตัวรับ"
 
-#: src/common/text.c:1319
+#: src/common/text.c:1416
 msgid "Hostmask"
 msgstr "มาสก์ของโฮสต์"
 
-#: src/common/text.c:1324
+#: src/common/text.c:1421
 msgid "Hostname"
 msgstr "ชื่อโฮสต์"
 
-#: src/common/text.c:1329
+#: src/common/text.c:1426
 msgid "The Packet"
 msgstr "แพ็กเก็ต"
 
-#: src/common/text.c:1333
+#: src/common/text.c:1430
 msgid "Seconds"
 msgstr "วินาที"
 
-#: src/common/text.c:1337
+#: src/common/text.c:1434
 msgid "Nick of person who have been invited"
 msgstr "ชื่อของคนที่ได้ถูกเชิญ"
 
-#: src/common/text.c:1344
+#: src/common/text.c:1441
 msgid "Banmask"
 msgstr "มาสก์การแบน"
 
-#: src/common/text.c:1345
+#: src/common/text.c:1442
 msgid "Who set the ban"
 msgstr "ใครคนที่ตั้งการแบน"
 
-#: src/common/text.c:1346
+#: src/common/text.c:1443
 msgid "Ban time"
 msgstr "เวลาแบน"
 
-#: src/common/text.c:1386
+#: src/common/text.c:1483
 #, c-format
 msgid ""
 "Error parsing event %s.\n"
@@ -1528,7 +1522,7 @@ msgstr ""
 "เกิดเหตุการณ์ข้อผิดพลาดในวิเคราะห์ %s.\n"
 "โหลดค่ามาตรฐาน."
 
-#: src/common/text.c:2079
+#: src/common/text.c:2225
 #, c-format
 msgid ""
 "Cannot read sound file:\n"
@@ -1537,1308 +1531,1207 @@ msgstr ""
 "ไม่สามารถอ่านไฟล์เสียง:\n"
 "%s"
 
-#: src/common/util.c:296
+#: src/common/util.c:297
 msgid "Remote host closed socket"
 msgstr "โฮสต์ปลายทางปิดแชนแนลเชื่อมต่อ"
 
-#: src/common/util.c:301
+#: src/common/util.c:302
 msgid "Connection refused"
 msgstr "การเชื่อมต่อถูกปฏิเสธ"
 
-#: src/common/util.c:304
+#: src/common/util.c:305
 msgid "No route to host"
 msgstr "ไม่มีเส้นทางไปยังโฮต์"
 
-#: src/common/util.c:306
+#: src/common/util.c:307
 msgid "Connection timed out"
 msgstr "การเชื่อมต่อหมดเวลา"
 
-#: src/common/util.c:308
+#: src/common/util.c:309
 msgid "Cannot assign that address"
 msgstr "ไม่สามารถกำหนดค่าที่อยู่นั้น"
 
-#: src/common/util.c:310
+#: src/common/util.c:311
 msgid "Connection reset by peer"
 msgstr "การเชื่อมต่อถูกตั้งใหม่โดยผู้เชื่อมต่อ"
 
-#: src/common/util.c:839
+#: src/common/util.c:848
 msgid "Ascension Island"
 msgstr "เกาะ Ascension"
 
-#: src/common/util.c:840
+#: src/common/util.c:849
 msgid "Andorra"
 msgstr ""
 
-#: src/common/util.c:841
+#: src/common/util.c:850
 msgid "United Arab Emirates"
 msgstr "สหรัฐอาหรับอิมิเรตส์"
 
-#: src/common/util.c:842
+#: src/common/util.c:851
 msgid "Afghanistan"
 msgstr "อัฟกานิสถาน"
 
-#: src/common/util.c:843
+#: src/common/util.c:852
 msgid "Antigua and Barbuda"
 msgstr "Antigua และ Barbuda"
 
-#: src/common/util.c:844
+#: src/common/util.c:853
 msgid "Anguilla"
 msgstr ""
 
-#: src/common/util.c:845
+#: src/common/util.c:854
 msgid "Albania"
 msgstr "อัลบาเนีย"
 
-#: src/common/util.c:846
+#: src/common/util.c:855
 msgid "Armenia"
 msgstr "อาร์เมเนีย"
 
-#: src/common/util.c:847
+#: src/common/util.c:856
 msgid "Netherlands Antilles"
 msgstr ""
 
-#: src/common/util.c:848
+#: src/common/util.c:857
 msgid "Angola"
 msgstr ""
 
-#: src/common/util.c:849
+#: src/common/util.c:858
 msgid "Antarctica"
 msgstr ""
 
-#: src/common/util.c:850
+#: src/common/util.c:859
 msgid "Argentina"
 msgstr "อาร์เจนติน่า"
 
-#: src/common/util.c:851
+#: src/common/util.c:860
 msgid "Reverse DNS"
 msgstr "รีเวิร์ส DNS"
 
-#: src/common/util.c:852
+#: src/common/util.c:861
 msgid "American Samoa"
 msgstr ""
 
-#: src/common/util.c:853
+#: src/common/util.c:862
 msgid "Austria"
 msgstr "ออสเตรีย"
 
-#: src/common/util.c:854
+#: src/common/util.c:863
 msgid "Nato Fiel"
 msgstr ""
 
-#: src/common/util.c:855
+#: src/common/util.c:864
 msgid "Australia"
 msgstr "ออสเตรเลีย"
 
-#: src/common/util.c:856
+#: src/common/util.c:865
 msgid "Aruba"
 msgstr ""
 
-#: src/common/util.c:857
+#: src/common/util.c:866
 msgid "Aland Islands"
 msgstr ""
 
-#: src/common/util.c:858
+#: src/common/util.c:867
 msgid "Azerbaijan"
 msgstr "อาร์เซอร์ไบจัน"
 
-#: src/common/util.c:859
+#: src/common/util.c:868
 msgid "Bosnia and Herzegovina"
 msgstr ""
 
-#: src/common/util.c:860
+#: src/common/util.c:869
 msgid "Barbados"
 msgstr ""
 
-#: src/common/util.c:861
+#: src/common/util.c:870
 msgid "Bangladesh"
 msgstr ""
 
-#: src/common/util.c:862
+#: src/common/util.c:871
 msgid "Belgium"
 msgstr "เบลเยี่ยม"
 
-#: src/common/util.c:863
+#: src/common/util.c:872
 msgid "Burkina Faso"
 msgstr ""
 
-#: src/common/util.c:864
+#: src/common/util.c:873
 msgid "Bulgaria"
 msgstr "บัลแกเรีย"
 
-#: src/common/util.c:865
+#: src/common/util.c:874
 msgid "Bahrain"
 msgstr ""
 
-#: src/common/util.c:866
+#: src/common/util.c:875
 msgid "Burundi"
 msgstr ""
 
-#: src/common/util.c:867
+#: src/common/util.c:876
 msgid "Businesses"
 msgstr "ยุ่งอยู่"
 
-#: src/common/util.c:868
+#: src/common/util.c:877
 msgid "Benin"
 msgstr ""
 
-#: src/common/util.c:869
+#: src/common/util.c:878
 msgid "Bermuda"
 msgstr ""
 
-#: src/common/util.c:870
+#: src/common/util.c:879
 msgid "Brunei Darussalam"
 msgstr ""
 
-#: src/common/util.c:871
+#: src/common/util.c:880
 msgid "Bolivia"
 msgstr "โบลิเวีย"
 
-#: src/common/util.c:872
+#: src/common/util.c:881
 msgid "Brazil"
 msgstr "บราซิล"
 
-#: src/common/util.c:873
+#: src/common/util.c:882
 msgid "Bahamas"
 msgstr ""
 
-#: src/common/util.c:874
+#: src/common/util.c:883
 msgid "Bhutan"
 msgstr "ภูฏาน"
 
-#: src/common/util.c:875
+#: src/common/util.c:884
 msgid "Bouvet Island"
 msgstr ""
 
-#: src/common/util.c:876
+#: src/common/util.c:885
 msgid "Botswana"
 msgstr ""
 
-#: src/common/util.c:877
+#: src/common/util.c:886
 msgid "Belarus"
 msgstr ""
 
-#: src/common/util.c:878
+#: src/common/util.c:887
 msgid "Belize"
 msgstr ""
 
-#: src/common/util.c:879
+#: src/common/util.c:888
 msgid "Canada"
 msgstr "แคนาดา"
 
-#: src/common/util.c:880
+#: src/common/util.c:889
 msgid "Cocos Islands"
 msgstr ""
 
-#: src/common/util.c:881
+#: src/common/util.c:890
 msgid "Democratic Republic of Congo"
 msgstr ""
 
-#: src/common/util.c:882
+#: src/common/util.c:891
 msgid "Central African Republic"
 msgstr ""
 
-#: src/common/util.c:883
+#: src/common/util.c:892
 msgid "Congo"
 msgstr "คองโก"
 
-#: src/common/util.c:884
+#: src/common/util.c:893
 msgid "Switzerland"
 msgstr "สวิซเซอร์แลนด์"
 
-#: src/common/util.c:885
+#: src/common/util.c:894
 msgid "Cote d'Ivoire"
 msgstr ""
 
-#: src/common/util.c:886
+#: src/common/util.c:895
 msgid "Cook Islands"
 msgstr "เกาะ Cook"
 
-#: src/common/util.c:887
+#: src/common/util.c:896
 msgid "Chile"
 msgstr "ชิลี"
 
-#: src/common/util.c:888
+#: src/common/util.c:897
 msgid "Cameroon"
 msgstr "แคมารูน"
 
-#: src/common/util.c:889
+#: src/common/util.c:898
 msgid "China"
 msgstr "จีน"
 
-#: src/common/util.c:890
+#: src/common/util.c:899
 msgid "Colombia"
 msgstr "โคลัมเบีย"
 
-#: src/common/util.c:891
+#: src/common/util.c:900
 msgid "Internic Commercial"
 msgstr ""
 
-#: src/common/util.c:892
+#: src/common/util.c:901
 msgid "Costa Rica"
 msgstr ""
 
-#: src/common/util.c:893
+#: src/common/util.c:902
 msgid "Serbia and Montenegro"
 msgstr ""
 
-#: src/common/util.c:894
+#: src/common/util.c:903
 msgid "Cuba"
 msgstr "คิวบา"
 
-#: src/common/util.c:895
+#: src/common/util.c:904
 msgid "Cape Verde"
 msgstr ""
 
-#: src/common/util.c:896
+#: src/common/util.c:905
 msgid "Christmas Island"
 msgstr ""
 
-#: src/common/util.c:897
+#: src/common/util.c:906
 msgid "Cyprus"
 msgstr "ไซปรัส"
 
-#: src/common/util.c:898
+#: src/common/util.c:907
 msgid "Czech Republic"
 msgstr ""
 
-#: src/common/util.c:899
+#: src/common/util.c:908
 msgid "Germany"
 msgstr "เยอรมันนี"
 
-#: src/common/util.c:900
+#: src/common/util.c:909
 msgid "Djibouti"
 msgstr ""
 
-#: src/common/util.c:901
+#: src/common/util.c:910
 msgid "Denmark"
 msgstr "เดนมาร์ก"
 
-#: src/common/util.c:902
+#: src/common/util.c:911
 msgid "Dominica"
 msgstr "โดมินิกา"
 
-#: src/common/util.c:903
+#: src/common/util.c:912
 msgid "Dominican Republic"
 msgstr ""
 
-#: src/common/util.c:904
+#: src/common/util.c:913
 msgid "Algeria"
 msgstr ""
 
-#: src/common/util.c:905
+#: src/common/util.c:914
 msgid "Ecuador"
 msgstr ""
 
-#: src/common/util.c:906
+#: src/common/util.c:915
 msgid "Educational Institution"
 msgstr "สถาบันการศึกษา"
 
-#: src/common/util.c:907
+#: src/common/util.c:916
 msgid "Estonia"
 msgstr ""
 
-#: src/common/util.c:908
+#: src/common/util.c:917
 msgid "Egypt"
 msgstr "อียิปต์"
 
-#: src/common/util.c:909
+#: src/common/util.c:918
 msgid "Western Sahara"
 msgstr ""
 
-#: src/common/util.c:910
+#: src/common/util.c:919
 msgid "Eritrea"
 msgstr ""
 
-#: src/common/util.c:911
+#: src/common/util.c:920
 msgid "Spain"
 msgstr "สเปน"
 
-#: src/common/util.c:912
+#: src/common/util.c:921
 msgid "Ethiopia"
 msgstr ""
 
-#: src/common/util.c:913
+#: src/common/util.c:922
 msgid "European Union"
 msgstr ""
 
-#: src/common/util.c:914
+#: src/common/util.c:923
 msgid "Finland"
 msgstr "ฟินแลนด์"
 
-#: src/common/util.c:915
+#: src/common/util.c:924
 msgid "Fiji"
 msgstr "ฟิจิ"
 
-#: src/common/util.c:916
+#: src/common/util.c:925
 msgid "Falkland Islands"
 msgstr ""
 
-#: src/common/util.c:917
+#: src/common/util.c:926
 msgid "Micronesia"
 msgstr ""
 
-#: src/common/util.c:918
+#: src/common/util.c:927
 msgid "Faroe Islands"
 msgstr ""
 
-#: src/common/util.c:919
+#: src/common/util.c:928
 msgid "France"
 msgstr "ฝรั่งเศส"
 
-#: src/common/util.c:920
+#: src/common/util.c:929
 msgid "Gabon"
 msgstr ""
 
-#: src/common/util.c:921
+#: src/common/util.c:930
 msgid "Great Britain"
 msgstr ""
 
-#: src/common/util.c:922
+#: src/common/util.c:931
 msgid "Grenada"
 msgstr ""
 
-#: src/common/util.c:923
+#: src/common/util.c:932
 msgid "Georgia"
 msgstr "จอร์เจีย"
 
-#: src/common/util.c:924
+#: src/common/util.c:933
 msgid "French Guiana"
 msgstr ""
 
-#: src/common/util.c:925
+#: src/common/util.c:934
 msgid "British Channel Isles"
 msgstr ""
 
-#: src/common/util.c:926
+#: src/common/util.c:935
 msgid "Ghana"
 msgstr "กานา"
 
-#: src/common/util.c:927
+#: src/common/util.c:936
 msgid "Gibraltar"
 msgstr ""
 
-#: src/common/util.c:928
+#: src/common/util.c:937
 msgid "Greenland"
 msgstr "กรีนแลนด์"
 
-#: src/common/util.c:929
+#: src/common/util.c:938
 msgid "Gambia"
 msgstr ""
 
-#: src/common/util.c:930
+#: src/common/util.c:939
 msgid "Guinea"
 msgstr ""
 
-#: src/common/util.c:931
+#: src/common/util.c:940
 msgid "Government"
 msgstr "ราชการ"
 
-#: src/common/util.c:932
+#: src/common/util.c:941
 msgid "Guadeloupe"
 msgstr ""
 
-#: src/common/util.c:933
+#: src/common/util.c:942
 msgid "Equatorial Guinea"
 msgstr ""
 
-#: src/common/util.c:934
+#: src/common/util.c:943
 msgid "Greece"
 msgstr "กรีซ"
 
-#: src/common/util.c:935
+#: src/common/util.c:944
 msgid "S. Georgia and S. Sandwich Isles"
 msgstr ""
 
-#: src/common/util.c:936
+#: src/common/util.c:945
 msgid "Guatemala"
 msgstr ""
 
-#: src/common/util.c:937
+#: src/common/util.c:946
 msgid "Guam"
 msgstr ""
 
-#: src/common/util.c:938
+#: src/common/util.c:947
 msgid "Guinea-Bissau"
 msgstr ""
 
-#: src/common/util.c:939
+#: src/common/util.c:948
 msgid "Guyana"
 msgstr ""
 
-#: src/common/util.c:940
+#: src/common/util.c:949
 msgid "Hong Kong"
 msgstr "ฮ่องกง"
 
-#: src/common/util.c:941
+#: src/common/util.c:950
 msgid "Heard and McDonald Islands"
 msgstr ""
 
-#: src/common/util.c:942
+#: src/common/util.c:951
 msgid "Honduras"
 msgstr ""
 
-#: src/common/util.c:943
+#: src/common/util.c:952
 msgid "Croatia"
 msgstr ""
 
-#: src/common/util.c:944
+#: src/common/util.c:953
 msgid "Haiti"
 msgstr ""
 
-#: src/common/util.c:945
+#: src/common/util.c:954
 msgid "Hungary"
 msgstr ""
 
-#: src/common/util.c:946
+#: src/common/util.c:955
 msgid "Indonesia"
 msgstr "อินโดนีเซีย"
 
-#: src/common/util.c:947
+#: src/common/util.c:956
 msgid "Ireland"
 msgstr "ไอร์แลนด์"
 
-#: src/common/util.c:948
+#: src/common/util.c:957
 msgid "Israel"
 msgstr "อิสราเอล"
 
-#: src/common/util.c:949
+#: src/common/util.c:958
 msgid "Isle of Man"
 msgstr ""
 
-#: src/common/util.c:950
+#: src/common/util.c:959
 msgid "India"
 msgstr "อินเดีย"
 
-#: src/common/util.c:951
+#: src/common/util.c:960
 msgid "Informational"
 msgstr "ข้อมูล"
 
-#: src/common/util.c:952
+#: src/common/util.c:961
 msgid "International"
 msgstr "นานาชาติ"
 
-#: src/common/util.c:953
+#: src/common/util.c:962
 msgid "British Indian Ocean Territory"
 msgstr ""
 
-#: src/common/util.c:954
+#: src/common/util.c:963
 msgid "Iraq"
 msgstr "อิรัก"
 
-#: src/common/util.c:955
+#: src/common/util.c:964
 msgid "Iran"
 msgstr "อิหร่าน"
 
-#: src/common/util.c:956
+#: src/common/util.c:965
 msgid "Iceland"
 msgstr "ไอซ์แลนด์"
 
-#: src/common/util.c:957
+#: src/common/util.c:966
 msgid "Italy"
 msgstr "อิตาลี"
 
-#: src/common/util.c:958
+#: src/common/util.c:967
 msgid "Jersey"
 msgstr ""
 
-#: src/common/util.c:959
+#: src/common/util.c:968
 msgid "Jamaica"
 msgstr ""
 
-#: src/common/util.c:960
+#: src/common/util.c:969
 msgid "Jordan"
 msgstr "จอร์แดน"
 
-#: src/common/util.c:961
+#: src/common/util.c:970
 msgid "Japan"
 msgstr "ญี่ปุ่น"
 
-#: src/common/util.c:962
+#: src/common/util.c:971
 msgid "Kenya"
 msgstr "เคนย่า"
 
-#: src/common/util.c:963
+#: src/common/util.c:972
 msgid "Kyrgyzstan"
 msgstr ""
 
-#: src/common/util.c:964
+#: src/common/util.c:973
 msgid "Cambodia"
 msgstr "กัมพูชา"
 
-#: src/common/util.c:965
+#: src/common/util.c:974
 msgid "Kiribati"
 msgstr ""
 
-#: src/common/util.c:966
+#: src/common/util.c:975
 msgid "Comoros"
 msgstr ""
 
-#: src/common/util.c:967
+#: src/common/util.c:976
 msgid "St. Kitts and Nevis"
 msgstr ""
 
-#: src/common/util.c:968
+#: src/common/util.c:977
 msgid "North Korea"
 msgstr "เกาหลีเหนือ"
 
-#: src/common/util.c:969
+#: src/common/util.c:978
 msgid "South Korea"
 msgstr "เกาหลีใต้"
 
-#: src/common/util.c:970
+#: src/common/util.c:979
 msgid "Kuwait"
 msgstr "คูเวต"
 
-#: src/common/util.c:971
+#: src/common/util.c:980
 msgid "Cayman Islands"
 msgstr ""
 
-#: src/common/util.c:972
+#: src/common/util.c:981
 msgid "Kazakhstan"
 msgstr ""
 
-#: src/common/util.c:973
+#: src/common/util.c:982
 msgid "Laos"
 msgstr "ลาว"
 
-#: src/common/util.c:974
+#: src/common/util.c:983
 msgid "Lebanon"
 msgstr ""
 
-#: src/common/util.c:975
+#: src/common/util.c:984
 msgid "Saint Lucia"
 msgstr ""
 
-#: src/common/util.c:976
+#: src/common/util.c:985
 msgid "Liechtenstein"
 msgstr ""
 
-#: src/common/util.c:977
+#: src/common/util.c:986
 msgid "Sri Lanka"
 msgstr "ศรีลังกา"
 
-#: src/common/util.c:978
+#: src/common/util.c:987
 msgid "Liberia"
 msgstr ""
 
-#: src/common/util.c:979
+#: src/common/util.c:988
 msgid "Lesotho"
 msgstr ""
 
-#: src/common/util.c:980
+#: src/common/util.c:989
 msgid "Lithuania"
 msgstr ""
 
-#: src/common/util.c:981
+#: src/common/util.c:990
 msgid "Luxembourg"
 msgstr ""
 
-#: src/common/util.c:982
+#: src/common/util.c:991
 msgid "Latvia"
-msgstr ""
+msgstr "แลตเวีย"
 
-#: src/common/util.c:983
+#: src/common/util.c:992
 msgid "Libya"
 msgstr ""
 
-#: src/common/util.c:984
+#: src/common/util.c:993
 msgid "Morocco"
 msgstr ""
 
-#: src/common/util.c:985
+#: src/common/util.c:994
 msgid "Monaco"
 msgstr "โมนาโก"
 
-#: src/common/util.c:986
+#: src/common/util.c:995
 msgid "Moldova"
 msgstr ""
 
-#: src/common/util.c:987
+#: src/common/util.c:996
 msgid "United States Medical"
 msgstr ""
 
-#: src/common/util.c:988
+#: src/common/util.c:997
 msgid "Madagascar"
 msgstr ""
 
-#: src/common/util.c:989
+#: src/common/util.c:998
 msgid "Marshall Islands"
 msgstr ""
 
-#: src/common/util.c:990
+#: src/common/util.c:999
 msgid "Military"
 msgstr ""
 
-#: src/common/util.c:991
+#: src/common/util.c:1000
 msgid "Macedonia"
 msgstr ""
 
-#: src/common/util.c:992
+#: src/common/util.c:1001
 msgid "Mali"
 msgstr "มาลี"
 
-#: src/common/util.c:993
+#: src/common/util.c:1002
 msgid "Myanmar"
 msgstr "เมียนมาร์"
 
-#: src/common/util.c:994
+#: src/common/util.c:1003
 msgid "Mongolia"
 msgstr "มองโกเลีย"
 
-#: src/common/util.c:995
+#: src/common/util.c:1004
 msgid "Macau"
 msgstr ""
 
-#: src/common/util.c:996
+#: src/common/util.c:1005
 msgid "Northern Mariana Islands"
 msgstr ""
 
-#: src/common/util.c:997
+#: src/common/util.c:1006
 msgid "Martinique"
 msgstr ""
 
-#: src/common/util.c:998
+#: src/common/util.c:1007
 msgid "Mauritania"
 msgstr ""
 
-#: src/common/util.c:999
+#: src/common/util.c:1008
 msgid "Montserrat"
 msgstr ""
 
-#: src/common/util.c:1000
+#: src/common/util.c:1009
 msgid "Malta"
-msgstr ""
+msgstr "มอลตา"
 
-#: src/common/util.c:1001
+#: src/common/util.c:1010
 msgid "Mauritius"
 msgstr ""
 
-#: src/common/util.c:1002
+#: src/common/util.c:1011
 msgid "Maldives"
 msgstr ""
 
-#: src/common/util.c:1003
+#: src/common/util.c:1012
 msgid "Malawi"
 msgstr ""
 
-#: src/common/util.c:1004
+#: src/common/util.c:1013
 msgid "Mexico"
 msgstr "เม็กซิโก"
 
-#: src/common/util.c:1005
+#: src/common/util.c:1014
 msgid "Malaysia"
 msgstr "มาเลเซีย"
 
-#: src/common/util.c:1006
+#: src/common/util.c:1015
 msgid "Mozambique"
 msgstr ""
 
-#: src/common/util.c:1007
+#: src/common/util.c:1016
 msgid "Namibia"
 msgstr ""
 
-#: src/common/util.c:1008
+#: src/common/util.c:1017
 msgid "New Caledonia"
 msgstr ""
 
-#: src/common/util.c:1009
+#: src/common/util.c:1018
 msgid "Niger"
 msgstr ""
 
-#: src/common/util.c:1010
+#: src/common/util.c:1019
 msgid "Internic Network"
 msgstr "เครือข่าย Internic"
 
-#: src/common/util.c:1011
+#: src/common/util.c:1020
 msgid "Norfolk Island"
 msgstr ""
 
-#: src/common/util.c:1012
+#: src/common/util.c:1021
 msgid "Nigeria"
 msgstr "ไนจีเรีย"
 
-#: src/common/util.c:1013
+#: src/common/util.c:1022
 msgid "Nicaragua"
 msgstr ""
 
-#: src/common/util.c:1014
+#: src/common/util.c:1023
 msgid "Netherlands"
 msgstr ""
 
-#: src/common/util.c:1015
+#: src/common/util.c:1024
 msgid "Norway"
 msgstr "นอรเวย์"
 
-#: src/common/util.c:1016
+#: src/common/util.c:1025
 msgid "Nepal"
 msgstr "เนปาล"
 
-#: src/common/util.c:1017
+#: src/common/util.c:1026
 msgid "Nauru"
-msgstr ""
+msgstr "นาอูลู"
 
-#: src/common/util.c:1018
+#: src/common/util.c:1027
 msgid "Niue"
 msgstr ""
 
-#: src/common/util.c:1019
+#: src/common/util.c:1028
 msgid "New Zealand"
 msgstr "นิวซีแลนด์"
 
-#: src/common/util.c:1020
+#: src/common/util.c:1029
 msgid "Oman"
 msgstr "โอมาน"
 
-#: src/common/util.c:1021
+#: src/common/util.c:1030
 msgid "Internic Non-Profit Organization"
 msgstr ""
 
-#: src/common/util.c:1022
+#: src/common/util.c:1031
 msgid "Panama"
-msgstr ""
+msgstr "ปานามา"
 
-#: src/common/util.c:1023
+#: src/common/util.c:1032
 msgid "Peru"
 msgstr "เปรู"
 
-#: src/common/util.c:1024
+#: src/common/util.c:1033
 msgid "French Polynesia"
 msgstr ""
 
-#: src/common/util.c:1025
+#: src/common/util.c:1034
 msgid "Papua New Guinea"
 msgstr ""
 
-#: src/common/util.c:1026
+#: src/common/util.c:1035
 msgid "Philippines"
 msgstr "ฟิลิปปินส์"
 
-#: src/common/util.c:1027
+#: src/common/util.c:1036
 msgid "Pakistan"
 msgstr "ปากีสถาน"
 
-#: src/common/util.c:1028
+#: src/common/util.c:1037
 msgid "Poland"
 msgstr "โปแลนด์"
 
-#: src/common/util.c:1029
+#: src/common/util.c:1038
 msgid "St. Pierre and Miquelon"
 msgstr ""
 
-#: src/common/util.c:1030
+#: src/common/util.c:1039
 msgid "Pitcairn"
 msgstr ""
 
-#: src/common/util.c:1031
+#: src/common/util.c:1040
 msgid "Puerto Rico"
 msgstr ""
 
-#: src/common/util.c:1032
+#: src/common/util.c:1041
 msgid "Palestinian Territory"
 msgstr ""
 
-#: src/common/util.c:1033
+#: src/common/util.c:1042
 msgid "Portugal"
 msgstr ""
 
-#: src/common/util.c:1034
+#: src/common/util.c:1043
 msgid "Palau"
 msgstr ""
 
-#: src/common/util.c:1035
+#: src/common/util.c:1044
 msgid "Paraguay"
 msgstr ""
 
-#: src/common/util.c:1036
+#: src/common/util.c:1045
 msgid "Qatar"
 msgstr "กาตาร์"
 
-#: src/common/util.c:1037
+#: src/common/util.c:1046
 msgid "Reunion"
 msgstr ""
 
-#: src/common/util.c:1038
+#: src/common/util.c:1047
 msgid "Romania"
 msgstr "โรมาเนีย"
 
-#: src/common/util.c:1039
+#: src/common/util.c:1048
 msgid "Old School ARPAnet"
 msgstr "โรงเรียน ARPAnet เดิม"
 
-#: src/common/util.c:1040
+#: src/common/util.c:1049
 msgid "Russian Federation"
 msgstr ""
 
-#: src/common/util.c:1041
+#: src/common/util.c:1050
 msgid "Rwanda"
 msgstr ""
 
-#: src/common/util.c:1042
+#: src/common/util.c:1051
 msgid "Saudi Arabia"
 msgstr ""
 
-#: src/common/util.c:1043
+#: src/common/util.c:1052
 msgid "Solomon Islands"
 msgstr ""
 
-#: src/common/util.c:1044
+#: src/common/util.c:1053
 msgid "Seychelles"
 msgstr ""
 
-#: src/common/util.c:1045
+#: src/common/util.c:1054
 msgid "Sudan"
 msgstr "ซูดาน"
 
-#: src/common/util.c:1046
+#: src/common/util.c:1055
 msgid "Sweden"
 msgstr "สวีเดน"
 
-#: src/common/util.c:1047
+#: src/common/util.c:1056
 msgid "Singapore"
 msgstr "สิงคโปร์"
 
-#: src/common/util.c:1048
+#: src/common/util.c:1057
 msgid "St. Helena"
 msgstr ""
 
-#: src/common/util.c:1049
+#: src/common/util.c:1058
 msgid "Slovenia"
 msgstr ""
 
-#: src/common/util.c:1050
+#: src/common/util.c:1059
 msgid "Svalbard and Jan Mayen Islands"
 msgstr ""
 
-#: src/common/util.c:1051
+#: src/common/util.c:1060
 msgid "Slovak Republic"
 msgstr ""
 
-#: src/common/util.c:1052
+#: src/common/util.c:1061
 msgid "Sierra Leone"
 msgstr ""
 
-#: src/common/util.c:1053
+#: src/common/util.c:1062
 msgid "San Marino"
 msgstr ""
 
-#: src/common/util.c:1054
+#: src/common/util.c:1063
 msgid "Senegal"
 msgstr ""
 
-#: src/common/util.c:1055
+#: src/common/util.c:1064
 msgid "Somalia"
 msgstr ""
 
-#: src/common/util.c:1056
+#: src/common/util.c:1065
 msgid "Suriname"
 msgstr ""
 
-#: src/common/util.c:1057
+#: src/common/util.c:1066
 msgid "Sao Tome and Principe"
 msgstr ""
 
-#: src/common/util.c:1058
+#: src/common/util.c:1067
 msgid "Former USSR"
 msgstr ""
 
-#: src/common/util.c:1059
+#: src/common/util.c:1068
 msgid "El Salvador"
 msgstr ""
 
-#: src/common/util.c:1060
+#: src/common/util.c:1069
 msgid "Syria"
 msgstr ""
 
-#: src/common/util.c:1061
+#: src/common/util.c:1070
 msgid "Swaziland"
 msgstr ""
 
-#: src/common/util.c:1062
+#: src/common/util.c:1071
 msgid "Turks and Caicos Islands"
 msgstr ""
 
-#: src/common/util.c:1063
+#: src/common/util.c:1072
 msgid "Chad"
 msgstr ""
 
-#: src/common/util.c:1064
+#: src/common/util.c:1073
 msgid "French Southern Territories"
 msgstr ""
 
-#: src/common/util.c:1065
+#: src/common/util.c:1074
 msgid "Togo"
 msgstr ""
 
-#: src/common/util.c:1066
+#: src/common/util.c:1075
 msgid "Thailand"
 msgstr "ไทย"
 
-#: src/common/util.c:1067
+#: src/common/util.c:1076
 msgid "Tajikistan"
 msgstr ""
 
-#: src/common/util.c:1068
+#: src/common/util.c:1077
 msgid "Tokelau"
 msgstr ""
 
-#: src/common/util.c:1069 src/common/util.c:1073
+#: src/common/util.c:1078 src/common/util.c:1082
 msgid "East Timor"
 msgstr ""
 
-#: src/common/util.c:1070
+#: src/common/util.c:1079
 msgid "Turkmenistan"
 msgstr ""
 
-#: src/common/util.c:1071
+#: src/common/util.c:1080
 msgid "Tunisia"
 msgstr ""
 
-#: src/common/util.c:1072
+#: src/common/util.c:1081
 msgid "Tonga"
 msgstr ""
 
-#: src/common/util.c:1074
+#: src/common/util.c:1083
 msgid "Turkey"
 msgstr "ตุรกี"
 
-#: src/common/util.c:1075
+#: src/common/util.c:1084
 msgid "Trinidad and Tobago"
 msgstr ""
 
-#: src/common/util.c:1076
+#: src/common/util.c:1085
 msgid "Tuvalu"
 msgstr ""
 
-#: src/common/util.c:1077
+#: src/common/util.c:1086
 msgid "Taiwan"
 msgstr "ไต้หวัน"
 
-#: src/common/util.c:1078
+#: src/common/util.c:1087
 msgid "Tanzania"
-msgstr ""
+msgstr "แทนซาเนีย"
 
-#: src/common/util.c:1079
+#: src/common/util.c:1088
 msgid "Ukraine"
 msgstr "ยูเครน"
 
-#: src/common/util.c:1080
+#: src/common/util.c:1089
 msgid "Uganda"
 msgstr "อูกานดา"
 
-#: src/common/util.c:1081
+#: src/common/util.c:1090
 msgid "United Kingdom"
 msgstr "สหราชอาณาจักร"
 
-#: src/common/util.c:1082
+#: src/common/util.c:1091
 msgid "United States of America"
 msgstr "สหรัฐอเมริกา"
 
-#: src/common/util.c:1083
+#: src/common/util.c:1092
 msgid "Uruguay"
-msgstr ""
+msgstr "อูรุกวัย"
 
-#: src/common/util.c:1084
+#: src/common/util.c:1093
 msgid "Uzbekistan"
 msgstr ""
 
-#: src/common/util.c:1085
+#: src/common/util.c:1094
 msgid "Vatican City State"
 msgstr ""
 
-#: src/common/util.c:1086
+#: src/common/util.c:1095
 msgid "St. Vincent and the Grenadines"
 msgstr ""
 
-#: src/common/util.c:1087
+#: src/common/util.c:1096
 msgid "Venezuela"
 msgstr ""
 
-#: src/common/util.c:1088
+#: src/common/util.c:1097
 msgid "British Virgin Islands"
 msgstr ""
 
-#: src/common/util.c:1089
+#: src/common/util.c:1098
 msgid "US Virgin Islands"
 msgstr ""
 
-#: src/common/util.c:1090
+#: src/common/util.c:1099
 msgid "Vietnam"
 msgstr "เวียดนาม"
 
-#: src/common/util.c:1091
+#: src/common/util.c:1100
 msgid "Vanuatu"
 msgstr ""
 
-#: src/common/util.c:1092
+#: src/common/util.c:1101
 msgid "Wallis and Futuna Islands"
 msgstr ""
 
-#: src/common/util.c:1093
+#: src/common/util.c:1102
 msgid "Samoa"
 msgstr ""
 
-#: src/common/util.c:1094
+#: src/common/util.c:1103
 msgid "Yemen"
 msgstr "เยเมน"
 
-#: src/common/util.c:1095
+#: src/common/util.c:1104
 msgid "Mayotte"
 msgstr ""
 
-#: src/common/util.c:1096
+#: src/common/util.c:1105
 msgid "Yugoslavia"
 msgstr ""
 
-#: src/common/util.c:1097
+#: src/common/util.c:1106
 msgid "South Africa"
 msgstr "แอฟริกาใต้"
 
-#: src/common/util.c:1098
+#: src/common/util.c:1107
 msgid "Zambia"
 msgstr ""
 
-#: src/common/util.c:1099
+#: src/common/util.c:1108
 msgid "Zimbabwe"
 msgstr ""
 
-#: src/common/util.c:1109 src/common/util.c:1119 src/fe-gtk/menu.c:553
-#: src/fe-gtk/menu.c:558 src/fe-gtk/menu.c:562 src/fe-gtk/menu.c:566
-#: src/fe-gtk/menu.c:574 src/fe-gtk/menu.c:592
+#: src/common/util.c:1118 src/common/util.c:1128 src/fe-gtk/menu.c:616
 msgid "Unknown"
 msgstr "ไม่รู้จัก"
 
-#: src/common/xchat.c:767 src/common/xchat.c:893
-msgid "Open Dialog Window"
+#: src/common/xchat.c:726
+msgid "_Open Dialog Window"
 msgstr "เปิดหน้าต่างสนทนา"
 
-#: src/common/xchat.c:768
-msgid "Send a File"
+#: src/common/xchat.c:727
+msgid "_Send a File"
 msgstr "ส่งไฟล์"
 
-#: src/common/xchat.c:769
-msgid "User Info (WHOIS)"
-msgstr "ข้อมูลผู้ใช้(WHOIS)"
+#: src/common/xchat.c:728
+msgid "_User Info (WhoIs)"
+msgstr "ข้อมูลผู้ใช้ (WHOIS)"
 
-#: src/common/xchat.c:770
-msgid "Operator Actions"
-msgstr "ผู้ควบคุมการปฏิบัติการ"
+#: src/common/xchat.c:729
+msgid "_Add to Friends List"
+msgstr "เพิ่มไปยังรายชื่อเพื่อน"
 
-#: src/common/xchat.c:772 src/common/xchat.c:863
+#: src/common/xchat.c:730
+msgid "O_perator Actions"
+msgstr "การปฏิบัติการของผู้ควบคุม"
+
+#: src/common/xchat.c:732
 msgid "Give Ops"
 msgstr "ให้ Ops"
 
-#: src/common/xchat.c:773 src/common/xchat.c:864
+#: src/common/xchat.c:733
 msgid "Take Ops"
 msgstr "รับ Ops"
 
-#: src/common/xchat.c:774 src/common/xchat.c:867
+#: src/common/xchat.c:734
 msgid "Give Voice"
 msgstr "ให้การประกาศ"
 
-#: src/common/xchat.c:775 src/common/xchat.c:868
+#: src/common/xchat.c:735
 msgid "Take Voice"
 msgstr "รับการประกาศ"
 
-#: src/common/xchat.c:777 src/common/xchat.c:872
+#: src/common/xchat.c:737
 msgid "Kick/Ban"
 msgstr "เตะ/แบน"
 
-#: src/common/xchat.c:778 src/common/xchat.c:873 src/common/xchat.c:922
+#: src/common/xchat.c:738 src/common/xchat.c:775
 msgid "Kick"
 msgstr "เตะ"
 
-#: src/common/xchat.c:779 src/common/xchat.c:780 src/common/xchat.c:781
-#: src/common/xchat.c:782 src/common/xchat.c:783 src/common/xchat.c:874
-#: src/common/xchat.c:875 src/common/xchat.c:876 src/common/xchat.c:877
-#: src/common/xchat.c:878 src/common/xchat.c:921
+#: src/common/xchat.c:739 src/common/xchat.c:740 src/common/xchat.c:741
+#: src/common/xchat.c:742 src/common/xchat.c:743 src/common/xchat.c:774
 msgid "Ban"
 msgstr "แบน"
 
-#: src/common/xchat.c:784 src/common/xchat.c:785 src/common/xchat.c:786
-#: src/common/xchat.c:787 src/common/xchat.c:879 src/common/xchat.c:880
-#: src/common/xchat.c:881 src/common/xchat.c:882
+#: src/common/xchat.c:744 src/common/xchat.c:745 src/common/xchat.c:746
+#: src/common/xchat.c:747
 msgid "KickBan"
 msgstr "เตะแบน"
 
-#: src/common/xchat.c:850
-msgid "Direct client-to-client"
-msgstr "ลูกข่ายต่อลูกข่ายโดยตรง"
-
-#: src/common/xchat.c:851
-msgid "Send File"
-msgstr "ส่งไฟล์"
-
-#: src/common/xchat.c:852
-msgid "Offer Chat"
-msgstr "เสนอการคุยเล่น"
-
-#: src/common/xchat.c:853
-msgid "Abort Chat"
-msgstr "ยกเลิกการคุยเล่นก่อนเสร็จสิ้น"
-
-#: src/common/xchat.c:854 src/fe-gtk/plugingui.c:74
-msgid "Version"
-msgstr "เวอร์ชั่น"
-
-#: src/common/xchat.c:855
-msgid "Userinfo"
-msgstr "ข้อมูลผู้ใช้"
-
-#: src/common/xchat.c:856
-msgid "Clientinfo"
-msgstr "ข้อมูลลูกข่าย"
-
-#: src/common/xchat.c:857 src/common/xchat.c:891 src/common/xchat.c:939
-msgid "Ping"
-msgstr "Ping"
-
-#: src/common/xchat.c:858
-msgid "Time"
-msgstr "เวลา"
-
-#: src/common/xchat.c:859
-msgid "Finger"
-msgstr "Finger"
-
-#: src/common/xchat.c:860
-msgid "Oper"
-msgstr "Oper"
-
-#: src/common/xchat.c:861
-msgid "Kill this user"
-msgstr " Kill ผู้ใช้นี้"
-
-#: src/common/xchat.c:862
-msgid "Mode"
-msgstr "โหมด"
-
-#: src/common/xchat.c:865
-msgid "Give Half-Ops"
-msgstr "ให้ Half-Ops"
-
-#: src/common/xchat.c:866
-msgid "Take Half-Ops"
-msgstr "รับ Half-Ops"
-
-#: src/common/xchat.c:869
-msgid "Ignore"
-msgstr "เพิกเฉย"
-
-#: src/common/xchat.c:870
-msgid "Ignore User"
-msgstr "เพิกเฉยต่อผู้ใช้"
-
-#: src/common/xchat.c:871
-msgid "UnIgnore User"
-msgstr "เลิกเพิกเฉยต่อผู้ใช้"
-
-#: src/common/xchat.c:883
-msgid "Info"
-msgstr "ข้อมูล"
-
-#: src/common/xchat.c:884
-msgid "Who"
-msgstr "Who"
-
-#: src/common/xchat.c:885 src/common/xchat.c:935
-msgid "WhoIs"
-msgstr "WhoIs"
-
-#: src/common/xchat.c:886
-msgid "DNS Lookup"
-msgstr "ค้นหา DNS"
-
-#: src/common/xchat.c:887
-msgid "Trace"
-msgstr "Trace"
-
-#: src/common/xchat.c:888
-msgid "UserHost"
-msgstr "UserHost"
-
-#: src/common/xchat.c:889
-msgid "External"
-msgstr "External"
-
-#: src/common/xchat.c:890
-msgid "Traceroute"
-msgstr "Traceroute"
-
-#: src/common/xchat.c:892
-msgid "Telnet"
-msgstr "Telnet"
-
-#: src/common/xchat.c:904
+#: src/common/xchat.c:757
 msgid "Leave Channel"
 msgstr "ออกจากแชนแนล"
 
-#: src/common/xchat.c:905 src/fe-gtk/menu.c:1427
+#: src/common/xchat.c:758
 msgid "Join Channel..."
 msgstr "เข้าใช้แชนแนล..."
 
-#: src/common/xchat.c:906 src/fe-gtk/menu.c:1117
+#: src/common/xchat.c:759 src/fe-gtk/menu.c:1295
 msgid "Enter Channel to Join:"
 msgstr "ป้อนแชนแนลที่จะเข้าร่วม"
 
-#: src/common/xchat.c:907
+#: src/common/xchat.c:760
 msgid "Server Links"
 msgstr "การเชื่อมต่อเซิร์ฟเวอร์"
 
-#: src/common/xchat.c:908
+#: src/common/xchat.c:761
 msgid "Ping Server"
 msgstr "Ping เซิร์ฟเวอร์"
 
-#: src/common/xchat.c:909
+#: src/common/xchat.c:762
 msgid "Hide Version"
 msgstr "ซ่อนเวอร์ชั่น"
 
-#: src/common/xchat.c:919
+#: src/common/xchat.c:772
 msgid "Op"
 msgstr "Op"
 
-#: src/common/xchat.c:920
+#: src/common/xchat.c:773
 msgid "DeOp"
 msgstr "DeOp"
 
-#: src/common/xchat.c:923
+#: src/common/xchat.c:776
 msgid "bye"
 msgstr "ลาก่อน"
 
-#: src/common/xchat.c:924
+#: src/common/xchat.c:777
 #, c-format
 msgid "Enter reason to kick %s:"
 msgstr "ป้อนเหตุผลที่จะเตะ %s:"
 
-#: src/common/xchat.c:925
+#: src/common/xchat.c:778
 msgid "Sendfile"
 msgstr "ส่งไฟล์"
 
-#: src/common/xchat.c:926
+#: src/common/xchat.c:779
 msgid "Dialog"
 msgstr "หน้าต่างสนทนา"
 
-#: src/common/xchat.c:936
+#: src/common/xchat.c:788
+msgid "WhoIs"
+msgstr "WhoIs"
+
+#: src/common/xchat.c:789
 msgid "Send"
 msgstr "ส่ง"
 
-#: src/common/xchat.c:937
+#: src/common/xchat.c:790
 msgid "Chat"
 msgstr "คุยเล่น"
 
-#: src/common/xchat.c:938 src/fe-gtk/banlist.c:341 src/fe-gtk/ignoregui.c:388
-#: src/fe-gtk/urlgrab.c:201
+#: src/common/xchat.c:791 src/fe-gtk/banlist.c:411 src/fe-gtk/ignoregui.c:387
+#: src/fe-gtk/urlgrab.c:199
 msgid "Clear"
 msgstr "ล้าง"
 
-#: src/common/dbus/dbus-client.c:71
+#: src/common/xchat.c:792
+msgid "Ping"
+msgstr "Ping"
+
+#: src/common/dbus/dbus-client.c:72
 msgid "Couldn't connect to session bus"
 msgstr "ไม่สามารถเชื่อมต่อไปยัง session bus"
 
-#: src/common/dbus/dbus-client.c:85
+#: src/common/dbus/dbus-client.c:86
 msgid "Failed to complete NameHasOwner"
 msgstr "ล้มเหลวในการจบ NameHasOwner"
 
-#: src/common/dbus/dbus-client.c:106
+#: src/common/dbus/dbus-client.c:112
 msgid "Failed to complete Command"
 msgstr "ล้มเหลวในการจบคำสั่ง"
 
@@ -2860,62 +2753,62 @@ msgstr "ไม่สามารถเชื่อมต่อไปยัง se
 msgid "Failed to acquire %s: %s\n"
 msgstr "ผิดพลาดในการร้องขอ %s: %s\n"
 
-#: src/fe-gtk/about.c:102
-msgid "About XChat"
-msgstr "เกี่ยวกับ XChat"
+#: src/fe-gtk/about.c:100
+msgid "About "
+msgstr "เกี่ยวกับ"
 
-#: src/fe-gtk/about.c:129
+#: src/fe-gtk/about.c:131
 msgid "A multiplatform IRC Client"
 msgstr "โปรแกรมลูกข่าย IRC หลายแพลตฟอร์ม "
 
-#: src/fe-gtk/ascii.c:135
+#: src/fe-gtk/ascii.c:133
 msgid "Character Chart"
 msgstr "แผนผังตัวอักษร"
 
-#: src/fe-gtk/banlist.c:113 src/fe-gtk/chanlist.c:305
-#: src/fe-gtk/plugin-tray.c:217
+#: src/fe-gtk/banlist.c:149 src/fe-gtk/chanlist.c:305
+#: src/fe-gtk/plugin-tray.c:304
 msgid "Not connected."
 msgstr "ไม่ได้เชื่อมต่อ."
 
-#: src/fe-gtk/banlist.c:154 src/fe-gtk/banlist.c:257
+#: src/fe-gtk/banlist.c:247 src/fe-gtk/banlist.c:327
 msgid "You must select some bans."
 msgstr "คุณจะต้องเลือกคนที่ถูกแบน."
 
-#: src/fe-gtk/banlist.c:206
+#: src/fe-gtk/banlist.c:276
 #, c-format
 msgid "Are you sure you want to remove all bans in %s?"
 msgstr "แน่ใจหรือไม่ที่ต้องการจะลบทุกคนที่ถูกแบนไว้ใน %s?"
 
-#: src/fe-gtk/banlist.c:272 src/fe-gtk/ignoregui.c:175
+#: src/fe-gtk/banlist.c:342 src/fe-gtk/ignoregui.c:173
 msgid "Mask"
 msgstr "มาสก์"
 
-#: src/fe-gtk/banlist.c:273
+#: src/fe-gtk/banlist.c:343
 msgid "From"
 msgstr "จาก"
 
-#: src/fe-gtk/banlist.c:274
+#: src/fe-gtk/banlist.c:344
 msgid "Date"
 msgstr "วันเวลา"
 
-#: src/fe-gtk/banlist.c:317
+#: src/fe-gtk/banlist.c:387
 msgid "You can only open the Ban List window while in a channel tab."
 msgstr "คุณสามารถเปิดหน้าต่างรายการผู้ถูกแบนเมื่ออยู่ในแท็บแชนแนลเท่านั้น."
 
-#: src/fe-gtk/banlist.c:321
+#: src/fe-gtk/banlist.c:391
 #, c-format
 msgid "XChat: Ban List (%s)"
 msgstr "XChat: รายการแบน (%s)"
 
-#: src/fe-gtk/banlist.c:337
-msgid "Unban"
-msgstr "เลิกแบน"
+#: src/fe-gtk/banlist.c:407 src/fe-gtk/notifygui.c:430
+msgid "Remove"
+msgstr "ลบ"
 
-#: src/fe-gtk/banlist.c:339
+#: src/fe-gtk/banlist.c:409
 msgid "Crop"
 msgstr "ตัดให้สั้น"
 
-#: src/fe-gtk/banlist.c:343
+#: src/fe-gtk/banlist.c:413
 msgid "Refresh"
 msgstr "เรียกใหม่"
 
@@ -2924,93 +2817,93 @@ msgstr "เรียกใหม่"
 msgid "Displaying %d/%d users on %d/%d channels."
 msgstr "กำลังแสดง %d/%d ผู้ใช้ บน %d/%d แชนแนล."
 
-#: src/fe-gtk/chanlist.c:522 src/fe-gtk/menu.c:1053 src/fe-gtk/urlgrab.c:148
+#: src/fe-gtk/chanlist.c:526 src/fe-gtk/menu.c:1231 src/fe-gtk/urlgrab.c:146
 msgid "Select an output filename"
 msgstr "เลือกชื่อไฟล์เอาต์พุท"
 
-#: src/fe-gtk/chanlist.c:626 src/fe-gtk/chanlist.c:789
+#: src/fe-gtk/chanlist.c:631 src/fe-gtk/chanlist.c:799
 msgid "_Join Channel"
 msgstr "เข้าแชนแนล"
 
-#: src/fe-gtk/chanlist.c:628
+#: src/fe-gtk/chanlist.c:633
 msgid "_Copy Channel Name"
 msgstr "คัดลอกชื่อแชนแนล"
 
-#: src/fe-gtk/chanlist.c:630
+#: src/fe-gtk/chanlist.c:635
 msgid "Copy _Topic Text"
 msgstr "คัดลอกข้อความหัวข้อ"
 
-#: src/fe-gtk/chanlist.c:714
+#: src/fe-gtk/chanlist.c:724
 #, c-format
 msgid "XChat: Channel List (%s)"
 msgstr "XChat: รายการแชนแนล (%s)"
 
-#: src/fe-gtk/chanlist.c:771
+#: src/fe-gtk/chanlist.c:781
 msgid "_Search"
 msgstr "ค้น_หา"
 
-#: src/fe-gtk/chanlist.c:777
+#: src/fe-gtk/chanlist.c:787
 msgid "_Download List"
 msgstr "รายการ_ดาวน์โหลด"
 
-#: src/fe-gtk/chanlist.c:783
+#: src/fe-gtk/chanlist.c:793
 msgid "Save _List..."
 msgstr "_บันทึกรายการ..."
 
-#: src/fe-gtk/chanlist.c:796
+#: src/fe-gtk/chanlist.c:806
 msgid "Show only:"
 msgstr "แสดงเท่านั้น."
 
-#: src/fe-gtk/chanlist.c:808
+#: src/fe-gtk/chanlist.c:818
 msgid "channels with"
 msgstr "แชนแนลกับ"
 
-#: src/fe-gtk/chanlist.c:821
+#: src/fe-gtk/chanlist.c:831
 msgid "to"
 msgstr "ไปยัง"
 
-#: src/fe-gtk/chanlist.c:833
+#: src/fe-gtk/chanlist.c:843
 msgid "users."
 msgstr "ผู้ใช้"
 
-#: src/fe-gtk/chanlist.c:839
+#: src/fe-gtk/chanlist.c:849
 msgid "Look in:"
 msgstr "ค้นหาใน:"
 
-#: src/fe-gtk/chanlist.c:851
+#: src/fe-gtk/chanlist.c:861
 msgid "Channel name"
 msgstr "ชื่อแชนแนล"
 
-#: src/fe-gtk/chanlist.c:872
+#: src/fe-gtk/chanlist.c:882
 msgid "Search type:"
 msgstr "ชนิดไฟล์:"
 
-#: src/fe-gtk/chanlist.c:879
+#: src/fe-gtk/chanlist.c:889
 msgid "Simple Search"
 msgstr "ค้นหาอย่างง่าย"
 
-#: src/fe-gtk/chanlist.c:880
+#: src/fe-gtk/chanlist.c:890
 msgid "Pattern Match (Wildcards)"
 msgstr "รูปแบบตรงกัน (ไวลด์การ์ด)"
 
-#: src/fe-gtk/chanlist.c:882
+#: src/fe-gtk/chanlist.c:892
 msgid "Regular Expression"
 msgstr "Regular Expression"
 
-#: src/fe-gtk/chanlist.c:893 src/fe-gtk/search.c:118
+#: src/fe-gtk/chanlist.c:903 src/fe-gtk/search.c:125
 msgid "Find:"
 msgstr "ค้นหา:"
 
-#: src/fe-gtk/dccgui.c:166
+#: src/fe-gtk/dccgui.c:167
 #, c-format
 msgid "Send file to %s"
 msgstr "ส่งไฟล์ไปยัง %s"
 
-#: src/fe-gtk/dccgui.c:496
+#: src/fe-gtk/dccgui.c:497
 msgid "That file is not resumable."
 msgstr "ไฟล์นั้นไม่สามารถเริ่มต่อได้"
 
-#: src/fe-gtk/dccgui.c:500
+#: src/fe-gtk/dccgui.c:501
 #, c-format
 msgid ""
 "Cannot access file: %s\n"
@@ -3021,83 +2914,83 @@ msgstr ""
 "%s.\n"
 "การเชื่อมต่อไม่สามารถเป็นไปได้."
 
-#: src/fe-gtk/dccgui.c:507
+#: src/fe-gtk/dccgui.c:508
 msgid "File in download directory is larger than file offered. Resuming not possible."
 msgstr "ไฟล์ในไดเร็กทอรี่ดาวน์โหลดใหญ่กว่าไฟล์ที่ถูกเสนอ. การเริ่มต่อไม่สามารถเป็นไปได้."
 
-#: src/fe-gtk/dccgui.c:511
+#: src/fe-gtk/dccgui.c:512
 msgid "Cannot resume the same file from two people."
 msgstr "ไม่สามารถเริ่มต่อสำหรับไฟล์เดียวกันจากคนสองคน."
 
-#: src/fe-gtk/dccgui.c:740
+#: src/fe-gtk/dccgui.c:745
 msgid "XChat: Uploads and Downloads"
 msgstr "XChat: อัพโหลดและดาวน์โหลด"
 
-#: src/fe-gtk/dccgui.c:756 src/fe-gtk/dccgui.c:993 src/fe-gtk/notifygui.c:138
+#: src/fe-gtk/dccgui.c:761 src/fe-gtk/dccgui.c:1000 src/fe-gtk/notifygui.c:136
 msgid "Status"
 msgstr "สถานะ"
 
-#: src/fe-gtk/dccgui.c:757 src/fe-gtk/plugingui.c:75
+#: src/fe-gtk/dccgui.c:762 src/fe-gtk/plugingui.c:73
 msgid "File"
 msgstr "ไฟล์"
 
-#: src/fe-gtk/dccgui.c:762
+#: src/fe-gtk/dccgui.c:767
 msgid "ETA"
 msgstr "ETA"
 
-#: src/fe-gtk/dccgui.c:784 src/fe-gtk/menu.c:1421
+#: src/fe-gtk/dccgui.c:792 src/fe-gtk/menu.c:1607
 msgid "Both"
 msgstr "ทั้งคู่"
 
-#: src/fe-gtk/dccgui.c:790
+#: src/fe-gtk/dccgui.c:798
 msgid "Uploads"
 msgstr "อัพโหลด"
 
-#: src/fe-gtk/dccgui.c:796
+#: src/fe-gtk/dccgui.c:804
 msgid "Downloads"
 msgstr "ดาวน์โหลด"
 
-#: src/fe-gtk/dccgui.c:801
+#: src/fe-gtk/dccgui.c:809
 msgid "Details"
 msgstr "รายละเอียด"
 
-#: src/fe-gtk/dccgui.c:812
+#: src/fe-gtk/dccgui.c:820
 msgid "File:"
 msgstr "ไฟล์:"
 
-#: src/fe-gtk/dccgui.c:813
+#: src/fe-gtk/dccgui.c:821
 msgid "Address:"
 msgstr "ที่อยู่:"
 
-#: src/fe-gtk/dccgui.c:819 src/fe-gtk/dccgui.c:1014
+#: src/fe-gtk/dccgui.c:827 src/fe-gtk/dccgui.c:1024
 msgid "Abort"
 msgstr "ยกเลิกกลางคัน"
 
-#: src/fe-gtk/dccgui.c:820 src/fe-gtk/dccgui.c:1015
+#: src/fe-gtk/dccgui.c:828 src/fe-gtk/dccgui.c:1025
 msgid "Accept"
 msgstr "ยอมรับ"
 
-#: src/fe-gtk/dccgui.c:821
+#: src/fe-gtk/dccgui.c:829
 msgid "Resume"
 msgstr "เริ่มใหม่"
 
-#: src/fe-gtk/dccgui.c:822
+#: src/fe-gtk/dccgui.c:830
 msgid "Open Folder..."
 msgstr "เปิดโฟลเดอร์..."
 
-#: src/fe-gtk/dccgui.c:982
+#: src/fe-gtk/dccgui.c:990
 msgid "XChat: DCC Chat List"
 msgstr "XChat: รายการคุยเล่น DCC"
 
-#: src/fe-gtk/dccgui.c:995
+#: src/fe-gtk/dccgui.c:1002
 msgid "Recv"
 msgstr "รับ"
 
-#: src/fe-gtk/dccgui.c:996
+#: src/fe-gtk/dccgui.c:1003
 msgid "Sent"
 msgstr "ส่ง"
 
-#: src/fe-gtk/dccgui.c:997
+#: src/fe-gtk/dccgui.c:1004
 msgid "Start Time"
 msgstr "เวลาเริ่ม"
 
@@ -3109,7 +3002,8 @@ msgstr "*ใหม่*"
 msgid "EDIT ME"
 msgstr "แก้ไขฉัน"
 
-#: src/fe-gtk/editlist.c:310 src/fe-gtk/plugingui.c:73
+#: src/fe-gtk/editlist.c:310 src/fe-gtk/notifygui.c:135
+#: src/fe-gtk/plugingui.c:71
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -3137,7 +3031,7 @@ msgstr "บันทึก"
 msgid "Add New"
 msgstr "เพิ่มใหม่"
 
-#: src/fe-gtk/editlist.c:367 src/fe-gtk/fkeys.c:770 src/fe-gtk/ignoregui.c:386
+#: src/fe-gtk/editlist.c:367 src/fe-gtk/fkeys.c:770 src/fe-gtk/ignoregui.c:385
 msgid "Delete"
 msgstr "ลบ"
 
@@ -3149,47 +3043,51 @@ msgstr "เรียงลำดับ"
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
-#: src/fe-gtk/fe-gtk.c:126
+#: src/fe-gtk/fe-gtk.c:124
 msgid "Don't auto connect to servers"
 msgstr "ไม่เชื่อมต่อไปยังเซิร์ฟเวอร์โดยอัตโนมัติ"
 
-#: src/fe-gtk/fe-gtk.c:127
+#: src/fe-gtk/fe-gtk.c:125
 msgid "Use a different config directory"
 msgstr "ใช้ไดเร็กทอรี่การตั้งค่าต่างออกไป"
 
-#: src/fe-gtk/fe-gtk.c:128
+#: src/fe-gtk/fe-gtk.c:126
 msgid "Don't auto load any plugins"
 msgstr "ไม่โหลดปั๊กอินใด ๆ โดยอัตโนมัติ"
 
-#: src/fe-gtk/fe-gtk.c:129
+#: src/fe-gtk/fe-gtk.c:127
 msgid "Show plugin auto-load directory"
 msgstr "แสดงไดเร็กทอรี่ปลั๊กอินที่โหลดอัตโนมัติ"
 
-#: src/fe-gtk/fe-gtk.c:130
+#: src/fe-gtk/fe-gtk.c:128
 msgid "Show user config directory"
 msgstr "แสดงไดเร็กทอรี่การตั้งค่าของผู้ใช้"
 
-#: src/fe-gtk/fe-gtk.c:131
+#: src/fe-gtk/fe-gtk.c:129
 msgid "Open an irc://server:port/channel URL"
 msgstr "เปิด URL irc://เซิร์ฟเวอร์:พอร์ต/แชนแนล"
 
-#: src/fe-gtk/fe-gtk.c:133
-msgid "Open URL in an existing XChat"
-msgstr "เปิด URL ใน XChat ที่มีอยู่"
+#: src/fe-gtk/fe-gtk.c:131 src/fe-gtk/setup.c:212
+msgid "Execute command:"
+msgstr "กระทำคำสั่ง:"
 
-#: src/fe-gtk/fe-gtk.c:135
+#: src/fe-gtk/fe-gtk.c:132
+msgid "Open URL or execute command in an existing XChat"
+msgstr "เปิด URL หรือดำเนินการคำสั่งใน XChat ที่มีอยู่"
+
+#: src/fe-gtk/fe-gtk.c:134
 msgid "Begin minimized. Level 0=Normal 1=Iconified 2=Tray"
 msgstr "เริ่มต้นด้วยขนาดย่อ. ระดับ 0=ปกติ 1=เป็นไอคอน 2=ถาด"
 
-#: src/fe-gtk/fe-gtk.c:135
+#: src/fe-gtk/fe-gtk.c:134
 msgid "level"
 msgstr "รดับ"
 
-#: src/fe-gtk/fe-gtk.c:136
+#: src/fe-gtk/fe-gtk.c:135
 msgid "Show version information"
 msgstr "แสดงข้อมูลเวอร์ชั่น"
 
-#: src/fe-gtk/fe-gtk.c:256
+#: src/fe-gtk/fe-gtk.c:255
 #, c-format
 msgid ""
 "Failed to open font:\n"
@@ -3200,19 +3098,19 @@ msgstr ""
 "\n"
 "%s"
 
-#: src/fe-gtk/fe-gtk.c:635
+#: src/fe-gtk/fe-gtk.c:634
 msgid "Search buffer is empty.\n"
 msgstr "การค้นหาบัฟเฟอร์ว่างเปล่า.\n"
 
-#: src/fe-gtk/fe-gtk.c:731
+#: src/fe-gtk/fe-gtk.c:730
 #, c-format
 msgid "%d bytes"
-msgstr ""
+msgstr "%d ไบต์"
 
-#: src/fe-gtk/fe-gtk.c:732
+#: src/fe-gtk/fe-gtk.c:731
 #, c-format
 msgid "Network send queue: %d bytes"
-msgstr ""
+msgstr "คิวการส่งของเครือข่าย: %d ไบต์"
 
 #: src/fe-gtk/fkeys.c:159
 msgid "The Run Command action runs the data in Data 1 as if it has been typed into the entry box where you pressed the key sequence. Thus it can contain text (which will be sent to the channel/person), commands or user commands. When run all \\n characters in Data 1 are used to deliminate seperate commands so it is possible to run more than one command. If you want a \\ in the actual text run then enter \\\\"
@@ -3280,8 +3178,8 @@ msgstr "มีปัญหาในการโหลดการตั้งค
 
 #: src/fe-gtk/fkeys.c:450 src/fe-gtk/fkeys.c:451 src/fe-gtk/fkeys.c:452
 #: src/fe-gtk/fkeys.c:453 src/fe-gtk/fkeys.c:743 src/fe-gtk/fkeys.c:749
-#: src/fe-gtk/fkeys.c:754 src/fe-gtk/maingui.c:1616 src/fe-gtk/maingui.c:1719
-#: src/fe-gtk/maingui.c:3201
+#: src/fe-gtk/fkeys.c:754 src/fe-gtk/maingui.c:1642 src/fe-gtk/maingui.c:1758
+#: src/fe-gtk/maingui.c:3259
 msgid "<none>"
 msgstr "<none>"
 
@@ -3373,67 +3271,67 @@ msgstr "ไม่สามารถเขียนไฟล์นั้นได
 msgid "Cannot read that file."
 msgstr "ไม่สามารถอ่านไฟล์นั้นได้"
 
-#: src/fe-gtk/ignoregui.c:117 src/fe-gtk/ignoregui.c:263
+#: src/fe-gtk/ignoregui.c:115 src/fe-gtk/ignoregui.c:262
 msgid "That mask already exists."
 msgstr "มาสก็นั้นมีอยู่แล้ว"
 
-#: src/fe-gtk/ignoregui.c:177 src/fe-gtk/maingui.c:2100
+#: src/fe-gtk/ignoregui.c:175 src/fe-gtk/maingui.c:2139
 msgid "Private"
 msgstr "ส่วนตัว"
 
-#: src/fe-gtk/ignoregui.c:178
+#: src/fe-gtk/ignoregui.c:176
 msgid "Notice"
 msgstr "ประกาศ"
 
-#: src/fe-gtk/ignoregui.c:179
+#: src/fe-gtk/ignoregui.c:177
 msgid "CTCP"
 msgstr "CTCP"
 
-#: src/fe-gtk/ignoregui.c:180
+#: src/fe-gtk/ignoregui.c:178
 msgid "DCC"
 msgstr "DCC"
 
-#: src/fe-gtk/ignoregui.c:181
+#: src/fe-gtk/ignoregui.c:179
 msgid "Invite"
 msgstr "เชิญชวน"
 
-#: src/fe-gtk/ignoregui.c:182
+#: src/fe-gtk/ignoregui.c:180
 msgid "Unignore"
 msgstr "เลิกเพิกเฉย"
 
-#: src/fe-gtk/ignoregui.c:307
+#: src/fe-gtk/ignoregui.c:306
 msgid "Enter mask to ignore:"
 msgstr "ป้อนมาสก์เพื่อเพิกเฉย"
 
-#: src/fe-gtk/ignoregui.c:354
+#: src/fe-gtk/ignoregui.c:353
 msgid "XChat: Ignore list"
 msgstr "XChat: รายการเพิกเฉย"
 
-#: src/fe-gtk/ignoregui.c:361
+#: src/fe-gtk/ignoregui.c:360
 msgid "Ignore Stats:"
 msgstr "สถิติการเพิกเฉย:"
 
-#: src/fe-gtk/ignoregui.c:369
+#: src/fe-gtk/ignoregui.c:368
 msgid "Channel:"
 msgstr "แชนแนล:"
 
-#: src/fe-gtk/ignoregui.c:370
+#: src/fe-gtk/ignoregui.c:369
 msgid "Private:"
 msgstr "ส่วนตัว:"
 
-#: src/fe-gtk/ignoregui.c:371
+#: src/fe-gtk/ignoregui.c:370
 msgid "Notice:"
 msgstr "ประกาศ:"
 
-#: src/fe-gtk/ignoregui.c:372
+#: src/fe-gtk/ignoregui.c:371
 msgid "CTCP:"
 msgstr "CTCP:"
 
-#: src/fe-gtk/ignoregui.c:373
+#: src/fe-gtk/ignoregui.c:372
 msgid "Invite:"
 msgstr "เชิญชวน:"
 
-#: src/fe-gtk/ignoregui.c:384 src/fe-gtk/notifygui.c:420
+#: src/fe-gtk/ignoregui.c:383 src/fe-gtk/notifygui.c:426
 msgid "Add..."
 msgstr "เพิ่ม..."
 
@@ -3482,138 +3380,155 @@ msgstr "ร้องขอรายชื่อแชนแนลอาจใช
 msgid "_Always show this dialog after connecting."
 msgstr "แสดงหน้าต่างสนทนานี้หลังจากการเชื่อมต่อ_ตลอด."
 
-#: src/fe-gtk/maingui.c:500
+#: src/fe-gtk/maingui.c:504
 msgid "Dialog with"
 msgstr "การสนทนากับ"
 
-#: src/fe-gtk/maingui.c:787
+#: src/fe-gtk/maingui.c:795
 #, c-format
 msgid "Topic for %s is: %s"
 msgstr "หัวข้อสำหรับ %s คือ: %s"
 
-#: src/fe-gtk/maingui.c:792
+#: src/fe-gtk/maingui.c:800
 msgid "No topic is set"
 msgstr "ไม่มีหัวข้อถูกตั้ง."
 
-#: src/fe-gtk/maingui.c:1177
+#: src/fe-gtk/maingui.c:1189
 #, c-format
 msgid "This server still has %d channels or dialogs associated with it. Close them all?"
 msgstr "เซิร์ฟเวอร์นี้ยังคงมี %d แชนแนลหรือการสนทนาที่ถูกเชื่อมโยงด้วย. ต้องการปิดทั้งหมด?"
 
-#: src/fe-gtk/maingui.c:1304
+#: src/fe-gtk/maingui.c:1283
 msgid "Quit XChat?"
 msgstr "ออกจาก XChat?"
 
-#: src/fe-gtk/maingui.c:1325
+#: src/fe-gtk/maingui.c:1304
 msgid "Don't ask next time."
 msgstr "ไม่ต้องถามในครั้งหน้า."
 
-#: src/fe-gtk/maingui.c:1331
+#: src/fe-gtk/maingui.c:1310
 #, c-format
 msgid "You are connected to %i IRC networks."
 msgstr "คุณกำลังเชื่อมต่อไปยังเครือข่าย IRC %i ."
 
-#: src/fe-gtk/maingui.c:1333
+#: src/fe-gtk/maingui.c:1312
 msgid "Are you sure you want to quit?"
 msgstr "คุณแน่ใจแล้วหรือไม่ที่จะออก?"
 
-#: src/fe-gtk/maingui.c:1335
+#: src/fe-gtk/maingui.c:1314
 msgid "Some file transfers are still active."
 msgstr "การโอนย้ายไฟล์บางไฟล์ยังคงทำงานอยู่."
 
-#: src/fe-gtk/maingui.c:1353
+#: src/fe-gtk/maingui.c:1332
 msgid "_Minimize to Tray"
 msgstr "_ย่อไปยังถาด"
 
-#: src/fe-gtk/maingui.c:1567
+#: src/fe-gtk/maingui.c:1552
 msgid "Insert Attribute or Color Code"
 msgstr "ใส่คุณลักษณะหรือรหัสสี"
 
-#: src/fe-gtk/maingui.c:1569
+#: src/fe-gtk/maingui.c:1554
 msgid "<b>Bold</b>"
 msgstr "<b>ตัวหนา</b>"
 
-#: src/fe-gtk/maingui.c:1570
+#: src/fe-gtk/maingui.c:1555
 msgid "<u>Underline</u>"
 msgstr "<u>ขีดเส้นใต้</u>"
 
-#: src/fe-gtk/maingui.c:1572
+#: src/fe-gtk/maingui.c:1557
 msgid "Normal"
 msgstr "ปกติ"
 
-#: src/fe-gtk/maingui.c:1574
+#: src/fe-gtk/maingui.c:1559
 msgid "Colors 0-7"
 msgstr "สี 0-7"
 
-#: src/fe-gtk/maingui.c:1584
+#: src/fe-gtk/maingui.c:1569
 msgid "Colors 8-15"
 msgstr "สี 8-15"
 
-#: src/fe-gtk/maingui.c:1629
-msgid "Beep on message"
+#: src/fe-gtk/maingui.c:1612
+msgid "_Settings"
+msgstr "ตั้งค่า"
+
+#: src/fe-gtk/maingui.c:1614
+msgid "_Log to Disk"
+msgstr "บันทึกล็อกไปยังดิสก์"
+
+#: src/fe-gtk/maingui.c:1615
+msgid "_Reload Scrollback"
+msgstr "โหลดซ้ำตัวเลื่อนกลับ"
+
+#: src/fe-gtk/maingui.c:1617
+msgid "_Hide Join/Part Messages"
+msgstr "ซ่อนแชนแนลเข้าร่วม/ส่วนข้อความ"
+
+#: src/fe-gtk/maingui.c:1625
+msgid "_Extra Alerts"
+msgstr "แจ้งเตือนเพิ่มเติม"
+
+#: src/fe-gtk/maingui.c:1627
+msgid "Beep on _Message"
 msgstr "บี๊บเมื่อมีข้อความ"
 
-#: src/fe-gtk/maingui.c:1632
-msgid "Blink tray on message"
-msgstr "กระพริบถาดเมื่อมีข้อความ"
+#: src/fe-gtk/maingui.c:1628
+msgid "Blink Tray _Icon"
+msgstr "กระพริบถาดไอคอน:"
 
-#: src/fe-gtk/maingui.c:1635
-msgid "Show join/part messages"
-msgstr "แสดงข้อความเข้าร่วม/ออกจากแชนแนล"
+#: src/fe-gtk/maingui.c:1629
+msgid "Blink Task _Bar"
+msgstr "กระพริบแถบงาน:"
 
-#: src/fe-gtk/maingui.c:1637
-msgid "Color paste"
-msgstr "เพลตสี"
-
-#: src/fe-gtk/maingui.c:1647 src/fe-gtk/menu.c:1950
-msgid "_Close Tab"
-msgstr "ปิ_ดแท็บ"
-
-#: src/fe-gtk/maingui.c:1649 src/fe-gtk/menu.c:1949
-msgid "_Detach Tab"
+#: src/fe-gtk/maingui.c:1667 src/fe-gtk/menu.c:2142
+msgid "_Detach"
 msgstr "_ถอดแท็บออก"
 
-#: src/fe-gtk/maingui.c:1968 src/fe-gtk/maingui.c:2074
+#: src/fe-gtk/maingui.c:1669 src/fe-gtk/menu.c:2143 src/fe-gtk/menu.c:2148
+#: src/fe-gtk/plugingui.c:234 src/fe-gtk/search.c:151
+msgid "_Close"
+msgstr "_ปิด"
+
+#: src/fe-gtk/maingui.c:2007 src/fe-gtk/maingui.c:2113
 msgid "User limit must be a number!\n"
 msgstr "ขีดจำกัดผู้ใช้ต้องเป็นตัวเลข!\n"
 
-#: src/fe-gtk/maingui.c:2096
+#: src/fe-gtk/maingui.c:2135
 msgid "Topic Protection"
 msgstr "การป้องกันหัวข้อ"
 
-#: src/fe-gtk/maingui.c:2097
+#: src/fe-gtk/maingui.c:2136
 msgid "No outside messages"
 msgstr "ไม่มีข้อความภายนอก"
 
-#: src/fe-gtk/maingui.c:2098
+#: src/fe-gtk/maingui.c:2137
 msgid "Secret"
 msgstr "ลับเฉพาะ"
 
-#: src/fe-gtk/maingui.c:2099
+#: src/fe-gtk/maingui.c:2138
 msgid "Invite Only"
 msgstr "รับเชิญเท่านั้น"
 
-#: src/fe-gtk/maingui.c:2101
+#: src/fe-gtk/maingui.c:2140
 msgid "Moderated"
 msgstr "ปรับปรุง"
 
-#: src/fe-gtk/maingui.c:2102
+#: src/fe-gtk/maingui.c:2141
 msgid "Ban List"
 msgstr "รายการแบน"
 
-#: src/fe-gtk/maingui.c:2104
+#: src/fe-gtk/maingui.c:2143
 msgid "Keyword"
 msgstr "คีย์เวิร์ด"
 
-#: src/fe-gtk/maingui.c:2116
+#: src/fe-gtk/maingui.c:2155
 msgid "User Limit"
 msgstr "ขีดจำกัดผู้ใช้"
 
-#: src/fe-gtk/maingui.c:2225
+#: src/fe-gtk/maingui.c:2264
 msgid "Show/Hide userlist"
 msgstr "แสดง/ซ่อนรายการผู้ใช้"
 
-#: src/fe-gtk/maingui.c:2350
+#: src/fe-gtk/maingui.c:2389
 msgid ""
 "Unable to set transparent background!\n"
 "\n"
@@ -3625,7 +3540,7 @@ msgstr ""
 "คุณอาจกำลังใช้ตัวจัดการหน้าต่าง\n"
 "ปัจจุบันที่ไม่สนับสนุนการทำงาน\n"
 
-#: src/fe-gtk/maingui.c:2621
+#: src/fe-gtk/maingui.c:2660
 msgid "Enter new nickname:"
 msgstr "ป้อนชื่อเล่นใหม่:"
 
@@ -3633,77 +3548,90 @@ msgstr "ป้อนชื่อเล่นใหม่:"
 msgid "Host unknown"
 msgstr "ไม่รู้จักโฮสต์"
 
-#: src/fe-gtk/menu.c:544
+#: src/fe-gtk/menu.c:615
 #, c-format
 msgid "<tt><b>%-11s</b></tt> %s"
 msgstr "<tt><b>%-11s</b></tt> %s"
 
-#: src/fe-gtk/menu.c:549 src/fe-gtk/menu.c:553
+#: src/fe-gtk/menu.c:621 src/fe-gtk/menu.c:625
 msgid "Real Name:"
 msgstr "ชื่อจริง"
 
-#: src/fe-gtk/menu.c:557
+#: src/fe-gtk/menu.c:632
 msgid "User:"
 msgstr "ผู้ใช้:"
 
-#: src/fe-gtk/menu.c:561
+#: src/fe-gtk/menu.c:639
 msgid "Country:"
 msgstr "ประเทศ:"
 
-#: src/fe-gtk/menu.c:565
+#: src/fe-gtk/menu.c:646
 msgid "Server:"
 msgstr "เซิร์ฟเวอร์:"
 
-#: src/fe-gtk/menu.c:577
-msgid "Away Msg:"
-msgstr "ข้อความไม่อยู่:"
-
-#: src/fe-gtk/menu.c:587
+#: src/fe-gtk/menu.c:657
 #, c-format
 msgid "%u minutes ago"
 msgstr "ผ่านมาแล้ว %u นาที"
 
-#: src/fe-gtk/menu.c:589 src/fe-gtk/menu.c:592
+#: src/fe-gtk/menu.c:659 src/fe-gtk/menu.c:662
 msgid "Last Msg:"
 msgstr "ข้อความล่าสุด:"
 
-#: src/fe-gtk/menu.c:704
+#: src/fe-gtk/menu.c:672
+msgid "Away Msg:"
+msgstr "ข้อความไม่อยู่:"
+
+#: src/fe-gtk/menu.c:730
+#, c-format
+msgid "%d nicks selected."
+msgstr "ชื่อเล่นจำนวน %d ได้ถูกเลือก."
+
+#: src/fe-gtk/menu.c:855
 msgid "The Menubar is now hidden. You can show it again by pressing F9 or right-clicking in a blank part of the main text area."
 msgstr "แถบเมนูตอนนี้ได้ซ่อนอยู่. คุณสามาระแสดงมันอีกครั้งโดนการกด F9 หรือ คลิกขวา ในที่ว่างของพื้นที่ข้อความหลัก"
 
-#: src/fe-gtk/menu.c:799
+#: src/fe-gtk/menu.c:944
 msgid "Open Link in Browser"
 msgstr "เปิดลิงค์ในบราวเซอร์"
 
-#: src/fe-gtk/menu.c:800
+#: src/fe-gtk/menu.c:945
 msgid "Copy Selected Link"
 msgstr "คัดลอกลิงค์ที่เลือก"
 
-#: src/fe-gtk/menu.c:862 src/fe-gtk/menu.c:1100
+#: src/fe-gtk/menu.c:1007 src/fe-gtk/menu.c:1278
 msgid "Join Channel"
 msgstr "เข้าร่วมแชนแนล"
 
-#: src/fe-gtk/menu.c:866
+#: src/fe-gtk/menu.c:1011
 msgid "Part Channel"
 msgstr "ออกจากแชนแนล"
 
-#: src/fe-gtk/menu.c:868
+#: src/fe-gtk/menu.c:1013
 msgid "Cycle Channel"
 msgstr "หมุนวนแชนแนล"
 
-#: src/fe-gtk/menu.c:892
+#: src/fe-gtk/menu.c:1049
+msgid "_Remove from Favorites"
+msgstr "ลบออกจากรายการโปรด"
+
+#: src/fe-gtk/menu.c:1051
+msgid "_Add to Favorites"
+msgstr "เพิ่มไปยังรายการโปรด"
+
+#: src/fe-gtk/menu.c:1070
 msgid "XChat: User menu"
 msgstr "XChat: เมนูผู้ใช้"
 
-#: src/fe-gtk/menu.c:901
+#: src/fe-gtk/menu.c:1079
 msgid "Edit This Menu..."
 msgstr "แก้ไขเมนูนี้"
 
-#: src/fe-gtk/menu.c:1102
+#: src/fe-gtk/menu.c:1280
 msgid "Retrieve channel list..."
 msgstr "เรียกข้อมูลรายการแชนแนล..."
 
-#: src/fe-gtk/menu.c:1170
+#: src/fe-gtk/menu.c:1348
 msgid ""
 "User Commands - Special codes:\n"
 "\n"
@@ -3742,7 +3670,7 @@ msgstr ""
 "%2 อาจจะเป็น \"john\"\n"
 "&2 อาจจะเป็น \"john hello\"."
 
-#: src/fe-gtk/menu.c:1186
+#: src/fe-gtk/menu.c:1364
 msgid ""
 "Userlist Buttons - Special codes:\n"
 "\n"
@@ -3766,7 +3694,7 @@ msgstr ""
 "%s  =  ชื่อเล่นที่เลือก\n"
 "%t  =  เวลา/วัน\n"
 
-#: src/fe-gtk/menu.c:1196
+#: src/fe-gtk/menu.c:1374
 msgid ""
 "Dialog Buttons - Special codes:\n"
 "\n"
@@ -3790,7 +3718,7 @@ msgstr ""
 "%s  =  ชื่อเล่นที่เลือก\n"
 "%t  =  เวลา/วัน\n"
 
-#: src/fe-gtk/menu.c:1206
+#: src/fe-gtk/menu.c:1384
 msgid ""
 "CTCP Replies - Special codes:\n"
 "\n"
@@ -3818,7 +3746,7 @@ msgstr ""
 "&3  =  คำที่ 3 ไปยังท้ายบรรทัด\n"
 "\n"
 
-#: src/fe-gtk/menu.c:1217
+#: src/fe-gtk/menu.c:1395
 #, c-format
 msgid ""
 "URL Handlers - Special codes:\n"
@@ -3837,296 +3765,296 @@ msgstr ""
 "เพื่อแสดงว่ามันจะถูกส่งไปยัง\n"
 "เชลล์แทนที่จะเป็น XChat"
 
-#: src/fe-gtk/menu.c:1226
+#: src/fe-gtk/menu.c:1404
 msgid "XChat: User Defined Commands"
 msgstr "XChat: คำสั่งที่ผู้ใช้นิยามขึ้น"
 
-#: src/fe-gtk/menu.c:1233
+#: src/fe-gtk/menu.c:1411
 msgid "XChat: Userlist Popup menu"
 msgstr "XChat: เมนูป็อบอัพรายชื่อผู้ใช้"
 
-#: src/fe-gtk/menu.c:1240
+#: src/fe-gtk/menu.c:1418
 msgid "Replace with"
 msgstr "แทนที่ด้วย"
 
-#: src/fe-gtk/menu.c:1240
+#: src/fe-gtk/menu.c:1418
 msgid "XChat: Replace"
 msgstr "XChat: แทนที่"
 
-#: src/fe-gtk/menu.c:1247
+#: src/fe-gtk/menu.c:1425
 msgid "XChat: URL Handlers"
 msgstr "XChat: ตัวจัดการ URL"
 
-#: src/fe-gtk/menu.c:1266
+#: src/fe-gtk/menu.c:1444
 msgid "XChat: Userlist buttons"
 msgstr "XChat: ปุ่มรายการผู้ใช้"
 
-#: src/fe-gtk/menu.c:1273
+#: src/fe-gtk/menu.c:1451
 msgid "XChat: Dialog buttons"
 msgstr "XChat: ปุ่มสนทนา"
 
-#: src/fe-gtk/menu.c:1280
+#: src/fe-gtk/menu.c:1458
 msgid "XChat: CTCP Replies"
 msgstr "XChat: การตอบรับ CTCP"
 
-#: src/fe-gtk/menu.c:1378
+#: src/fe-gtk/menu.c:1564
 msgid "_XChat"
 msgstr "_XChat"
 
-#: src/fe-gtk/menu.c:1379
+#: src/fe-gtk/menu.c:1565
 msgid "Network Li_st..."
 msgstr "_รายการเครือข่าย"
 
-#: src/fe-gtk/menu.c:1382
+#: src/fe-gtk/menu.c:1568
 msgid "_New"
 msgstr "สร้างให_ม่"
 
-#: src/fe-gtk/menu.c:1383
+#: src/fe-gtk/menu.c:1569
 msgid "Server Tab..."
 msgstr "แท็บเซิร์ฟเวอร์..."
 
-#: src/fe-gtk/menu.c:1384
+#: src/fe-gtk/menu.c:1570
 msgid "Channel Tab..."
 msgstr "แท็บแชนแนล..."
 
-#: src/fe-gtk/menu.c:1385
+#: src/fe-gtk/menu.c:1571
 msgid "Server Window..."
 msgstr "หน้าต่างเซิร์ฟเวอร์..."
 
-#: src/fe-gtk/menu.c:1386
+#: src/fe-gtk/menu.c:1572
 msgid "Channel Window..."
 msgstr "หน้าต่างแชนแนล..."
 
-#: src/fe-gtk/menu.c:1391 src/fe-gtk/menu.c:1393
+#: src/fe-gtk/menu.c:1577 src/fe-gtk/menu.c:1579
 msgid "_Load Plugin or Script..."
 msgstr "โหล_ดปลั๊กอินหรือสคริป..."
 
-#: src/fe-gtk/menu.c:1401 src/fe-gtk/plugin-tray.c:463
+#: src/fe-gtk/menu.c:1587 src/fe-gtk/plugin-tray.c:610
 msgid "_Quit"
 msgstr "_ออก"
 
-#: src/fe-gtk/menu.c:1403
+#: src/fe-gtk/menu.c:1589
 msgid "_View"
 msgstr "_มุมมอง"
 
-#: src/fe-gtk/menu.c:1405
+#: src/fe-gtk/menu.c:1591
 msgid "_Menu Bar"
 msgstr "แถบเ_มนู"
 
-#: src/fe-gtk/menu.c:1406
+#: src/fe-gtk/menu.c:1592
 msgid "_Topic Bar"
 msgstr "แถ_บหัวข้อ"
 
-#: src/fe-gtk/menu.c:1407
+#: src/fe-gtk/menu.c:1593
 msgid "_User List"
 msgstr "รา_ยการผู้ใช้"
 
-#: src/fe-gtk/menu.c:1408
+#: src/fe-gtk/menu.c:1594
 msgid "U_serlist Buttons"
 msgstr "ปุ่ม_รายการผู้ใช้"
 
-#: src/fe-gtk/menu.c:1409
+#: src/fe-gtk/menu.c:1595
 msgid "M_ode Buttons"
 msgstr "ปุ่มโหม_ด"
 
-#: src/fe-gtk/menu.c:1411
+#: src/fe-gtk/menu.c:1597
 msgid "_Channel Switcher"
 msgstr "ตัว_สวิตช์แชนแนล"
 
-#: src/fe-gtk/menu.c:1413
+#: src/fe-gtk/menu.c:1599
 msgid "_Tabs"
 msgstr "แท็_บ"
 
-#: src/fe-gtk/menu.c:1414
+#: src/fe-gtk/menu.c:1600
 msgid "T_ree"
 msgstr "ต้_นไม้"
 
-#: src/fe-gtk/menu.c:1416
+#: src/fe-gtk/menu.c:1602
 msgid "_Network Meters"
 msgstr "ตัว_วัดเครือข่าย"
 
-#: src/fe-gtk/menu.c:1418
+#: src/fe-gtk/menu.c:1604
 msgid "Off"
 msgstr "ปิด"
 
-#: src/fe-gtk/menu.c:1419
+#: src/fe-gtk/menu.c:1605
 msgid "Graph"
 msgstr "กราฟ"
 
-#: src/fe-gtk/menu.c:1424
+#: src/fe-gtk/menu.c:1610
 msgid "_Server"
 msgstr "เ_ซิร์ฟเวอร์"
 
-#: src/fe-gtk/menu.c:1425
+#: src/fe-gtk/menu.c:1611
 msgid "_Disconnect"
 msgstr "_ตัดการเชื่อมต่อ"
 
-#: src/fe-gtk/menu.c:1426
+#: src/fe-gtk/menu.c:1612
 msgid "_Reconnect"
 msgstr "เชื่อมต่อให_ม่"
 
-#: src/fe-gtk/menu.c:1430
+#: src/fe-gtk/menu.c:1613
+msgid "Join a Channel..."
+msgstr "เข้าใช้แชนแนล..."
+
+#: src/fe-gtk/menu.c:1614
+msgid "List of Channels..."
+msgstr "รายการของแชนแนล..."
+
+#: src/fe-gtk/menu.c:1617
 msgid "Marked Away"
 msgstr "ตั้งเครื่องหมายว่าไม่อยู่"
 
-#: src/fe-gtk/menu.c:1432
+#: src/fe-gtk/menu.c:1619
 msgid "_Usermenu"
 msgstr "เ_มนูผู้ใช้"
 
-#: src/fe-gtk/menu.c:1434
+#: src/fe-gtk/menu.c:1621
 msgid "S_ettings"
 msgstr "ตั้_งค่า"
 
-#: src/fe-gtk/menu.c:1435
+#: src/fe-gtk/menu.c:1622
 msgid "_Preferences"
 msgstr "ปรั_บแต่ง"
 
-#: src/fe-gtk/menu.c:1437
+#: src/fe-gtk/menu.c:1624
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: src/fe-gtk/menu.c:1438
+#: src/fe-gtk/menu.c:1625
 msgid "Auto Replace..."
 msgstr "แทนที่อัตโนมัติ..."
 
-#: src/fe-gtk/menu.c:1439
+#: src/fe-gtk/menu.c:1626
 msgid "CTCP Replies..."
 msgstr "การตอบรับCTCP..."
 
-#: src/fe-gtk/menu.c:1440
+#: src/fe-gtk/menu.c:1627
 msgid "Dialog Buttons..."
 msgstr "ปุ่มสนทนา"
 
-#: src/fe-gtk/menu.c:1441
+#: src/fe-gtk/menu.c:1628
 msgid "Keyboard Shortcuts..."
 msgstr "แป้นพิมพ์ลัด..."
 
-#: src/fe-gtk/menu.c:1442
+#: src/fe-gtk/menu.c:1629
 msgid "Text Events..."
 msgstr "เหตุการณ์ข้อความ..."
 
-#: src/fe-gtk/menu.c:1443
+#: src/fe-gtk/menu.c:1630
 msgid "URL Handlers..."
 msgstr "ตัวจัดการURL..."
 
-#: src/fe-gtk/menu.c:1444
+#: src/fe-gtk/menu.c:1631
 msgid "User Commands..."
 msgstr "คำสั่งผู้ใช้..."
 
-#: src/fe-gtk/menu.c:1445
+#: src/fe-gtk/menu.c:1632
 msgid "Userlist Buttons..."
 msgstr "ปุ่มรายการผู้ใช้..."
 
-#: src/fe-gtk/menu.c:1446
+#: src/fe-gtk/menu.c:1633
 msgid "Userlist Popup..."
 msgstr "ป๊อปอัพรายการผู้ใช้..."
 
-#: src/fe-gtk/menu.c:1449
+#: src/fe-gtk/menu.c:1636
 msgid "_Window"
 msgstr "_หน้าต่าง"
 
-#: src/fe-gtk/menu.c:1450
+#: src/fe-gtk/menu.c:1637
 msgid "Ban List..."
 msgstr "รายการแบน..."
 
-#: src/fe-gtk/menu.c:1451
-msgid "Channel List..."
-msgstr "รายการแชนแนล..."
-
-#: src/fe-gtk/menu.c:1452
+#: src/fe-gtk/menu.c:1638
 msgid "Character Chart..."
 msgstr "แผนผังตัวอักษร..."
 
-#: src/fe-gtk/menu.c:1453
+#: src/fe-gtk/menu.c:1639
 msgid "Direct Chat..."
 msgstr "คุยเล่นโดยตรง..."
 
-#: src/fe-gtk/menu.c:1454
+#: src/fe-gtk/menu.c:1640
 msgid "File Transfers..."
 msgstr "การโอนย้ายไฟล์..."
 
-#: src/fe-gtk/menu.c:1455
+#: src/fe-gtk/menu.c:1641
+msgid "Friends List..."
+msgstr "รายการเพื่อน..."
+
+#: src/fe-gtk/menu.c:1642
 msgid "Ignore List..."
 msgstr "รายการเพิกเฉย..."
 
-#: src/fe-gtk/menu.c:1456
-msgid "Notify List..."
-msgstr "รายการแจ้งเตือน..."
-
-#: src/fe-gtk/menu.c:1457
+#: src/fe-gtk/menu.c:1643
 msgid "Plugins and Scripts..."
 msgstr "ปลั๊กอินและสคริป..."
 
-#: src/fe-gtk/menu.c:1458
+#: src/fe-gtk/menu.c:1644
 msgid "Raw Log..."
 msgstr "ข้อมูลดิบบันทึกระบบ..."
 
-#: src/fe-gtk/menu.c:1459
+#: src/fe-gtk/menu.c:1645
 msgid "URL Grabber..."
 msgstr "ตัวดักจับ URL..."
 
-#: src/fe-gtk/menu.c:1461
+#: src/fe-gtk/menu.c:1647
 msgid "Reset Marker Line"
 msgstr "ตั้งค่าเส้นสัญลักษณ์ใหม่"
 
-#: src/fe-gtk/menu.c:1462
+#: src/fe-gtk/menu.c:1648
 msgid "C_lear Text"
 msgstr "_ล้างข้อความ"
 
-#: src/fe-gtk/menu.c:1464
+#: src/fe-gtk/menu.c:1650
 msgid "Search Text..."
 msgstr "ค้นหาข้อความ..."
 
-#: src/fe-gtk/menu.c:1465
+#: src/fe-gtk/menu.c:1651
 msgid "Save Text..."
 msgstr "บันทึกข้อความ..."
 
-#: src/fe-gtk/menu.c:1467 src/fe-gtk/menu.c:1941
+#: src/fe-gtk/menu.c:1653 src/fe-gtk/menu.c:2134
 msgid "_Help"
 msgstr "_ช่วยเหลือ"
 
-#: src/fe-gtk/menu.c:1468
+#: src/fe-gtk/menu.c:1654
 msgid "_Contents"
 msgstr "เ_นื้อหา"
 
-#: src/fe-gtk/menu.c:1469
+#: src/fe-gtk/menu.c:1656
+msgid "Check for updates"
+msgstr "ตรวจสอบการปรับปรุง"
+
+#: src/fe-gtk/menu.c:1658
 msgid "_About"
 msgstr "เกี่ยว_กับ"
 
-#: src/fe-gtk/menu.c:1954
-msgid "_Attach Window"
-msgstr "_ผูกติดหน้าต่าง"
+#: src/fe-gtk/menu.c:2147
+msgid "_Attach"
+msgstr "ผูกติดหน้าต่าง"
 
-#: src/fe-gtk/menu.c:1955
-msgid "_Close Window"
-msgstr "_ปิดหน้าต่าง"
-
-#: src/fe-gtk/notifygui.c:137
-msgid "User"
-msgstr "ผู้ใช้"
-
-#: src/fe-gtk/notifygui.c:140
+#: src/fe-gtk/notifygui.c:138
 msgid "Last Seen"
 msgstr "เห็นล่าสุด"
 
-#: src/fe-gtk/notifygui.c:181
+#: src/fe-gtk/notifygui.c:180
 msgid "Offline"
 msgstr "ออฟไลน์"
 
-#: src/fe-gtk/notifygui.c:201 src/fe-gtk/setup.c:229
+#: src/fe-gtk/notifygui.c:200 src/fe-gtk/setup.c:231
 msgid "Never"
 msgstr "ไม่เลย"
 
-#: src/fe-gtk/notifygui.c:204 src/fe-gtk/notifygui.c:229
+#: src/fe-gtk/notifygui.c:203 src/fe-gtk/notifygui.c:228
 #, c-format
 msgid "%d minutes ago"
 msgstr "ผ่านมา %d นาทีแล้ว"
 
-#: src/fe-gtk/notifygui.c:219
+#: src/fe-gtk/notifygui.c:218
 msgid "Online"
 msgstr "ออนไลน์"
 
-#: src/fe-gtk/notifygui.c:348
+#: src/fe-gtk/notifygui.c:347
 msgid "Enter nickname to add:"
 msgstr "ป้อนชื่อเล่นที่จะเพิ่ม:"
 
@@ -4138,19 +4066,15 @@ msgstr "แจ้งเตือนบนเครือข่ายนี้"
 msgid "Comma separated list of networks is accepted."
 msgstr "ยอมรับรายการเครือข่ายที่แยกด้วยจุลภาค."
 
-#: src/fe-gtk/notifygui.c:407
-msgid "XChat: Notify List"
-msgstr "XChat: รายการแจ้งเตือน"
+#: src/fe-gtk/notifygui.c:413
+msgid "XChat: Friends List"
+msgstr "XChat: รายการเพื่อน"
 
-#: src/fe-gtk/notifygui.c:424
-msgid "Remove"
-msgstr "ลบ"
-
-#: src/fe-gtk/notifygui.c:428
+#: src/fe-gtk/notifygui.c:434
 msgid "Open Dialog"
 msgstr "เปิดการสนทนา"
 
-#: src/fe-gtk/plugin-tray.c:163
+#: src/fe-gtk/plugin-tray.c:250
 msgid ""
 "Cannot find 'notify-send' to open balloon alerts.\n"
 "Please install libnotify."
@@ -4158,1079 +4082,1126 @@ msgstr ""
 "ไม่พบ 'notify-send' เพื่อเปิดบอลลูนแจ้งเตือน.\n"
 "กรุณาลง libnotify."
 
-#: src/fe-gtk/plugin-tray.c:214
+#: src/fe-gtk/plugin-tray.c:301
 #, c-format
 msgid "XChat: Connected to %u networks and %u channels"
 msgstr "XChat: เชื่อมต่อไปยังเครือข่าย %u และแชนแนล %u "
 
-#: src/fe-gtk/plugin-tray.c:451
+#: src/fe-gtk/plugin-tray.c:589
 msgid "_Restore"
 msgstr "_คืนค่า"
 
-#: src/fe-gtk/plugin-tray.c:453
+#: src/fe-gtk/plugin-tray.c:591
 msgid "_Hide"
 msgstr "_ซ่อน"
 
-#: src/fe-gtk/plugin-tray.c:456
+#: src/fe-gtk/plugin-tray.c:594
 msgid "_Blink on"
 msgstr "เปิดการกระ_พริบ"
 
-#: src/fe-gtk/plugin-tray.c:457 src/fe-gtk/setup.c:467
+#: src/fe-gtk/plugin-tray.c:595 src/fe-gtk/setup.c:479
 msgid "Channel Message"
 msgstr "ข้อความของแชนแนล"
 
-#: src/fe-gtk/plugin-tray.c:458 src/fe-gtk/setup.c:468
+#: src/fe-gtk/plugin-tray.c:596 src/fe-gtk/setup.c:480
 msgid "Private Message"
 msgstr "ข้อความส่วนตัว"
 
-#: src/fe-gtk/plugin-tray.c:459 src/fe-gtk/setup.c:469
+#: src/fe-gtk/plugin-tray.c:597 src/fe-gtk/setup.c:481
 msgid "Highlighted Message"
 msgstr "ข้อความที่ถูกเน้น"
 
-#: src/fe-gtk/plugin-tray.c:507 src/fe-gtk/plugin-tray.c:515
+#: src/fe-gtk/plugin-tray.c:600
+msgid "_Change status"
+msgstr "เปลี่ยนสถานะ"
+
+#: src/fe-gtk/plugin-tray.c:602
+msgid "_Away"
+msgstr "ไม่อยู่"
+
+#: src/fe-gtk/plugin-tray.c:605
+msgid "_Back"
+msgstr "กลับ"
+
+#: src/fe-gtk/plugin-tray.c:654 src/fe-gtk/plugin-tray.c:662
 #, c-format
 msgid "XChat: Highlighted message from: %s (%s)"
 msgstr "XChat: ข้อความที่ถูกเน้นจาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:510
+#: src/fe-gtk/plugin-tray.c:657
 #, c-format
 msgid "XChat: %u highlighted messages, latest from: %s (%s)"
 msgstr "XChat: %u ข้อความที่ถูกเน้น, ล่าสุดจาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:533 src/fe-gtk/plugin-tray.c:540
+#: src/fe-gtk/plugin-tray.c:680 src/fe-gtk/plugin-tray.c:687
 #, c-format
 msgid "XChat: New public message from: %s (%s)"
 msgstr "XChat: ข้อความสาธารณะใหม่จาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:536
+#: src/fe-gtk/plugin-tray.c:683
 #, c-format
 msgid "XChat: %u new public messages."
 msgstr "XChat: %u ข้อความสาธารณะใหม่."
 
-#: src/fe-gtk/plugin-tray.c:562 src/fe-gtk/plugin-tray.c:569
+#: src/fe-gtk/plugin-tray.c:709 src/fe-gtk/plugin-tray.c:716
 #, c-format
 msgid "XChat: Private message from: %s (%s)"
 msgstr "XChat: ข้อความส่วนตัวจาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:565
+#: src/fe-gtk/plugin-tray.c:712
 #, c-format
 msgid "XChat: %u private messages, latest from: %s (%s)"
 msgstr "XChat: %u ข้อความส่วนตัว, ล่าสุดจาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:615 src/fe-gtk/plugin-tray.c:623
+#: src/fe-gtk/plugin-tray.c:762 src/fe-gtk/plugin-tray.c:770
 #, c-format
 msgid "XChat: File offer from: %s (%s)"
 msgstr "XChat: เสนอไฟล์จาก: %s (%s)"
 
-#: src/fe-gtk/plugin-tray.c:618
+#: src/fe-gtk/plugin-tray.c:765
 #, c-format
 msgid "XChat: %u file offers, latest from: %s (%s)"
 msgstr "XChat: %u เสนอไฟล์, ล่าสุดจาก: %s (%s)"
 
-#: src/fe-gtk/plugingui.c:76 src/fe-gtk/textgui.c:424
+#: src/fe-gtk/plugingui.c:72
+msgid "Version"
+msgstr "เวอร์ชั่น"
+
+#: src/fe-gtk/plugingui.c:74 src/fe-gtk/textgui.c:424
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: src/fe-gtk/plugingui.c:151
+#: src/fe-gtk/plugingui.c:149
 msgid "Select a Plugin or Script to load"
 msgstr "เลือกปลั๊กอินหรือสคริปที่จะโหลด"
 
-#: src/fe-gtk/plugingui.c:223
+#: src/fe-gtk/plugingui.c:221
 msgid "XChat: Plugins and Scripts"
 msgstr "XChat: ปลั๊กอินและสคริป"
 
-#: src/fe-gtk/plugingui.c:229
+#: src/fe-gtk/plugingui.c:227
 msgid "_Load..."
 msgstr "โห_ลด"
 
-#: src/fe-gtk/plugingui.c:232
+#: src/fe-gtk/plugingui.c:230
 msgid "_UnLoad"
 msgstr "เ_ลิกโหลด"
 
-#: src/fe-gtk/plugingui.c:236 src/fe-gtk/search.c:144
-msgid "_Close"
-msgstr "_ปิด"
-
-#: src/fe-gtk/rawlog.c:81 src/fe-gtk/rawlog.c:130 src/fe-gtk/textgui.c:438
-#: src/fe-gtk/urlgrab.c:205
+#: src/fe-gtk/rawlog.c:79 src/fe-gtk/rawlog.c:128 src/fe-gtk/textgui.c:438
+#: src/fe-gtk/urlgrab.c:203
 msgid "Save As..."
 msgstr "บันทึกเป็น..."
 
-#: src/fe-gtk/rawlog.c:97
+#: src/fe-gtk/rawlog.c:95
 #, c-format
 msgid "XChat: Rawlog (%s)"
 msgstr "XChat: ข้อมูลดิบของบันทึกระบบ (%s)"
 
-#: src/fe-gtk/rawlog.c:127
+#: src/fe-gtk/rawlog.c:125
 msgid "Clear rawlog"
 msgstr "ล้างข้อมูลดิบของบันทึกระบบ"
 
-#: src/fe-gtk/search.c:57
+#: src/fe-gtk/search.c:56
 msgid "The window you opened this Search for doesn't exist anymore."
 msgstr "หน้าต่างที่คุณเปิดการค้นหานี้ไม่ได้มีอะไรอยู่เลย."
 
-#: src/fe-gtk/search.c:65
+#: src/fe-gtk/search.c:64
 msgid "Search hit end, not found."
 msgstr "การค้นหาถึงส่วนท้าย, ไม่พบ."
 
-#: src/fe-gtk/search.c:109
+#: src/fe-gtk/search.c:116
 msgid "XChat: Search"
 msgstr "XChat: การค้นหา"
 
-#: src/fe-gtk/search.c:127
+#: src/fe-gtk/search.c:134
 msgid "_Match case"
 msgstr "ตัวเล็กใหญ่_ตรงกัน"
 
-#: src/fe-gtk/search.c:133
+#: src/fe-gtk/search.c:140
 msgid "Search _backwards"
 msgstr "ค้นหา_ย้อนกลับ"
 
-#: src/fe-gtk/search.c:146
+#: src/fe-gtk/search.c:153
 msgid "_Find"
 msgstr "_ค้นหา"
 
-#: src/fe-gtk/servlistgui.c:170 src/fe-gtk/servlistgui.c:269
+#: src/fe-gtk/servlistgui.c:171 src/fe-gtk/servlistgui.c:269
 msgid "New Network"
 msgstr "เครือข่ายใหม่"
 
-#: src/fe-gtk/servlistgui.c:554
+#: src/fe-gtk/servlistgui.c:558
 #, c-format
 msgid "Really remove network \"%s\" and all its servers?"
 msgstr "จะลบ \"%s\" และเซิร์ฟเวอร์ทั้งหมดจริง ๆ หรือ?"
 
-#: src/fe-gtk/servlistgui.c:678
+#: src/fe-gtk/servlistgui.c:740
+msgid "#channel"
+msgstr "#แชนแนล"
+
+#: src/fe-gtk/servlistgui.c:850
+msgid "XChat: Favorite Channels (Auto-Join List)"
+msgstr "XChat: รายการแชนแนล (รายการเข้าร่วมอัตโนมัติ)"
+
+#: src/fe-gtk/servlistgui.c:863
+#, c-format
+msgid "These channels will be joined whenever you connect to %s."
+msgstr "แชนแนลนี้จะถูกเข้าร่วมก้อต่อเมื่อคุณเชื่อมต่อไปยัง %s."
+
+#: src/fe-gtk/servlistgui.c:906
+msgid "Key (Password)"
+msgstr "กุญแจ(รหัสผ่าน):"
+
+#: src/fe-gtk/servlistgui.c:937 src/fe-gtk/servlistgui.c:1566
+msgid "_Edit"
+msgstr "แก้ไ_ข"
+
+#: src/fe-gtk/servlistgui.c:973
+#, c-format
+msgid "%s has been removed."
+msgstr "%s ได้ถูกลบแล้ว."
+
+#: src/fe-gtk/servlistgui.c:993
+#, c-format
+msgid "%s has been added."
+msgstr "%s ได้ถูกเพิ่มแล้ว."
+
+#: src/fe-gtk/servlistgui.c:1017
 msgid "User name and Real name cannot be left blank."
 msgstr "ชื่อผู้ใช้และชื่อจริงไม่สามารที่จะปล่อยว่างได้"
 
-#: src/fe-gtk/servlistgui.c:978
+#: src/fe-gtk/servlistgui.c:1397
 #, c-format
 msgid "XChat: Edit %s"
 msgstr "XChat: แก้ไข %s"
 
-#: src/fe-gtk/servlistgui.c:997
+#: src/fe-gtk/servlistgui.c:1416
 #, c-format
 msgid "Servers for %s"
 msgstr "เซิร์ฟเวอร์สำหรับ %s"
 
-#: src/fe-gtk/servlistgui.c:1008
+#: src/fe-gtk/servlistgui.c:1427
 msgid "Connect to selected server only"
 msgstr "เชื่อมต่อไปยังเซิร์ฟเวอร์ที่เลือกเท่านั้น"
 
-#: src/fe-gtk/servlistgui.c:1009
+#: src/fe-gtk/servlistgui.c:1428
 msgid "Don't cycle through all the servers when the connection fails."
 msgstr "ไม่ต้องวนไปยังทุกเซิร์ฟเวอร์เมื่อการเชื่อมต่อล้มเหลว."
 
-#: src/fe-gtk/servlistgui.c:1011
+#: src/fe-gtk/servlistgui.c:1430
 msgid "Your Details"
 msgstr "รายละเอียดของคุณ"
 
-#: src/fe-gtk/servlistgui.c:1017
+#: src/fe-gtk/servlistgui.c:1436
 msgid "Use global user information"
 msgstr "ใช้ข้อมูลโดยรวมของผู้ใช้"
 
-#: src/fe-gtk/servlistgui.c:1020 src/fe-gtk/servlistgui.c:1252
+#: src/fe-gtk/servlistgui.c:1439 src/fe-gtk/servlistgui.c:1671
 msgid "_Nick name:"
 msgstr "_ชื่อเล่น:"
 
-#: src/fe-gtk/servlistgui.c:1024 src/fe-gtk/servlistgui.c:1259
+#: src/fe-gtk/servlistgui.c:1443 src/fe-gtk/servlistgui.c:1678
 msgid "Second choice:"
 msgstr "ตัวเลือกอันดับสอง:"
 
-#: src/fe-gtk/servlistgui.c:1028 src/fe-gtk/servlistgui.c:1273
+#: src/fe-gtk/servlistgui.c:1447 src/fe-gtk/servlistgui.c:1692
 msgid "_User name:"
 msgstr "_ชื่อผู้ใช้:"
 
-#: src/fe-gtk/servlistgui.c:1032 src/fe-gtk/servlistgui.c:1280
+#: src/fe-gtk/servlistgui.c:1451 src/fe-gtk/servlistgui.c:1699
 msgid "Rea_l name:"
 msgstr "ชื่อ_จริง:"
 
-#: src/fe-gtk/servlistgui.c:1035
+#: src/fe-gtk/servlistgui.c:1454
 msgid "Connecting"
 msgstr "การเชื่อมต่อ"
 
-#: src/fe-gtk/servlistgui.c:1041
+#: src/fe-gtk/servlistgui.c:1460
 msgid "Auto connect to this network at startup"
 msgstr "เชื่อมต่อไปยังเครือข่ายนี้อัตโนมัติเมื่อเปิดโปรแกรม"
 
-#: src/fe-gtk/servlistgui.c:1043
-msgid "Use a proxy server"
-msgstr "ใช้เซิร์ฟเวอร์พร็อกซี่"
+#: src/fe-gtk/servlistgui.c:1462
+msgid "Bypass proxy server"
+msgstr "ข้ามผ่านเซิร์ฟเวอร์พร็อกซี่"
 
-#: src/fe-gtk/servlistgui.c:1045
+#: src/fe-gtk/servlistgui.c:1464
 msgid "Use SSL for all the servers on this network"
 msgstr "ใช้ SSL สำหรับทุกเซิร์ฟเวอร์บนเครือข่ายนี้"
 
-#: src/fe-gtk/servlistgui.c:1050
+#: src/fe-gtk/servlistgui.c:1469
 msgid "Accept invalid SSL certificate"
 msgstr "ไดั้รับหนังสือรับรอง SSL ที่ไม่ถูกต้อง"
 
-#: src/fe-gtk/servlistgui.c:1056
-msgid "C_hannels to join:"
-msgstr "_แชนแนลที่จะเข้าร่วม:"
+#: src/fe-gtk/servlistgui.c:1475
+msgid "_Favorite channels:"
+msgstr "แชนแนลโปรด:"
 
-#: src/fe-gtk/servlistgui.c:1058
+#: src/fe-gtk/servlistgui.c:1477
 msgid "Channels to join, separated by commas, but not spaces!"
 msgstr "แชนแนลที่จะเข้าร่วม, แยกด้วยจุลภาค, แต่ไม่ใช่ด้วยการเว้นว่าง!"
 
-#: src/fe-gtk/servlistgui.c:1061
+#: src/fe-gtk/servlistgui.c:1480
 msgid "Connect command:"
 msgstr "คำสั่งเชื่อมต่อ:"
 
-#: src/fe-gtk/servlistgui.c:1063
+#: src/fe-gtk/servlistgui.c:1482
 msgid "Extra command to execute after connecting. If you need more than one, set this to LOAD -e <filename>, where <filename> is a text-file full of commands to execute."
 msgstr "คำสั่งเพิ่มเติมที่จะเรียกให้ทำหลังจากทำการเชื่อมต่อ. ถ้าคุณต้องการมากกว่าหนึ่ง, ตั้งค่านี้  LOAD -e <ชื่อไฟล์>, เมื่อ <ชื่อไฟล์> คือไฟล์ข้อความที่เก็บคำสั่งต่าง ๆ ที่จะเรียกให้ทำงานเอาไว้"
 
-#: src/fe-gtk/servlistgui.c:1066
+#: src/fe-gtk/servlistgui.c:1485
 msgid "Nickserv password:"
 msgstr "รหัสผ่านเซิร์ฟเวอร์ชื่อเล่น:"
 
-#: src/fe-gtk/servlistgui.c:1068
+#: src/fe-gtk/servlistgui.c:1487
 msgid "If your nickname requires a password, enter it here. Not all IRC networks support this."
 msgstr "ถ้าชื่อเล่นของคุณต้องการรัสผ่าน, ป้อนมันที่นี่. ไม่ใช่ทุกเครือข่าย IRC ที่สนับสนุน."
 
-#: src/fe-gtk/servlistgui.c:1072
+#: src/fe-gtk/servlistgui.c:1491
 msgid "Server password:"
 msgstr "รหัสผ่านเซิร์ฟเวอร์:"
 
-#: src/fe-gtk/servlistgui.c:1074
+#: src/fe-gtk/servlistgui.c:1493
 msgid "Password for the server, if in doubt, leave blank."
 msgstr "รหัสผ่านสำหรับเซิร์ฟเวอร์, ถ้าไม่เน่ใจ, ปล่อยว่างไว้."
 
-#: src/fe-gtk/servlistgui.c:1077
+#: src/fe-gtk/servlistgui.c:1496
 msgid "Character set:"
 msgstr "ชุดอักขระ:"
 
-#: src/fe-gtk/servlistgui.c:1147
-msgid "_Edit"
-msgstr "แก้ไ_ข"
-
-#: src/fe-gtk/servlistgui.c:1230
+#: src/fe-gtk/servlistgui.c:1649
 msgid "XChat: Network List"
 msgstr "XChat: รายการเครือข่าย"
 
-#: src/fe-gtk/servlistgui.c:1242
+#: src/fe-gtk/servlistgui.c:1661
 msgid "User Information"
 msgstr "รายละเอียดผู้ใช้"
 
-#: src/fe-gtk/servlistgui.c:1266
+#: src/fe-gtk/servlistgui.c:1685
 msgid "Third choice:"
 msgstr "ตัวเลือกอันดับสาม:"
 
-#: src/fe-gtk/servlistgui.c:1326
+#: src/fe-gtk/servlistgui.c:1745
 msgid "Networks"
 msgstr "เครือข่าย"
 
-#: src/fe-gtk/servlistgui.c:1367
+#: src/fe-gtk/servlistgui.c:1786
 msgid "Skip network list on startup"
 msgstr "ข้ามรายชื่อเครือข่ายตอนเปิดโปรแกรม"
 
-#: src/fe-gtk/servlistgui.c:1399
+#: src/fe-gtk/servlistgui.c:1818
 msgid "_Edit..."
 msgstr "แก้ไ_ข..."
 
-#: src/fe-gtk/servlistgui.c:1406
+#: src/fe-gtk/servlistgui.c:1825
 msgid "_Sort"
 msgstr "เ_รียงลำดับ"
 
-#: src/fe-gtk/servlistgui.c:1407
+#: src/fe-gtk/servlistgui.c:1826
 msgid "Sorts the network list in alphabetical order. Use SHIFT-UP and SHIFT-DOWN keys to move a row."
 msgstr "เรียงรายชื่อเครือข่ายตามตัวอักษร. ใช้ปุ่ม SHIFT-UP และ SHIFT-DOWN เพื่อที่จะเคลื่อนแถว."
 
-#: src/fe-gtk/servlistgui.c:1432
+#: src/fe-gtk/servlistgui.c:1851
 msgid "C_onnect"
 msgstr "เ_ชื่อมต่อ"
 
-#: src/fe-gtk/setup.c:102
+#: src/fe-gtk/setup.c:104
 msgid "Text Box Appearance"
 msgstr "การแสดงกล่องข้อความ"
 
-#: src/fe-gtk/setup.c:103
+#: src/fe-gtk/setup.c:105
 msgid "Font:"
 msgstr "ฟอนต์:"
 
-#: src/fe-gtk/setup.c:104
+#: src/fe-gtk/setup.c:106
 msgid "Background image:"
 msgstr "รูปพื้นหลัง:"
 
-#: src/fe-gtk/setup.c:105
+#: src/fe-gtk/setup.c:107
 msgid "Scrollback lines:"
 msgstr "เส้นเลื่อนกลับ:"
 
-#: src/fe-gtk/setup.c:106
+#: src/fe-gtk/setup.c:108
 msgid "Colored nick names"
 msgstr "ใช้ชื่อเล่นเป็นสี"
 
-#: src/fe-gtk/setup.c:107
+#: src/fe-gtk/setup.c:109
 msgid "Give each person on IRC a different color"
 msgstr "ให้แต่ละคนบน IRC มีสีต่างกัน"
 
-#: src/fe-gtk/setup.c:108
+#: src/fe-gtk/setup.c:110
 msgid "Indent nick names"
 msgstr "ย่อหน้าชื่อเล่น"
 
-#: src/fe-gtk/setup.c:109
+#: src/fe-gtk/setup.c:111
 msgid "Make nick names right-justified"
 msgstr "ตั้งชื่อเล่นให้ชิดขวา"
 
-#: src/fe-gtk/setup.c:110
+#: src/fe-gtk/setup.c:112
 msgid "Transparent background"
 msgstr "ทำการโปร่งใสพื้นหลัง"
 
-#: src/fe-gtk/setup.c:111
+#: src/fe-gtk/setup.c:113
 msgid "Show marker line"
 msgstr "แสดงเส้นลัญลักษณ์"
 
-#: src/fe-gtk/setup.c:112
+#: src/fe-gtk/setup.c:114
 msgid "Insert a red line after the last read text."
 msgstr "ใส่เส้นสีแดงหลังจากข้อความล่าสุดที่อ่าน."
 
-#: src/fe-gtk/setup.c:113
+#: src/fe-gtk/setup.c:115
 msgid "Transparency Settings"
 msgstr "ตั้งค่าความโปร่งใส"
 
-#: src/fe-gtk/setup.c:114
+#: src/fe-gtk/setup.c:116
 msgid "Red:"
 msgstr "สีแดง:"
 
-#: src/fe-gtk/setup.c:115
+#: src/fe-gtk/setup.c:117
 msgid "Green:"
 msgstr "สีเขียว:"
 
-#: src/fe-gtk/setup.c:116
+#: src/fe-gtk/setup.c:118
 msgid "Blue:"
 msgstr "สีน้ำเงิน:"
 
-#: src/fe-gtk/setup.c:118 src/fe-gtk/setup.c:379
+#: src/fe-gtk/setup.c:120 src/fe-gtk/setup.c:391
 msgid "Time Stamps"
 msgstr "การประทับเวลา"
 
-#: src/fe-gtk/setup.c:119
+#: src/fe-gtk/setup.c:121
 msgid "Enable time stamps"
 msgstr "เปิดการประทับเวลา"
 
-#: src/fe-gtk/setup.c:120
+#: src/fe-gtk/setup.c:122
 msgid "Time stamp format:"
 msgstr "รูปแบบการประทับเวลา"
 
-#: src/fe-gtk/setup.c:121 src/fe-gtk/setup.c:382
+#: src/fe-gtk/setup.c:123 src/fe-gtk/setup.c:394
 msgid "See strftime manpage for details."
 msgstr "ดู manpage ของ strftime สำหรับรายละเอียด."
 
-#: src/fe-gtk/setup.c:128 src/fe-gtk/setup.c:168
+#: src/fe-gtk/setup.c:130 src/fe-gtk/setup.c:170
 msgid "A-Z"
 msgstr "A-Z"
 
-#: src/fe-gtk/setup.c:129
+#: src/fe-gtk/setup.c:131
 msgid "Last-spoke order"
 msgstr "อันดับการพูดคุยล่าสุด"
 
-#: src/fe-gtk/setup.c:135 src/fe-gtk/setup.c:1657
+#: src/fe-gtk/setup.c:137 src/fe-gtk/setup.c:1701
 msgid "Input box"
 msgstr "กล่องรับข้อมูล"
 
-#: src/fe-gtk/setup.c:136 src/fe-gtk/setup.c:200
+#: src/fe-gtk/setup.c:138 src/fe-gtk/setup.c:202
 msgid "Use the Text box font and colors"
 msgstr "ใช้กล่องแถบฟอนต์และสี"
 
-#: src/fe-gtk/setup.c:138
+#: src/fe-gtk/setup.c:140
 msgid "Spell checking"
 msgstr "ตรวจสอบการสะกด"
 
-#: src/fe-gtk/setup.c:141
+#: src/fe-gtk/setup.c:143
 msgid "Nick Completion"
 msgstr "การเติมเต็มชื่อเล่น"
 
-#: src/fe-gtk/setup.c:142
+#: src/fe-gtk/setup.c:144
 msgid "Automatic nick completion (without TAB key)"
 msgstr "เติมเต็มชื่อเล่นโดยอัตโนมัติ (โดยไม่มีคีย์ TAB)"
 
-#: src/fe-gtk/setup.c:144
+#: src/fe-gtk/setup.c:146
 msgid "Nick completion suffix:"
 msgstr "ส่วนต่อท้ายการเติมเต็มชื่อเล่น"
 
-#: src/fe-gtk/setup.c:145
+#: src/fe-gtk/setup.c:147
 msgid "Nick completion sorted:"
 msgstr "การลำดับการเติมเต็มชื่อเล่น"
 
-#: src/fe-gtk/setup.c:148
+#: src/fe-gtk/setup.c:150
 msgid "Input Box Codes"
 msgstr "รหัสกล่องรับข้อมูล"
 
-#: src/fe-gtk/setup.c:149
+#: src/fe-gtk/setup.c:151
 #, c-format
 msgid "Interpret %nnn as an ASCII value"
 msgstr "แปลง %nnn เป็นค่า ASCII"
 
-#: src/fe-gtk/setup.c:150
+#: src/fe-gtk/setup.c:152
 msgid "Interpret %C, %B as Color, Bold etc"
 msgstr "แปลง %C, %B เป็นสี, ตัวหนา และอื่น ๆ"
 
-#: src/fe-gtk/setup.c:167
+#: src/fe-gtk/setup.c:169
 msgid "A-Z, Ops first"
 msgstr "A-Z, Ops ก่อน"
 
-#: src/fe-gtk/setup.c:169
+#: src/fe-gtk/setup.c:171
 msgid "Z-A, Ops last"
 msgstr "Z-A, Ops ทีหลัง"
 
-#: src/fe-gtk/setup.c:170
+#: src/fe-gtk/setup.c:172
 msgid "Z-A"
 msgstr "Z-A"
 
-#: src/fe-gtk/setup.c:171
+#: src/fe-gtk/setup.c:173
 msgid "Unsorted"
 msgstr "ไม่เรียง"
 
-#: src/fe-gtk/setup.c:177 src/fe-gtk/setup.c:189
+#: src/fe-gtk/setup.c:179 src/fe-gtk/setup.c:191
 msgid "Left (Upper)"
 msgstr "ซ้าย(ด้านบน)"
 
-#: src/fe-gtk/setup.c:178 src/fe-gtk/setup.c:190
+#: src/fe-gtk/setup.c:180 src/fe-gtk/setup.c:192
 msgid "Left (Lower)"
 msgstr "ซ้าย(ด้านล่าง)"
 
-#: src/fe-gtk/setup.c:179 src/fe-gtk/setup.c:191
+#: src/fe-gtk/setup.c:181 src/fe-gtk/setup.c:193
 msgid "Right (Upper)"
 msgstr "ขวา(ด้านบน)"
 
-#: src/fe-gtk/setup.c:180 src/fe-gtk/setup.c:192
+#: src/fe-gtk/setup.c:182 src/fe-gtk/setup.c:194
 msgid "Right (Lower)"
 msgstr "ขวา(ด้านล่าง)"
 
-#: src/fe-gtk/setup.c:181
+#: src/fe-gtk/setup.c:183
 msgid "Top"
 msgstr "บน"
 
-#: src/fe-gtk/setup.c:182
+#: src/fe-gtk/setup.c:184
 msgid "Bottom"
 msgstr "ล่าง"
 
-#: src/fe-gtk/setup.c:183
+#: src/fe-gtk/setup.c:185
 msgid "Hidden"
 msgstr "ซ่อน"
 
-#: src/fe-gtk/setup.c:198
+#: src/fe-gtk/setup.c:200
 msgid "User List"
 msgstr "รายชื่อผู้ใช้"
 
-#: src/fe-gtk/setup.c:199
+#: src/fe-gtk/setup.c:201
 msgid "Show hostnames in user list"
 msgstr "แสดงชื่อโฮสต์ในรายชื่อผู้ใช้"
 
-#: src/fe-gtk/setup.c:202
+#: src/fe-gtk/setup.c:204
 msgid "User list sorted by:"
 msgstr "เรียงรายชื่อผู้ใช้ด้วย:"
 
-#: src/fe-gtk/setup.c:203
+#: src/fe-gtk/setup.c:205
 msgid "Show user list at:"
 msgstr "แสดงรายชื่อผู้ใช้ที่:"
 
-#: src/fe-gtk/setup.c:205
+#: src/fe-gtk/setup.c:207
 msgid "Away tracking"
 msgstr "ติดตามการไม่อยู่"
 
-#: src/fe-gtk/setup.c:206
+#: src/fe-gtk/setup.c:208
 msgid "Track the Away status of users and mark them in a different color"
 msgstr "ติดตามสถานะไม่อยู่ของผู้ใช้และทำเครื่องหมายพวกเขาในสีที่แตกต่างกัน"
 
-#: src/fe-gtk/setup.c:207
+#: src/fe-gtk/setup.c:209
 msgid "On channels smaller than:"
 msgstr "ในแชนแนลที่เล็กกว่า:"
 
-#: src/fe-gtk/setup.c:209
+#: src/fe-gtk/setup.c:211
 msgid "Action Upon Double Click"
 msgstr "ปฏิบัติการเมื่อดับเบิ้ลคลิก"
 
-#: src/fe-gtk/setup.c:210
-msgid "Execute command:"
-msgstr "กระทำคำสั่ง:"
-
-#: src/fe-gtk/setup.c:221
+#: src/fe-gtk/setup.c:223
 msgid "Windows"
 msgstr "หน้าต่าง"
 
-#: src/fe-gtk/setup.c:222
+#: src/fe-gtk/setup.c:224 src/fe-gtk/setup.c:240
 msgid "Tabs"
 msgstr "แท็บ"
 
-#: src/fe-gtk/setup.c:230
+#: src/fe-gtk/setup.c:232
 msgid "Always"
 msgstr "ตลอดเวลา"
 
-#: src/fe-gtk/setup.c:231
+#: src/fe-gtk/setup.c:233
 msgid "Only requested tabs"
 msgstr "แท็บที่ร้องขอเท่านั้น"
 
-#: src/fe-gtk/setup.c:238
-msgid "Channel Switcher"
-msgstr "ตัวสวิตช์แชนแนล"
+#: src/fe-gtk/setup.c:242
+msgid "Tree"
+msgstr "ต้นไม้"
 
-#: src/fe-gtk/setup.c:239
+#: src/fe-gtk/setup.c:249
+msgid "Switcher type:"
+msgstr "ชนิดตัวเปิดปิด:"
+
+#: src/fe-gtk/setup.c:250
 msgid "Open an extra tab for server messages"
 msgstr "เปิดแท็บพิเศษสำหรับข้อความจากเซิร์ฟเวอร์"
 
-#: src/fe-gtk/setup.c:240
+#: src/fe-gtk/setup.c:251
 msgid "Open an extra tab for server notices"
 msgstr "เปิดแท็บพิเศษสำหรับการประกาศจากเซิร์ฟเวอร์"
 
-#: src/fe-gtk/setup.c:241
+#: src/fe-gtk/setup.c:252
 msgid "Open a new tab when you receive a private message"
 msgstr "เปิดแท็บใหม่เมื่อคุณได้รับข้อความส่วนตัว"
 
-#: src/fe-gtk/setup.c:242
+#: src/fe-gtk/setup.c:253
 msgid "Sort tabs in alphabetical order"
 msgstr "เรียงแท็บตามตัวอักษร"
 
-#: src/fe-gtk/setup.c:243
-msgid "Small tabs"
-msgstr "แท็บเล็ก"
+#: src/fe-gtk/setup.c:254
+msgid "Smaller text"
+msgstr "ข้อความเล็กกว่า"
 
-#: src/fe-gtk/setup.c:245
+#: src/fe-gtk/setup.c:256
 msgid "Focus new tabs:"
 msgstr "ให้ความสนใจแท็บใหม่:"
 
-#: src/fe-gtk/setup.c:247
+#: src/fe-gtk/setup.c:258
 msgid "Show channel switcher at:"
 msgstr "แสดงตัวสวิตช์แชนแนลที่:"
 
-#: src/fe-gtk/setup.c:248
+#: src/fe-gtk/setup.c:259
 msgid "Shorten tab labels to:"
 msgstr "ย่อป้ายชื่อแท็บเป็น:"
 
-#: src/fe-gtk/setup.c:248
+#: src/fe-gtk/setup.c:259
 msgid "letters."
 msgstr "ต้วหนังสือ."
 
-#: src/fe-gtk/setup.c:250
+#: src/fe-gtk/setup.c:261
 msgid "Tabs or Windows"
 msgstr "แท็บหรือหน้าต่าง"
 
-#: src/fe-gtk/setup.c:251
+#: src/fe-gtk/setup.c:262
 msgid "Open channels in:"
 msgstr "เปิดแชนแนลใน:"
 
-#: src/fe-gtk/setup.c:252
+#: src/fe-gtk/setup.c:263
 msgid "Open dialogs in:"
 msgstr "เปิดหน้าต่างสนทนาใน:"
 
-#: src/fe-gtk/setup.c:253
+#: src/fe-gtk/setup.c:264
 msgid "Open utilities in:"
 msgstr "เปิดส่วนอรรถประโยชน์ใน:"
 
-#: src/fe-gtk/setup.c:253
+#: src/fe-gtk/setup.c:264
 msgid "Open DCC, Ignore, Notify etc, in tabs or windows?"
 msgstr "เปิด DDC, การเพิกเฉย, การแจ้งเตือน อื่น ๆ, ในแท็บหรือหน้าต่าง?"
 
-#: src/fe-gtk/setup.c:260
+#: src/fe-gtk/setup.c:271
 msgid "No"
 msgstr "ไม่"
 
-#: src/fe-gtk/setup.c:261
+#: src/fe-gtk/setup.c:272
 msgid "Yes"
 msgstr "ใช่"
 
-#: src/fe-gtk/setup.c:262
+#: src/fe-gtk/setup.c:273
 msgid "Browse for save folder every time"
 msgstr "มองหาโฟลเดอร์ที่บันทึกทุกครั้ง"
 
-#: src/fe-gtk/setup.c:268
+#: src/fe-gtk/setup.c:279
 msgid "Files and Directories"
 msgstr "ไฟล์และไดเร็กทอรี่"
 
-#: src/fe-gtk/setup.c:269
+#: src/fe-gtk/setup.c:280
 msgid "Auto accept file offers:"
 msgstr "ยอมรับไฟล์ที่ได้รับการเสนอให้อัตโนมัติ:"
 
-#: src/fe-gtk/setup.c:270
+#: src/fe-gtk/setup.c:281
 msgid "Download files to:"
 msgstr "ดาวน์โหลดไฟล์ไปยัง:"
 
-#: src/fe-gtk/setup.c:271
+#: src/fe-gtk/setup.c:282
 msgid "Move completed files to:"
 msgstr "ย้ายไฟล์ที่เสร็จแล้วไปที่:"
 
-#: src/fe-gtk/setup.c:272
+#: src/fe-gtk/setup.c:283
 msgid "Save nick name in filenames"
 msgstr "บันทึกชื่อเล่นในชื่อไฟล์"
 
-#: src/fe-gtk/setup.c:274
+#: src/fe-gtk/setup.c:285
 msgid "Network Settings"
 msgstr "ตั้งค่าเครือข่าย"
 
-#: src/fe-gtk/setup.c:275
+#: src/fe-gtk/setup.c:286
 msgid "Get my address from the IRC server"
 msgstr "รับที่อยู่ของฉันจากเซิร์ฟเวอร์ IRC"
 
-#: src/fe-gtk/setup.c:276
+#: src/fe-gtk/setup.c:287
 msgid "Asks the IRC server for your real address. Use this if you have a 192.168.*.* address!"
 msgstr "ร้องขอเซิร์ฟเวอร์ IRC ด้วยที่อยู่จริงของคุณ. ใช้นี่ถ้าคุณมีที่อยู่เป็น 192.168.*.* !"
 
-#: src/fe-gtk/setup.c:277
+#: src/fe-gtk/setup.c:288
 msgid "DCC IP address:"
 msgstr "ที่อยู่ไปพีของ DDC:"
 
-#: src/fe-gtk/setup.c:278
+#: src/fe-gtk/setup.c:289
 msgid "Claim you are at this address when offering files."
 msgstr "อ้างถึงคุณด้วยที่อยู่นี้เมื่อทำการเสนอไฟล์."
 
-#: src/fe-gtk/setup.c:279
+#: src/fe-gtk/setup.c:290
 msgid "First DCC send port:"
 msgstr "พอร์ตสำหรับส่ง DCC แรก:"
 
-#: src/fe-gtk/setup.c:280
+#: src/fe-gtk/setup.c:291
 msgid "Last DCC send port:"
 msgstr "พอร์ตสำหรับส่ง DCC สุดท้าย:"
 
-#: src/fe-gtk/setup.c:281
+#: src/fe-gtk/setup.c:292
 msgid "!Leave ports at zero for full range."
 msgstr "!ปล่อยพอร์ตไว้ที่ศูนย์สำหรับขอบเขตทั้งหมด."
 
-#: src/fe-gtk/setup.c:283
+#: src/fe-gtk/setup.c:294
 msgid "Maximum File Transfer Speeds (bytes per second)"
 msgstr "ความเร็วการขนส่งไฟล์สูงสุด (ไบต์ต่อวินาที)"
 
-#: src/fe-gtk/setup.c:284
+#: src/fe-gtk/setup.c:295
 msgid "One upload:"
 msgstr "การอัพโหลดหนึ่งๆ:"
 
-#: src/fe-gtk/setup.c:285 src/fe-gtk/setup.c:287
+#: src/fe-gtk/setup.c:296 src/fe-gtk/setup.c:298
 msgid "Maximum speed for one transfer"
 msgstr "ใช้ความเร็วสูงสุดสำหรับการขนย้ายไฟล์หนึ่ง ๆ"
 
-#: src/fe-gtk/setup.c:286
+#: src/fe-gtk/setup.c:297
 msgid "One download:"
 msgstr "การดาวน์โหลดหนึ่งๆ:"
 
-#: src/fe-gtk/setup.c:288
+#: src/fe-gtk/setup.c:299
 msgid "All uploads combined:"
 msgstr "รวมการอัพโหลดทั้งหมด:"
 
-#: src/fe-gtk/setup.c:289 src/fe-gtk/setup.c:291
+#: src/fe-gtk/setup.c:300 src/fe-gtk/setup.c:302
 msgid "Maximum speed for all files"
 msgstr "ใช้ความเร็วสูงสุดสำหรับทุกไฟล์"
 
-#: src/fe-gtk/setup.c:290
+#: src/fe-gtk/setup.c:301
 msgid "All downloads combined:"
 msgstr "รวมการดาวน์โหลดทั้งหมด:"
 
-#: src/fe-gtk/setup.c:318 src/fe-gtk/setup.c:1663
+#: src/fe-gtk/setup.c:329 src/fe-gtk/setup.c:1707
 msgid "Alerts"
 msgstr "การแจ้งเตือน"
 
-#: src/fe-gtk/setup.c:322
+#: src/fe-gtk/setup.c:333
 msgid "Show tray balloons on:"
 msgstr "เปิดการแสดงถาดบอลลูน:"
 
-#: src/fe-gtk/setup.c:324
+#: src/fe-gtk/setup.c:335
 msgid "Blink tray icon on:"
 msgstr "เปิดการกระพริบถาดไอคอน:"
 
-#: src/fe-gtk/setup.c:325
+#: src/fe-gtk/setup.c:336
 msgid "Blink task bar on:"
 msgstr "เปิดการกระพริบแถบงาน:"
 
-#: src/fe-gtk/setup.c:326
+#: src/fe-gtk/setup.c:337
 msgid "Make a beep sound on:"
 msgstr "เปิดเสียงบี๊บ:"
 
-#: src/fe-gtk/setup.c:328
+#: src/fe-gtk/setup.c:339
 msgid "Enable system tray icon"
 msgstr "เปิดใช้ถามไอคอนของระบบ"
 
-#: src/fe-gtk/setup.c:330
+#: src/fe-gtk/setup.c:341
 msgid "Highlighted Messages"
 msgstr "ข้อความที่ถูกเน้น"
 
-#: src/fe-gtk/setup.c:331
+#: src/fe-gtk/setup.c:342
 msgid "Highlighted messages are ones where your nickname is mentioned, but also:"
 msgstr "ข้อความที่ถูกเน้นเป็นสิ่งที่ชื่อเล่นของคุณกล่าวถึง, ยิ่งกว่านั้น:"
 
-#: src/fe-gtk/setup.c:333
+#: src/fe-gtk/setup.c:344
 msgid "Extra words to highlight:"
 msgstr "คำพิเศษสำหรับเน้น:"
 
-#: src/fe-gtk/setup.c:334
+#: src/fe-gtk/setup.c:345
 msgid "Nick names not to highlight:"
 msgstr "ไม่เน้นชื่อเล่น:"
 
-#: src/fe-gtk/setup.c:335
+#: src/fe-gtk/setup.c:346
 msgid "Nick names to always highlight:"
 msgstr "ชื่อเล่นสำหรับเน้นเสมอ:"
 
-#: src/fe-gtk/setup.c:336
-msgid "Separate multiple words with commas."
-msgstr "แยกคำหลาย ๆ คำด้วยจุลภาค."
+#: src/fe-gtk/setup.c:347
+msgid ""
+"Separate multiple words with commas.\n"
+"Wildcards are accepted."
+msgstr ""
+"แยกคำหลาย ๆ คำด้วยจุลภาค.\n"
+"รองรับการใช้ไวลด์การ์ด."
 
-#: src/fe-gtk/setup.c:342
+#: src/fe-gtk/setup.c:353
 msgid "Default Messages"
 msgstr "ข้อความมาตรฐาน"
 
-#: src/fe-gtk/setup.c:343
+#: src/fe-gtk/setup.c:354
 msgid "Quit:"
 msgstr "ออก:"
 
-#: src/fe-gtk/setup.c:344
+#: src/fe-gtk/setup.c:355
 msgid "Leave channel:"
 msgstr "ออกจากแชนแนล:"
 
-#: src/fe-gtk/setup.c:345
+#: src/fe-gtk/setup.c:356
 msgid "Away:"
 msgstr "ไม่อยู่:"
 
-#: src/fe-gtk/setup.c:347
+#: src/fe-gtk/setup.c:358
 msgid "Away"
 msgstr "ไม่อยู่"
 
-#: src/fe-gtk/setup.c:348
+#: src/fe-gtk/setup.c:359
 msgid "Announce away messages"
 msgstr "แจ้งข้อความไม่อยู่"
 
-#: src/fe-gtk/setup.c:349
+#: src/fe-gtk/setup.c:360
 msgid "Announce your away messages to all channels"
 msgstr "แจ้งข้อความไม่อยู่ของคุณไปยังทุกแชนแนล"
 
-#: src/fe-gtk/setup.c:350
+#: src/fe-gtk/setup.c:361
 msgid "Show away once"
 msgstr "แสดงสถานะไม่อยู่ครั้งเดียว"
 
-#: src/fe-gtk/setup.c:350
+#: src/fe-gtk/setup.c:361
 msgid "Show identical away messages only once"
 msgstr "แสดงข้อความไม่อยู่อย่างเดียวกันเพียงครั้งเดียว"
 
-#: src/fe-gtk/setup.c:351
+#: src/fe-gtk/setup.c:362
 msgid "Automatically unmark away"
 msgstr "เลิกทำเครื่องหมายว่าไม่อยู่โดยอัตโนมัติ"
 
-#: src/fe-gtk/setup.c:351
+#: src/fe-gtk/setup.c:362
 msgid "Unmark yourself as away before sending messages"
 msgstr "เลิกทำเครื่องหมายคุณเองเป็นไม่อยู่ก่อนที่จะส่งข้อความ"
 
-#: src/fe-gtk/setup.c:358
+#: src/fe-gtk/setup.c:369
 msgid "Advanced Settings"
 msgstr "ตั้งค่าขั้นสูง"
 
-#: src/fe-gtk/setup.c:359
+#: src/fe-gtk/setup.c:370
 msgid "Auto reconnect delay:"
 msgstr "เวลาหน่วงในการเชื่อมต่ออีกครั้งอัตโนมัติ:"
 
-#: src/fe-gtk/setup.c:360
+#: src/fe-gtk/setup.c:371
 msgid "Display MODEs in raw form"
 msgstr "แสดงโหมดในรูปแบบข้อมูลดิบ"
 
-#: src/fe-gtk/setup.c:361
+#: src/fe-gtk/setup.c:372
 msgid "Whois on notify"
 msgstr "Whois เมื่อมีการแจ้งเตือน"
 
-#: src/fe-gtk/setup.c:361
+#: src/fe-gtk/setup.c:372
 msgid "Sends a /WHOIS when a user comes online in your notify list"
 msgstr "ส่ง /WHOIS เมื่อผู้ใช้ในรายชื่อแจ้งเตือนได้ออนไลน์"
 
-#: src/fe-gtk/setup.c:362
+#: src/fe-gtk/setup.c:373
 msgid "Hide join and part messages"
 msgstr "ซ่อนแชนแนลเข้าร่วม/ส่วนข้อความ"
 
-#: src/fe-gtk/setup.c:362
+#: src/fe-gtk/setup.c:373
 msgid "Hide channel join/part messages by default"
 msgstr "ซ่อนแชนแนลเข้าร่วม/ส่วนข้อความโดยอัตโนมัติ"
 
-#: src/fe-gtk/setup.c:363
+#: src/fe-gtk/setup.c:374
 msgid "Auto Open DCC Windows"
 msgstr "เปิดหน้าต่าง DCC โดยอัตโนมัติ"
 
-#: src/fe-gtk/setup.c:364
+#: src/fe-gtk/setup.c:375
 msgid "Send window"
 msgstr "หน้าต่างส่ง"
 
-#: src/fe-gtk/setup.c:365
+#: src/fe-gtk/setup.c:376
 msgid "Receive window"
 msgstr "หน้าต่างรับ"
 
-#: src/fe-gtk/setup.c:366
+#: src/fe-gtk/setup.c:377
 msgid "Chat window"
 msgstr "หน้าต่างคุยเล่น"
 
-#: src/fe-gtk/setup.c:374 src/fe-gtk/setup.c:1665
+#: src/fe-gtk/setup.c:385 src/fe-gtk/setup.c:1709
 msgid "Logging"
 msgstr "การบันทึกของระบบ"
 
-#: src/fe-gtk/setup.c:375
-msgid "Enable logging of conversations"
-msgstr "เปิดการบันทึกของการพูดคุย"
+#: src/fe-gtk/setup.c:386
+msgid "Display scrollback from previous session"
+msgstr "แสดงตัวเลื่อนกลับจากวาระก่อนหน้า"
 
-#: src/fe-gtk/setup.c:376
+#: src/fe-gtk/setup.c:387
+msgid "Enable logging of conversations to disk"
+msgstr "เปิดการบันทึกของการพูดคุยไปยังดิสก์"
+
+#: src/fe-gtk/setup.c:388
 msgid "Log filename:"
 msgstr "ชื่อไฟล์บันทึกระบบ:"
 
-#: src/fe-gtk/setup.c:377
+#: src/fe-gtk/setup.c:389
 #, c-format
 msgid "%s=Server %c=Channel %n=Network."
 msgstr "%s=เซิร์ฟเวอร์ %c=แชนแนล %n=เครือข่าย."
 
-#: src/fe-gtk/setup.c:380
+#: src/fe-gtk/setup.c:392
 msgid "Insert timestamps in logs"
 msgstr "ใส่กี่ประทับเวลาในบันทึกระบบ"
 
-#: src/fe-gtk/setup.c:381
+#: src/fe-gtk/setup.c:393
 msgid "Log timestamp format:"
 msgstr "รูปแบบประทับเวลาของบันทึกระบบ:"
 
-#: src/fe-gtk/setup.c:389
+#: src/fe-gtk/setup.c:401
 msgid "(Disabled)"
 msgstr "(ปิดการทำงาน)"
 
-#: src/fe-gtk/setup.c:390
+#: src/fe-gtk/setup.c:402
 msgid "Wingate"
 msgstr "Wingate"
 
-#: src/fe-gtk/setup.c:391
+#: src/fe-gtk/setup.c:403
 msgid "Socks4"
 msgstr "Socks4"
 
-#: src/fe-gtk/setup.c:392
+#: src/fe-gtk/setup.c:404
 msgid "Socks5"
 msgstr "Socks5"
 
-#: src/fe-gtk/setup.c:393
+#: src/fe-gtk/setup.c:405
 msgid "HTTP"
 msgstr "HTTP"
 
-#: src/fe-gtk/setup.c:395
+#: src/fe-gtk/setup.c:407
 msgid "MS Proxy (ISA)"
 msgstr "MS Proxy (ISA)"
 
-#: src/fe-gtk/setup.c:402
+#: src/fe-gtk/setup.c:414
 msgid "All Connections"
 msgstr "ทุกการเชื่อมต่อ"
 
-#: src/fe-gtk/setup.c:403
+#: src/fe-gtk/setup.c:415
 msgid "IRC Server Only"
 msgstr "เซิร์ฟเวอร์ IRC เท่านั้น"
 
-#: src/fe-gtk/setup.c:404
+#: src/fe-gtk/setup.c:416
 msgid "DCC Get Only"
 msgstr "DCC Get เท่านั้น"
 
-#: src/fe-gtk/setup.c:410
+#: src/fe-gtk/setup.c:422
 msgid "Your Address"
 msgstr "ที่อยู่ของคุณ"
 
-#: src/fe-gtk/setup.c:411
+#: src/fe-gtk/setup.c:423
 msgid "Bind to:"
 msgstr "ผูกติดไปเป็น:"
 
-#: src/fe-gtk/setup.c:412
+#: src/fe-gtk/setup.c:424
 msgid "Only useful for computers with multiple addresses."
 msgstr "มีประโยชน์กับคอมพิวเตอร์ที่มีหลายที่อยู่เท่านั้น"
 
-#: src/fe-gtk/setup.c:414
+#: src/fe-gtk/setup.c:426
 msgid "Proxy Server"
 msgstr "เซิร์ฟเวอร์พร็อกซี่"
 
-#: src/fe-gtk/setup.c:415
+#: src/fe-gtk/setup.c:427
 msgid "Hostname:"
 msgstr "ชื่อโฮต์:"
 
-#: src/fe-gtk/setup.c:416
+#: src/fe-gtk/setup.c:428
 msgid "Port:"
 msgstr "พอร์ต:"
 
-#: src/fe-gtk/setup.c:417
+#: src/fe-gtk/setup.c:429
 msgid "Type:"
 msgstr "ชนิด:"
 
-#: src/fe-gtk/setup.c:418
+#: src/fe-gtk/setup.c:430
 msgid "Use proxy for:"
 msgstr "ใช้พร็อกซี่สำหรับ:"
 
-#: src/fe-gtk/setup.c:420
+#: src/fe-gtk/setup.c:432
 msgid "Proxy Authentication"
 msgstr "การรับรองพร็อกซี่"
 
-#: src/fe-gtk/setup.c:422
+#: src/fe-gtk/setup.c:434
 msgid "Use Authentication (MS Proxy, HTTP or Socks5 only)"
 msgstr "ใช้การรับรอง (MS Proxy, HTTP หรือ Socks5 เท่านั้น)"
 
-#: src/fe-gtk/setup.c:424
+#: src/fe-gtk/setup.c:436
 msgid "Use Authentication (HTTP or Socks5 only)"
 msgstr "ใช้การรับรอง (HTTP หรือ Socks5 เท่านั้น)"
 
-#: src/fe-gtk/setup.c:426
+#: src/fe-gtk/setup.c:438
 msgid "Username:"
 msgstr "ชื่อผู้ใช้:"
 
-#: src/fe-gtk/setup.c:427
+#: src/fe-gtk/setup.c:439
 msgid "Password:"
 msgstr "รหัสผ่าน:"
 
-#: src/fe-gtk/setup.c:838
+#: src/fe-gtk/setup.c:870
 msgid "Select an Image File"
 msgstr "เลือกไฟล์ภาพ"
 
-#: src/fe-gtk/setup.c:862
+#: src/fe-gtk/setup.c:905
 msgid "Select Download Folder"
 msgstr "เลือกโฟลเดอร์ดาวน์โหลด"
 
-#: src/fe-gtk/setup.c:871
+#: src/fe-gtk/setup.c:914
 msgid "Select font"
 msgstr "เลือกฟอนต์"
 
-#: src/fe-gtk/setup.c:968
+#: src/fe-gtk/setup.c:1014
 msgid "Browse..."
 msgstr "มองหา..."
 
-#: src/fe-gtk/setup.c:1108
+#: src/fe-gtk/setup.c:1152
 msgid "Mark identified users with:"
 msgstr "ทำเครื่องหมายผู้ใช้ที่สามารถระบุตัวบุคคลได้ด้วย:"
 
-#: src/fe-gtk/setup.c:1110
+#: src/fe-gtk/setup.c:1154
 msgid "Mark not-identified users with:"
 msgstr "ทำเครื่องหมายผู้ใช้ที่ไม่สามารถระบุตัวบุคคลได้ด้วย:"
 
-#: src/fe-gtk/setup.c:1117
+#: src/fe-gtk/setup.c:1161
 msgid "Open Data Folder"
 msgstr "เปิดโฟลเดอร์ข้อมูล"
 
-#: src/fe-gtk/setup.c:1171
+#: src/fe-gtk/setup.c:1215
 msgid "Select color"
 msgstr "เลือกสี"
 
-#: src/fe-gtk/setup.c:1251
+#: src/fe-gtk/setup.c:1295
 msgid "Text Colors"
 msgstr "สีข้อความ"
 
-#: src/fe-gtk/setup.c:1253
+#: src/fe-gtk/setup.c:1297
 msgid "mIRC colors:"
 msgstr "สี mIRC:"
 
-#: src/fe-gtk/setup.c:1261
+#: src/fe-gtk/setup.c:1305
 msgid "Local colors:"
 msgstr "สีท้องถิ่น:"
 
-#: src/fe-gtk/setup.c:1269 src/fe-gtk/setup.c:1274
+#: src/fe-gtk/setup.c:1313 src/fe-gtk/setup.c:1318
 msgid "Foreground:"
 msgstr "พื้นหน้า:"
 
-#: src/fe-gtk/setup.c:1270 src/fe-gtk/setup.c:1275
+#: src/fe-gtk/setup.c:1314 src/fe-gtk/setup.c:1319
 msgid "Background:"
 msgstr "พื้นหลัง:"
 
-#: src/fe-gtk/setup.c:1272
+#: src/fe-gtk/setup.c:1316
 msgid "Marking Text"
 msgstr "ข้อความที่ทำเครื่องหมาย"
 
-#: src/fe-gtk/setup.c:1277
+#: src/fe-gtk/setup.c:1321
 msgid "Interface Colors"
 msgstr "ส่วนเชื่อมต่อผู้ใช้"
 
-#: src/fe-gtk/setup.c:1279
+#: src/fe-gtk/setup.c:1323
 msgid "New data:"
 msgstr "ข้อมูลใหม่"
 
-#: src/fe-gtk/setup.c:1280
+#: src/fe-gtk/setup.c:1324
 msgid "Marker line:"
 msgstr "เส้นสัญลักษณ์:"
 
-#: src/fe-gtk/setup.c:1281
+#: src/fe-gtk/setup.c:1325
 msgid "New message:"
 msgstr "ข้อความใหม่"
 
-#: src/fe-gtk/setup.c:1282
+#: src/fe-gtk/setup.c:1326
 msgid "Away user:"
 msgstr "ผู้ใช้ที่ไม่อยู่"
 
-#: src/fe-gtk/setup.c:1283
+#: src/fe-gtk/setup.c:1327
 msgid "Highlight:"
 msgstr "การเน้น:"
 
-#: src/fe-gtk/setup.c:1379 src/fe-gtk/textgui.c:389
+#: src/fe-gtk/setup.c:1423 src/fe-gtk/textgui.c:389
 msgid "Event"
 msgstr "เหตุการณ์"
 
-#: src/fe-gtk/setup.c:1385
+#: src/fe-gtk/setup.c:1429
 msgid "Sound file"
 msgstr "ไฟล์เสียง"
 
-#: src/fe-gtk/setup.c:1420
+#: src/fe-gtk/setup.c:1464
 msgid "Select a sound file"
 msgstr "เลือกไฟล์เสียง"
 
-#: src/fe-gtk/setup.c:1492
+#: src/fe-gtk/setup.c:1536
 msgid "Sound playing method:"
 msgstr "วิธีการเล่นเสียง:"
 
-#: src/fe-gtk/setup.c:1500
+#: src/fe-gtk/setup.c:1544
 msgid "External sound playing _program:"
 msgstr "โปรแกรมเล่นเสียงภาย_นอก"
 
-#: src/fe-gtk/setup.c:1518
+#: src/fe-gtk/setup.c:1562
 msgid "_External program"
 msgstr "โ_ปรแกรมภายนอก"
 
-#: src/fe-gtk/setup.c:1528
+#: src/fe-gtk/setup.c:1572
 msgid "_Automatic"
 msgstr "_อัตโนมัติ"
 
-#: src/fe-gtk/setup.c:1541
+#: src/fe-gtk/setup.c:1585
 msgid "Sound files _directory:"
 msgstr "ไ_ดเร็กทอรี่ไฟล์เสียง"
 
-#: src/fe-gtk/setup.c:1580
+#: src/fe-gtk/setup.c:1624
 msgid "Sound file:"
 msgstr "ไฟล์เสียง"
 
-#: src/fe-gtk/setup.c:1595
+#: src/fe-gtk/setup.c:1639
 msgid "_Browse..."
 msgstr "มอ_งหา..."
 
-#: src/fe-gtk/setup.c:1606
+#: src/fe-gtk/setup.c:1650
 msgid "_Play"
 msgstr "เล่_น"
 
-#: src/fe-gtk/setup.c:1655
+#: src/fe-gtk/setup.c:1699
 msgid "Interface"
 msgstr "ส่วนเชื่อมต่อผู้ใช้"
 
-#: src/fe-gtk/setup.c:1656
+#: src/fe-gtk/setup.c:1700
 msgid "Text box"
 msgstr "กล่องข้อความ"
 
-#: src/fe-gtk/setup.c:1658
+#: src/fe-gtk/setup.c:1702
 msgid "User list"
 msgstr "รายการผู้ใช้"
 
-#: src/fe-gtk/setup.c:1659
+#: src/fe-gtk/setup.c:1703
 msgid "Channel switcher"
 msgstr "สวิตช์เปลี่ยนแชนแนล"
 
-#: src/fe-gtk/setup.c:1660
+#: src/fe-gtk/setup.c:1704
 msgid "Colors"
 msgstr "สี"
 
-#: src/fe-gtk/setup.c:1662
+#: src/fe-gtk/setup.c:1706
 msgid "Chatting"
 msgstr "การคุยเล่น"
 
-#: src/fe-gtk/setup.c:1664
+#: src/fe-gtk/setup.c:1708
 msgid "General"
 msgstr "ทั่วไป"
 
-#: src/fe-gtk/setup.c:1666
+#: src/fe-gtk/setup.c:1710
 msgid "Sound"
 msgstr "เสียง"
 
-#: src/fe-gtk/setup.c:1670
+#: src/fe-gtk/setup.c:1714
 msgid "Network setup"
 msgstr "ตั้งค่าเครือข่าย"
 
-#: src/fe-gtk/setup.c:1671
+#: src/fe-gtk/setup.c:1715
 msgid "File transfers"
 msgstr "การส่งไฟล์"
 
-#: src/fe-gtk/setup.c:1779
+#: src/fe-gtk/setup.c:1823
 msgid "Categories"
 msgstr "หมวดหมู่"
 
-#: src/fe-gtk/setup.c:1960
+#: src/fe-gtk/setup.c:2007
 msgid ""
 "You cannot place the tree on the top or bottom!\n"
 "Please change to the <b>Tabs</b> layout in the <b>View</b> menu first."
@@ -5238,11 +5209,11 @@ msgstr ""
 "คุณไม่สามารถวางแผนภูมิต้นไม้บนส่วนบนหรือส่วนล่าง!\n"
 "กรุณาเปลี่ยนเป็นแผนผังแบบ <b>แท็บ</b> ในเมนู <b>มุมมอง</b> เป็นอันดับแรก."
 
-#: src/fe-gtk/setup.c:1970
+#: src/fe-gtk/setup.c:2017
 msgid "Some settings were changed that require a restart to take full effect."
 msgstr "การตั้งค่าบางอย่างที่ถูกเปลี่ยน ต้องการที่จะเริ่มใหม่เพื่อให้เป็นผล."
 
-#: src/fe-gtk/setup.c:1978
+#: src/fe-gtk/setup.c:2025
 msgid ""
 "*WARNING*\n"
 "Auto accepting DCC to your home directory\n"
@@ -5254,7 +5225,7 @@ msgstr ""
 "อาจจะอันตรายและสร้างความเสียหายได้. เช่น:\n"
 "บางคนอาจจะสามารถส่ง .bash_profile"
 
-#: src/fe-gtk/setup.c:2011
+#: src/fe-gtk/setup.c:2058
 msgid "XChat: Preferences"
 msgstr "XChat: ปรับแต่งค่า"
 
@@ -5287,31 +5258,31 @@ msgstr "โหลดจาก..."
 msgid "Test All"
 msgstr "ทดสอบทั้งหมด"
 
-#: src/fe-gtk/urlgrab.c:98
+#: src/fe-gtk/urlgrab.c:96
 msgid "URL"
 msgstr "URL"
 
-#: src/fe-gtk/urlgrab.c:188
+#: src/fe-gtk/urlgrab.c:186
 msgid "XChat: URL Grabber"
 msgstr "XChat: ตัวดักจับ URL"
 
-#: src/fe-gtk/urlgrab.c:201
+#: src/fe-gtk/urlgrab.c:199
 msgid "Clear list"
 msgstr "ล้างรายการ"
 
-#: src/fe-gtk/urlgrab.c:203
+#: src/fe-gtk/urlgrab.c:201
 msgid "Copy selected URL"
 msgstr "คัดลอก URL ที่เลือก"
 
-#: src/fe-gtk/urlgrab.c:203
+#: src/fe-gtk/urlgrab.c:201
 msgid "Copy"
 msgstr "คัดลอก"
 
-#: src/fe-gtk/urlgrab.c:205
+#: src/fe-gtk/urlgrab.c:203
 msgid "Save list to a file"
 msgstr "บันทึกรายการเป็นไฟล์"
 
-#: src/fe-gtk/userlistgui.c:111
+#: src/fe-gtk/userlistgui.c:119
 #, c-format
 msgid "%d ops, %d total"
 msgstr "%d ops, %d ทั้งหมด"
