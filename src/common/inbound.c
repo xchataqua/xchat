@@ -186,6 +186,9 @@ inbound_privmsg (server *serv, char *from, char *ip, char *text, int id)
 
 	inbound_make_idtext (serv, idtext, sizeof (idtext), id);
 
+	if (alert_match_word (from, prefs.irc_no_hilight))
+		return;
+
 	sess = find_session_from_nick (from, serv);
 	if (!sess)
 	{
@@ -435,6 +438,9 @@ inbound_chanmsg (server *serv, session *sess, char *chan, char *from, char *text
 	}
 
 	inbound_make_idtext (serv, idtext, sizeof (idtext), id);
+
+	if (alert_match_word (from, prefs.irc_no_hilight))
+		return;
 
 	if (is_hilight (from, text, sess, serv))
 		hilight = TRUE;

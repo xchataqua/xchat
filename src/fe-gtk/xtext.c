@@ -1870,7 +1870,9 @@ gtk_xtext_get_word (GtkXText * xtext, int x, int y, textentry ** ret_ent,
 		len++;
 	}
 
-	if (len > 0 && word[len-1]=='.')
+	/* ignore trailing dots and commas. */
+	/* FIXME: locales? */
+	while (len > 0 && (word[len-1]=='.' || word[len-1]==',' || word[len-1]==';'))
 	{
 		len--;
 		str--;
