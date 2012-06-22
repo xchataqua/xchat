@@ -338,9 +338,11 @@ scrollback_load (session *sess)
 			text = strchr (buf + 3, ' ');
 			if (text)
 			{
-				text = strip_color (text + 1, -1, STRIP_COLOR);
+				if (prefs.text_replay_strip_color)
+					text = strip_color (text + 1, -1, STRIP_COLOR);
 				fe_print_text (sess, text, stamp);
-				g_free (text);
+				if (prefs.text_replay_strip_color)
+					g_free (text);
 			}
 			lines++;
 		}
