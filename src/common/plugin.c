@@ -42,7 +42,6 @@ typedef struct session xchat_context;
 
 #ifdef __APPLE__
 extern char *get_appdir_fs();
-extern char *get_appplugindir_fs();
 extern char *get_plugin_bundle_path(char *filename);
 #endif
 
@@ -457,7 +456,6 @@ plugin_auto_load (session *sess)
 	for_files (get_xdir_fs (), "*.sl", plugin_auto_load_cb);
 #elif defined(FE_AQUA) || defined(FE_IOS)
     //TODO: hide plugins into app bundle
-	for_files (get_appplugindir_fs(), "*.bundle", plugin_auto_load_cb); // X-Chat Aqua
 	int len = strlen(get_xdir_fs()) + 10;
 	char buf[len];
 	strcpy(buf, get_xdir_fs());
