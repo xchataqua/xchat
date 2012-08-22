@@ -51,6 +51,7 @@ typedef struct session xchat_context;
 #ifdef __APPLE__
 extern char *get_appdir_fs();
 extern char *get_plugin_bundle_path(char *filename);
+extern void aqua_plugin_auto_load(struct session *ps);
 #endif
 
 /* the USE_PLUGIN define only removes libdl stuff */
@@ -393,7 +394,7 @@ plugin_load (session *sess, char *filename, char *arg)
 #endif
     
 #ifdef __APPLE__
-    int filenamelen = strlen(filename);
+    size_t filenamelen = strlen(filename);
     if (filenamelen > 7 && strcasecmp(".bundle", filename + filenamelen - 7) == 0) {
         filename = get_plugin_bundle_path(filename);
         if (filename == NULL) {
@@ -469,12 +470,7 @@ plugin_auto_load (session *sess)
 	for_files (XCHATLIBDIR"/plugins", "*.sl", plugin_auto_load_cb);
 	for_files (get_xdir_fs (), "*.sl", plugin_auto_load_cb);
 #elif defined(FE_AQUA) || defined(FE_IOS)
-    //TODO: hide plugins into app bundle
-	int len = strlen(get_xdir_fs()) + 10;
-	char buf[len];
-	strcpy(buf, get_xdir_fs());
-	strcat(buf, "/plugins");
-	for_files (buf, "*.bundle", plugin_auto_load_cb); // User configuration
+	aqua_plugin_auto_load(ps);
 #else
 	for_files (XCHATLIBDIR"/plugins", "*.so", plugin_auto_load_cb);
 	for_files (get_xdir_fs (), "*.so", plugin_auto_load_cb);
