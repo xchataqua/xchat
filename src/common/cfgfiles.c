@@ -40,6 +40,10 @@
 #define DEF_FONT_ALTER "Arial Unicode MS,Lucida Sans Unicode"
 #endif
 
+#ifdef FE_AQUA
+extern char *get_downloaddir_fs();
+#endif
+
 void
 list_addentry (GSList ** list, char *cmd, char *name)
 {
