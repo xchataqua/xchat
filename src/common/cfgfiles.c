@@ -38,6 +38,10 @@
 #endif
 #define DEF_FONT "Monospace 9"
 
+#ifdef FE_AQUA
+extern char *get_downloaddir_fs();
+#endif
+
 void
 list_addentry (GSList ** list, char *cmd, char *name)
 {
