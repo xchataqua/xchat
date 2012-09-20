@@ -343,7 +343,7 @@
 
 /* #undef USE_GTKSPELL */
 
-#define USE_IPV6 1
+//#define USE_IPV6 1
 
 #define USE_LIBSEXY 1
 
