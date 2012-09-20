@@ -51,6 +51,8 @@ typedef struct session xchat_context;
 #ifdef __APPLE__
 extern char *get_appdir_fs();
 extern char *get_plugin_bundle_path(char *filename);
+#endif
+#ifdef FE_AQUA
 extern void aqua_plugin_auto_load(struct session *ps);
 #endif
 
@@ -469,8 +471,10 @@ plugin_auto_load (session *sess)
 #if defined(__hpux)
 	for_files (XCHATLIBDIR"/plugins", "*.sl", plugin_auto_load_cb);
 	for_files (get_xdir_fs (), "*.sl", plugin_auto_load_cb);
-#elif defined(FE_AQUA) || defined(FE_IOS)
+#elif defined(FE_AQUA)
 	aqua_plugin_auto_load(ps);
+#elif defined(FE_IOS)
+    // no plugin available
 #else
 	for_files (XCHATLIBDIR"/plugins", "*.so", plugin_auto_load_cb);
 	for_files (get_xdir_fs (), "*.so", plugin_auto_load_cb);
