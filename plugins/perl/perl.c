@@ -1033,7 +1033,7 @@ XS (XS_Xchat_hook_fd)
 
 	dXSARGS;
 
-	if (items != 4) {
+	if (items != 5) {
 		xchat_print (ph,
 						 "Usage: Xchat::Internal::hook_fd(fd, callback, flags, userdata)");
 	} else {
