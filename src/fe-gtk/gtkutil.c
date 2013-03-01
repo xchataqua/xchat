@@ -26,25 +26,7 @@
 #include <fcntl.h>
 #include "fe-gtk.h"
 
-#include <gtk/gtkbutton.h>
-#include <gtk/gtkclist.h>
-#include <gtk/gtkscrolledwindow.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtkwindow.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkimage.h>
-#include <gtk/gtktooltips.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkspinbutton.h>
-#include <gtk/gtkclipboard.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkcellrenderertoggle.h>
-#include <gtk/gtkversion.h>
-#include <gtk/gtkfilechooserdialog.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/fe.h"

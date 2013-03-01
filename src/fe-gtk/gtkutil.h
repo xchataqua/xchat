@@ -1,5 +1,4 @@
-#include <gtk/gtktreeview.h>
-#include <gtk/gtktreemodel.h>
+#include <gtk/gtk.h>
 
 typedef void (*filereqcallback) (void *, char *file);
 

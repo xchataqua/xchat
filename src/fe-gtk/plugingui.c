@@ -22,15 +22,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkdialog.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkbox.h>
-#include <gtk/gtkscrolledwindow.h>
-
-#include <gtk/gtkliststore.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrenderertext.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #define PLUGIN_C

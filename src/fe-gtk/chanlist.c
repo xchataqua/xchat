@@ -25,22 +25,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkalignment.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkcombobox.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkliststore.h>
-#include <gtk/gtkscrolledwindow.h>
-#include <gtk/gtkspinbutton.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkvseparator.h>
-#include <gdk/gdkkeysyms.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/xchatc.h"

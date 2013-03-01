@@ -28,18 +28,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkcheckmenuitem.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkimage.h>
-#include <gtk/gtkimagemenuitem.h>
-#include <gtk/gtkradiomenuitem.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtkmenu.h>
-#include <gtk/gtkmenubar.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkversion.h>
+#include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include "../common/xchat.h"

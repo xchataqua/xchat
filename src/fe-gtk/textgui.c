@@ -26,15 +26,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkbutton.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkliststore.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkvpaned.h>
-#include <gtk/gtkvscrollbar.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/xchatc.h"

@@ -28,21 +28,7 @@
 #include "../common/inet.h"
 #include "fe-gtk.h"
 
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtkexpander.h>
-#include <gtk/gtkliststore.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrendererpixbuf.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkcheckmenuitem.h>
-#include <gtk/gtkradiobutton.h>
-#include <gtk/gtkversion.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/xchatc.h"

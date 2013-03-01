@@ -22,11 +22,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkeditable.h>
-#include <gtk/gtkframe.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkbutton.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/xchatc.h"

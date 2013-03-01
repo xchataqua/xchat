@@ -12,7 +12,7 @@ typedef struct
 #include "maingui.h"
 
 #include <gdk/gdk.h>
-#include <gtk/gtktreeview.h>
+#include <gtk/gtk.h>
 
 static void 	/* row-activated, when a row is double clicked */
 cv_tree_activated_cb (GtkTreeView *view, GtkTreePath *path,

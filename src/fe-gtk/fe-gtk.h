@@ -29,9 +29,7 @@
 #  define _(x) (x)
 #endif
 
-#include <gtk/gtkwidget.h>
-#include <gtk/gtkcontainer.h>
-#include <gtk/gtksignal.h>
+#include <gtk/gtk.h>
 
 #undef gtk_signal_connect
 #define gtk_signal_connect g_signal_connect

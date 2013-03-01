@@ -22,16 +22,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkentry.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkhseparator.h>
-#include <gtk/gtkvseparator.h>
-#include <gtk/gtkradiobutton.h>
-#include <gtk/gtktogglebutton.h>
+#include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
 #include "../common/xchat.h"

@@ -24,20 +24,7 @@
 #include <fcntl.h>
 #include "fe-gtk.h"
 
-#include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkframe.h>
-#include <gtk/gtkhseparator.h>
-#include <gtk/gtkversion.h>
-
-#include <gtk/gtkliststore.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkcellrenderertoggle.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/ignore.h"

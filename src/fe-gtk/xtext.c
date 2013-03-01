@@ -43,12 +43,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
-#include <gtk/gtkmain.h>
-#include <gtk/gtksignal.h>
-#include <gtk/gtkselection.h>
-#include <gtk/gtkclipboard.h>
-#include <gtk/gtkversion.h>
-#include <gtk/gtkwindow.h>
+#include <gtk/gtk.h>
 
 #ifdef XCHAT
 #include "../../config.h"			/* can define USE_XLIB here */

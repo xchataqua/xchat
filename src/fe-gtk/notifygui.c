@@ -24,19 +24,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkscrolledwindow.h>
-
-#include <gtk/gtklabel.h>
-#include <gtk/gtkliststore.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrenderertext.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/notify.h"

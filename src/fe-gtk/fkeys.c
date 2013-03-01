@@ -27,18 +27,7 @@
 
 #include "fe-gtk.h"
 
-#include <gtk/gtklabel.h>
-#include <gtk/gtkeditable.h>
-#include <gtk/gtkmenu.h>
-#include <gtk/gtkmenuitem.h>
-#include <gtk/gtkoptionmenu.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkclist.h>
-#include <gtk/gtknotebook.h>
-#include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkvscrollbar.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/xchatc.h"

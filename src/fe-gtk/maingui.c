@@ -21,28 +21,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#include <gtk/gtkarrow.h>
-#include <gtk/gtktogglebutton.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkeventbox.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkhpaned.h>
-#include <gtk/gtkvpaned.h>
-#include <gtk/gtkframe.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkmenuitem.h>
-#include <gtk/gtkprogressbar.h>
-#include <gtk/gtkscrolledwindow.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtknotebook.h>
-#include <gtk/gtkimage.h>
-#include <gtk/gtkmessagedialog.h>
-#include <gtk/gtkcheckmenuitem.h>
-#include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkbbox.h>
-#include <gtk/gtkvscrollbar.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/fe.h"

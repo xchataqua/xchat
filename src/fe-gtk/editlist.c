@@ -25,11 +25,7 @@
 #include <sys/stat.h>
 #include "fe-gtk.h"
 
-#include <gtk/gtkstock.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtkclist.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkvseparator.h>
+#include <gtk/gtk.h>
 
 #include "../common/xchat.h"
 #include "../common/cfgfiles.h"

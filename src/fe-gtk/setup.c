@@ -22,36 +22,11 @@
 #include "pixmaps.h"
 #include "menu.h"
 
-#include <gtk/gtkcolorseldialog.h>
-#include <gtk/gtktable.h>
-#include <gtk/gtkentry.h>
-#include <gtk/gtklabel.h>
-#include <gtk/gtkmisc.h>
-#include <gtk/gtkhbox.h>
-#include <gtk/gtkvbox.h>
-#include <gtk/gtkalignment.h>
-#include <gtk/gtknotebook.h>
-#include <gtk/gtkframe.h>
-#include <gtk/gtkfontsel.h>
-#include <gtk/gtkcheckbutton.h>
-#include <gtk/gtkscrolledwindow.h>
-#include <gtk/gtkspinbutton.h>
-#include <gtk/gtkstock.h>
-#include <gtk/gtktreeview.h>
-#include <gtk/gtkhbbox.h>
-#include <gtk/gtkhseparator.h>
-#include <gtk/gtkradiobutton.h>
-#include <gtk/gtkcombobox.h>
-#include <gtk/gtkliststore.h>
-#include <gtk/gtktreestore.h>
-#include <gtk/gtktreeselection.h>
-#include <gtk/gtkcellrenderertext.h>
-#include <gtk/gtkhscale.h>
+#include <gtk/gtk.h>
 #ifdef WIN32
 #include "../common/fe.h"
 #endif
 #ifdef USE_GTKSPELL
-#include <gtk/gtktextview.h>
 #include <gtkspell/gtkspell.h>
 #endif
 #ifdef USE_LIBSEXY
