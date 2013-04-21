@@ -310,7 +310,7 @@ struct xchatprefs
 	unsigned int save_pevents:1;
   /* XCA specific preferences: */
 #ifdef FE_AQUA
-#  include "Sources/XAPrefs.h"
+#  include "XAPrefs.h"
 #endif
 };
 
