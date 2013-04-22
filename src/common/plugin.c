@@ -40,7 +40,7 @@ typedef struct session xchat_context;
 
 #include "xchatc.h"
 
-#ifdef __APPLE__
+#if defined(FE_AQUA) || defined(FE_IOS)
 extern char *get_appdir_fs();
 extern char *get_plugin_bundle_path(char *filename);
 #endif
@@ -381,7 +381,7 @@ plugin_load (session *sess, char *filename, char *arg)
 #define RTLD_NOW 0
 #endif
     
-#ifdef __APPLE__
+#if defined(FE_AQUA) || defined(FE_IOS)
     size_t filenamelen = strlen(filename);
     if (filenamelen > 7 && strcasecmp(".bundle", filename + filenamelen - 7) == 0) {
         filename = get_plugin_bundle_path(filename);
