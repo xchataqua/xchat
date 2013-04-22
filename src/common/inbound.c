@@ -236,7 +236,7 @@ alert_match_word (char *word, char *masks)
 gboolean
 alert_match_text (char *text, char *masks)
 {
-	unsigned char *p = text;
+	unsigned char *p = (unsigned char *)text;
 	unsigned char endchar;
 	int res;
 
@@ -264,7 +264,7 @@ alert_match_text (char *text, char *masks)
 		/* if it's a 0, space or comma, the word has ended. */
 		if (*p == 0 || *p == ' ' || *p == ',' ||
 			/* if it's anything BUT a letter, the word has ended. */
-			 (!g_unichar_isalpha (g_utf8_get_char (p))))
+			 (!g_unichar_isalpha (g_utf8_get_char ((char *)p))))
 		{
 			endchar = *p;
 			*p = 0;
@@ -274,7 +274,7 @@ alert_match_text (char *text, char *masks)
 			if (res)
 				return TRUE;	/* yes, matched! */
 
-			text = p + g_utf8_skip [p[0]];
+			text = (char *)p + g_utf8_skip [p[0]];
 			if (*p == 0)
 				return FALSE;
 		}
@@ -297,7 +297,7 @@ is_hilight (char *from, char *text, session *sess, server *serv)
 	{
 		g_free (text);
 		if (sess != current_tab)
-			sess->nick_said = TRUE;
+			sess->nick_said = -TRUE;
 		fe_set_hilight (sess);
 		return 1;
 	}
@@ -354,10 +354,10 @@ inbound_action (session *sess, char *chan, char *from, char *ip, char *text, int
 		if (fromme)
 		{
 			sess->msg_said = FALSE;
-			sess->new_data = TRUE;
+			sess->new_data = -TRUE;
 		} else
 		{
-			sess->msg_said = TRUE;
+			sess->msg_said = -TRUE;
 			sess->new_data = FALSE;
 		}
 	}
@@ -415,7 +415,7 @@ inbound_chanmsg (server *serv, session *sess, char *chan, char *from, char *text
 
 	if (sess != current_tab)
 	{
-		sess->msg_said = TRUE;
+		sess->msg_said = -TRUE;
 		sess->new_data = FALSE;
 	}
 
@@ -562,9 +562,9 @@ inbound_ujoin (server *serv, char *chan, char *nick, char *ip)
 	log_open_or_close (sess);
 
 	sess->waitchannel[0] = 0;
-	sess->ignore_date = TRUE;
-	sess->ignore_mode = TRUE;
-	sess->ignore_names = TRUE;
+	sess->ignore_date = -TRUE;
+	sess->ignore_mode = -TRUE;
+	sess->ignore_names = -TRUE;
 	sess->end_of_names = FALSE;
 
 	/* sends a MODE */
@@ -576,7 +576,7 @@ inbound_ujoin (server *serv, char *chan, char *nick, char *ip)
 	{
 		/* sends WHO #channel */
 		serv->p_user_list (sess->server, chan);
-		sess->doing_who = TRUE;
+		sess->doing_who = -TRUE;
 	}
 }
 
@@ -754,7 +754,8 @@ inbound_quit (server *serv, char *nick, char *ip, char *reason)
 		{
  			if (sess == current_sess)
  				was_on_front_session = TRUE;
-			if (user = userlist_find (sess, nick))
+			user = userlist_find (sess, nick);
+			if (user)
 			{
 				EMIT_SIGNAL (XP_TE_QUIT, sess, nick, reason, ip, NULL, 0);
 				userlist_remove_user (sess, user);
@@ -772,7 +773,8 @@ inbound_quit (server *serv, char *nick, char *ip, char *reason)
 void
 inbound_ping_reply (session *sess, char *timestring, char *from)
 {
-	unsigned long tim, nowtim, dif;
+	unsigned long tim, nowtim;
+	long dif;
 	int lag = 0;
 	char outbuf[64];
 
@@ -982,7 +984,7 @@ inbound_nameslist_end (server *serv, char *chan)
 			sess = list->data;
 			if (sess->server == serv)
 			{
-				sess->end_of_names = TRUE;
+				sess->end_of_names = -TRUE;
 				sess->ignore_names = FALSE;
 			}
 			list = list->next;
@@ -992,7 +994,7 @@ inbound_nameslist_end (server *serv, char *chan)
 	sess = find_channel (serv, chan);
 	if (sess)
 	{
-		sess->end_of_names = TRUE;
+		sess->end_of_names = -TRUE;
 		sess->ignore_names = FALSE;
 		return TRUE;
 	}
@@ -1319,7 +1321,7 @@ inbound_login_end (session *sess, char *text)
 		if (serv->network && ((ircnet *)serv->network)->nickserv &&
 			 prefs.irc_join_delay)
 			serv->joindelay_tag = fe_timeout_add (prefs.irc_join_delay * 1000,
-															  check_autojoin_channels, serv);
+												  (void *)check_autojoin_channels, serv);
 		else
 			check_autojoin_channels (serv);
 		if (serv->supports_watch)

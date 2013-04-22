@@ -44,7 +44,7 @@
 
 struct pevt_stage1
 {
-	int len;
+	size_t len;
 	char *data;
 	struct pevt_stage1 *next;
 };
@@ -121,7 +121,7 @@ scrollback_close (session *sess)
 }
 
 static char *
-file_to_buffer (char *file, int *len)
+file_to_buffer (char *file, ssize_t *len)
 {
 	int fh;
 	char *buf;
@@ -133,21 +133,21 @@ file_to_buffer (char *file, int *len)
 
 	fstat (fh, &st);
 
-	buf = malloc (st.st_size);
+	buf = malloc ((size_t)st.st_size);
 	if (!buf)
 	{
 		close (fh);
 		return NULL;
 	}
 
-	if (read (fh, buf, st.st_size) != st.st_size)
+	if (read (fh, buf, (size_t)st.st_size) != st.st_size)
 	{
 		free (buf);
 		close (fh);
 		return NULL;
 	}
 
-	*len = st.st_size;
+	*len = (ssize_t)st.st_size;
 	close (fh);
 	return buf;
 }
@@ -162,7 +162,7 @@ scrollback_shrink (session *sess)
 	int fh;
 	int lines;
 	int line;
-	int len;
+	ssize_t len;
 	char *p;
 
 	scrollback_close (sess);
@@ -215,11 +215,11 @@ scrollback_shrink (session *sess)
 }
 
 static void
-scrollback_save (session *sess, char *text)
+scrollback_save (session *sess, const char *text)
 {
 	char buf[512 * 4];
 	time_t stamp;
-	int len;
+	size_t len;
 
 	if (sess->type == SESS_SERVER)
 		return;
@@ -296,7 +296,7 @@ scrollback_load (session *sess)
 	if (fstat (fh, &statbuf) < 0)
 		return;
 
-	map = mmap (NULL, statbuf.st_size, PROT_READ, MAP_PRIVATE, fh, 0);
+	map = mmap (NULL, (size_t)statbuf.st_size, PROT_READ, MAP_PRIVATE, fh, 0);
 	if (map == MAP_FAILED)
 		return;
 
@@ -306,7 +306,7 @@ scrollback_load (session *sess)
 	begin = map;
 	while (begin < end_map)
 	{
-		int n_bytes;
+		long n_bytes;
 
 		eol = memchr (begin, '\n', end_map - begin);
 
@@ -351,7 +351,7 @@ scrollback_load (session *sess)
 		/*EMIT_SIGNAL (XP_TE_GENMSG, sess, "*", buf, NULL, NULL, NULL, 0);*/
 	}
 
-	munmap (map, statbuf.st_size);
+	munmap (map, (size_t)statbuf.st_size);
 	close (fh);
 }
 
@@ -620,12 +620,12 @@ log_open_or_close (session *sess)
 	}
 }
 
-int
+size_t
 get_stamp_str (char *fmt, time_t tim, char **ret)
 {
 	char *loc = NULL;
 	char dest[128];
-	gsize len;
+	size_t len;
 
 	/* strftime wants the format string in LOCALE! */
 	if (!prefs.utf8_locale)
@@ -654,12 +654,12 @@ get_stamp_str (char *fmt, time_t tim, char **ret)
 }
 
 static void
-log_write (session *sess, char *text)
+log_write (session *sess, const char *text)
 {
 	char *temp;
 	char *stamp;
 	char *file;
-	int len;
+	size_t len;
 
 	if (sess->text_logging == SET_DEFAULT)
 	{
@@ -717,9 +717,10 @@ log_write (session *sess, char *text)
 /*           5. Uses ISO-8859-1 (which matches CP1252) for everything else.  */
 /*           6. This routine measured 3x faster than g_convert :)            */
 
-static unsigned char *
-iso_8859_1_to_utf8 (unsigned char *text, int len, gsize *bytes_written)
+static char *
+iso_8859_1_to_utf8 (char *input_text, ssize_t len, gsize *bytes_written)
 {
+	unsigned char *text = (unsigned char *)input_text;
 	unsigned int idx;
 	unsigned char *res, *output;
 	static const unsigned short lowtable[] = /* 74 byte table for 80-a4 */
@@ -766,7 +767,7 @@ iso_8859_1_to_utf8 (unsigned char *text, int len, gsize *bytes_written)
 	};
 
 	if (len == -1)
-		len = strlen (text);
+		len = strlen (input_text);
 
 	/* worst case scenario: every byte turns into 3 bytes */
 	res = output = g_malloc ((len * 3) + 1);
@@ -811,11 +812,11 @@ iso_8859_1_to_utf8 (unsigned char *text, int len, gsize *bytes_written)
 	*output = 0;	/* terminate */
 	*bytes_written = output - res;
 
-	return res;
+	return (char *)res;
 }
 
 char *
-text_validate (char **text, int *len)
+text_validate (char **text, ssize_t *len)
 {
 	char *utf;
 	gsize utf_len;
@@ -853,7 +854,7 @@ text_validate (char **text, int *len)
 }
 
 void
-PrintText (session *sess, char *text)
+PrintText (session *sess, const char *text)
 {
 	char *conv;
 
@@ -871,7 +872,7 @@ PrintText (session *sess, char *text)
 		conv = NULL;
 	} else
 	{
-		int len = -1;
+		ssize_t len = -1;
 		conv = text_validate ((char **)&text, &len);
 	}
 
@@ -884,7 +885,7 @@ PrintText (session *sess, char *text)
 }
 
 void
-PrintTextf (session *sess, char *format, ...)
+PrintTextf (session *sess, const char *format, ...)
 {
 	va_list args;
 	char *buf;
@@ -1511,7 +1512,8 @@ pevent_make_pntevts ()
 static void
 pevent_trigger_load (int *i_penum, char **i_text, char **i_snd)
 {
-	int penum = *i_penum, len;
+	int penum = *i_penum;
+	size_t len;
 	char *text = *i_text, *snd = *i_snd;
 
 	if (penum != -1 && text != NULL)
@@ -1576,11 +1578,11 @@ pevent_load (char *filename)
 		return 1;
 	if (fstat (fd, &st) != 0)
 		return 1;
-	ibuf = malloc (st.st_size);
-	read (fd, ibuf, st.st_size);
+	ibuf = malloc ((size_t)st.st_size);
+	read (fd, ibuf, (size_t)st.st_size);
 	close (fd);
 
-	while (buf_get_line (ibuf, &buf, &pnt, st.st_size))
+	while (buf_get_line (ibuf, &buf, &pnt, (size_t)st.st_size))
 	{
 		if (buf[0] == '#')
 			continue;
@@ -1696,7 +1698,7 @@ load_text_events ()
 void
 format_event (session *sess, int index, char **args, char *o, int sizeofo, unsigned int stripcolor_args)
 {
-	int len, oi, ii, numargs;
+	long len, oi, ii, numargs;
 	char *i, *ar, d, a, done_all = FALSE;
 
 	i = pntevts[index];
@@ -1731,7 +1733,7 @@ format_event (session *sess, int index, char **args, char *o, int sizeofo, unsig
 			if (a > numargs)
 			{
 				fprintf (stderr,
-							"XChat DEBUG: display_event: arg > numargs (%d %d %s)\n",
+							"XChat DEBUG: display_event: arg > numargs (%d %ld %s)\n",
 							a, numargs, i);
 				break;
 			}
@@ -1786,9 +1788,10 @@ int
 pevt_build_string (const char *input, char **output, int *max_arg)
 {
 	struct pevt_stage1 *s = NULL, *base = NULL, *last = NULL, *next;
-	int clen;
+	size_t clen;
 	char o[4096], d, *obuf, *i;
-	int oi, ii, max = -1, len, x;
+	int ii, max = -1, x;
+	size_t oi, len;
 
 	len = strlen (input);
 	i = malloc (len + 1);
@@ -1968,7 +1971,8 @@ static char rcolors[] = { 19, 20, 22, 24, 25, 26, 27, 28, 29 };
 static int
 color_of (char *name)
 {
-	int i = 0, sum = 0;
+	int i = 0;
+	long sum = 0;
 
 	while (name[i])
 		sum += name[i++];

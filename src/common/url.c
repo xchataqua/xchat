@@ -80,7 +80,7 @@ url_autosave (void)
 static int
 url_find (char *urltext)
 {
-	int pos;
+	ssize_t pos;
 
 	if (tree_find (url_tree, urltext, (tree_cmp_func *)strcasecmp, NULL, &pos))
 		return 1;
@@ -88,10 +88,10 @@ url_find (char *urltext)
 }
 
 static void
-url_add (char *urltext, int len)
+url_add (char *urltext, size_t len)
 {
 	char *data;
-	int size;
+	size_t size;
 
 	if (!prefs.url_grabber)
 		return;
@@ -139,7 +139,7 @@ url_add (char *urltext, int len)
    2.4.4 release. */
 
 int
-url_check_word (char *word, int len)
+url_check_word (char *word, size_t len)
 {
 #define D(x) (x), ((sizeof (x)) - 1)
 	static const struct {
@@ -235,7 +235,7 @@ url_check_word (char *word, int len)
 			l = suffix[i].len;
 			if (len > l)
 			{
-				const unsigned char *p = &word[len - l];
+				const unsigned char *p = (const unsigned char *)&word[len - l];
 				int j;
 
 				/* This is pretty much strncasecmp(). */
@@ -259,11 +259,11 @@ url_check_word (char *word, int len)
 }
 
 void
-url_check_line (char *buf, int len)
+url_check_line (char *buf, size_t len)
 {
 	char *po = buf;
 	char *start;
-	int wlen;
+	size_t wlen;
 
 	if (buf[0] == ':' && buf[1] != 0)
 		po++;

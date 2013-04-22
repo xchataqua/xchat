@@ -300,14 +300,14 @@ fe_exit (void)
 	gtk_main_quit ();
 }
 
-int
-fe_timeout_add (int interval, void *callback, void *userdata)
+long
+fe_timeout_add (long interval, void *callback, void *userdata)
 {
 	return g_timeout_add (interval, (GSourceFunc) callback, userdata);
 }
 
 void
-fe_timeout_remove (int tag)
+fe_timeout_remove (long tag)
 {
 	g_source_remove (tag);
 }
@@ -420,13 +420,13 @@ fe_idle_add (void *func, void *data)
 }
 
 void
-fe_input_remove (int tag)
+fe_input_remove (long tag)
 {
 	g_source_remove (tag);
 }
 
 int
-fe_input_add (int sok, int flags, void *func, void *data)
+fe_input_add (int sok, int flags, input_callback func, void *data)
 {
 	int tag, type = 0;
 	GIOChannel *channel;
@@ -585,7 +585,7 @@ fe_progressbar_end (server *serv)
 }
 
 void
-fe_print_text (struct session *sess, char *text, time_t stamp)
+fe_print_text (struct session *sess, const char *text, time_t stamp)
 {
 	PrintTextRaw (sess->res->buffer, (unsigned char *)text, prefs.indent_nicks, stamp);
 
@@ -645,7 +645,7 @@ fe_lastlog (session *sess, session *lastlog_sess, char *sstr, gboolean regexp)
 }
 
 void
-fe_set_lag (server *serv, int lag)
+fe_set_lag (server *serv, long lag)
 {
 	GSList *list = sess_list;
 	session *sess;
@@ -666,9 +666,9 @@ fe_set_lag (server *serv, int lag)
 	if (per > 1.0)
 		per = 1.0;
 
-	snprintf (lagtext, sizeof (lagtext) - 1, "%s%d.%ds",
+	snprintf (lagtext, sizeof (lagtext) - 1, "%s%ld.%lds",
 				 serv->lag_sent ? "+" : "", lag / 10, lag % 10);
-	snprintf (lagtip, sizeof (lagtip) - 1, "Lag: %s%d.%d seconds",
+	snprintf (lagtip, sizeof (lagtip) - 1, "Lag: %s%ld.%ld seconds",
 				 serv->lag_sent ? "+" : "", lag / 10, lag % 10);
 
 	while (list)
@@ -915,7 +915,7 @@ try_browser (const char *browser, const char *arg, const char *url)
 		argv[2] = url;
 		argv[3] = NULL;
 	}
-	xchat_execv (argv);
+	xchat_execv ((char * const *)argv);
 	g_free (path);
 	return 1;
 }

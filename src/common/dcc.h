@@ -42,7 +42,7 @@ struct DCC
 	int wiotag;						/* writing/sending io tag */
 	int port;
 	int pasvid;						/* mIRC's passive DCC id */
-	int cps;
+	DCC_SIZE cps;
 	int resume_error;
 	int resume_errno;
 
@@ -51,7 +51,7 @@ struct DCC
 	int maxcps;
 
 	unsigned char ack_buf[4];	/* buffer for reading 4-byte ack */
-	int ack_pos;
+	size_t ack_pos;
 
 	DCC_SIZE size;
 	DCC_SIZE resumable;
@@ -79,14 +79,14 @@ struct proxy_state
 {
 	int phase;
 	unsigned char buffer[MAX_PROXY_BUFFER];
-	int buffersize;
-	int bufferused;
+	size_t buffersize;
+	size_t bufferused;
 };
 
 struct dcc_chat
 {
 	char linebuf[2048];
-	int pos;
+	long pos;
 };
 
 struct dccstat_info

@@ -385,7 +385,7 @@ static int
 cmd_back (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
 	GSList *list;
-	unsigned int gone;
+	time_t gone;
 
 	if (sess->server->is_away)
 	{
@@ -394,7 +394,7 @@ cmd_back (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		if (prefs.show_away_message)
 		{
 			gone = time (NULL) - sess->server->away_time;
-			sprintf (tbuf, "me is back (gone %.2d:%.2d:%.2d)", gone / 3600,
+			sprintf (tbuf, "me is back (gone %.2ld:%.2ld:%.2ld)", gone / 3600,
 						(gone / 60) % 60, gone % 60);
 			for (list = sess_list; list; list = list->next)
 			{
@@ -711,14 +711,14 @@ cmd_country (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		/* search? */
 		if (strcmp (code, "-s") == 0)
 		{
-			country_search (word[3], sess, (void *)PrintTextf);
+			country_search (word[3], sess, PrintTextf);
 			return TRUE;
 		}
 
 		/* search, but forgot the -s */
 		if (strchr (code, '*'))
 		{
-			country_search (code, sess, (void *)PrintTextf);
+			country_search (code, sess, PrintTextf);
 			return TRUE;
 		}
 
@@ -881,8 +881,8 @@ cmd_debug (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	{
 		s = (struct session *) list->data;
 		sprintf (tbuf, "%p %1x %-10.10s %-10.10s %-10.10s %p\n",
-					s, s->type, s->channel, s->waitchannel,
-					s->willjoinchannel, s->server);
+					(void *)s, s->type, s->channel, s->waitchannel,
+					s->willjoinchannel, (void *)s->server);
 		PrintText (sess, tbuf);
 		list = list->next;
 	}
@@ -893,7 +893,7 @@ cmd_debug (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	{
 		v = (struct server *) list->data;
 		sprintf (tbuf, "%p %-5d %s\n",
-					v, v->sok, v->servername);
+					(void *)v, v->sok, v->servername);
 		PrintText (sess, tbuf);
 		list = list->next;
 	}
@@ -901,7 +901,7 @@ cmd_debug (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	sprintf (tbuf,
 				"\nfront_session: %p\n"
 				"current_tab: %p\n\n",
-				sess->server->front_session, current_tab);
+				(void *)(sess->server->front_session), (void *)current_tab);
 	PrintText (sess, tbuf);
 #ifdef USE_DEBUG
 	sprintf (tbuf, "current mem: %d\n\n", current_mem_usage);
@@ -1222,7 +1222,7 @@ static int
 cmd_menu (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
 	int idx = 2;
-	int len;
+	size_t len;
 	int pos = 0xffff;
 	int state;
 	int toggle = FALSE;
@@ -1515,7 +1515,7 @@ cmd_execk (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 static int
 cmd_execw (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
-	int len;
+	size_t len;
 	char *temp;
 	exec_check_process (sess);
 	if (sess->running_exec == NULL)
@@ -1541,7 +1541,7 @@ static short escconv[] =
 {  1,4,3,5,2,10,6,1, 1,7,9,8,12,11,13,1 };
 
 static void
-exec_handle_colors (char *buf, int len)
+exec_handle_colors (char *buf, const size_t len)
 {
 	char numb[16];
 	char *nbuf;
@@ -1666,7 +1666,8 @@ static gboolean
 exec_data (GIOChannel *source, GIOCondition condition, struct nbexec *s)
 {
 	char *buf, *readpos, *rest;
-	int rd, len;
+	ssize_t rd;
+	size_t len;
 	int sok = s->myfd;
 
 	len = s->buffill;
@@ -1848,7 +1849,7 @@ cmd_exec (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 			/* Parent path */
 			close(fds[1]);
 			s->childpid = pid;
-			s->iotag = fe_input_add (s->myfd, FIA_READ|FIA_EX, exec_data, s);
+			s->iotag = fe_input_add (s->myfd, FIA_READ|FIA_EX, (input_callback)exec_data, s);
 			sess->running_exec = s;
 			return TRUE;
 		}
@@ -1861,7 +1862,7 @@ cmd_exec (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 static int
 cmd_flushq (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
-	sprintf (tbuf, "Flushing server send queue, %d bytes.\n", sess->server->sendq_len);
+	sprintf (tbuf, "Flushing server send queue, %ld bytes.\n", sess->server->sendq_len);
 	PrintText (sess, tbuf);
 	sess->server->flush_queue (sess->server);
 	return TRUE;
@@ -1932,13 +1933,13 @@ cmd_getint (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	info->cmd = strdup (word[3]);
 	info->sess = sess;
 
-	fe_get_int (word[4], atoi (word[2]), get_int_cb, info);
+	fe_get_int (word[4], atoi (word[2]), (void *)get_int_cb, info);
 
 	return TRUE;
 }
 
 static void
-get_file_cb (char *cmd, char *file)
+get_file_cb (void *cmd, char *file)
 {
 	char buf[1024 + 128];
 
@@ -1946,7 +1947,7 @@ get_file_cb (char *cmd, char *file)
       no args */
 	if (file)
 	{
-		snprintf (buf, sizeof (buf), "%s %s", cmd, file);
+		snprintf (buf, sizeof (buf), "%s %s", (char *)cmd, file);
 		handle_command (current_sess, buf, FALSE);
 	}
 	else
@@ -1983,7 +1984,7 @@ cmd_getfile (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		idx++;
 	}
 
-	fe_get_file (word[idx+1], word[idx+2], (void *)get_file_cb, strdup (word[idx]), flags);
+	fe_get_file (word[idx+1], word[idx+2], get_file_cb, strdup (word[idx]), flags);
 
 	return TRUE;
 }
@@ -2016,7 +2017,7 @@ cmd_getstr (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 	info->cmd = strdup (word[3]);
 	info->sess = sess;
 
-	fe_get_str (word[4], word[2], get_str_cb, info);
+	fe_get_str (word[4], word[2], (void *)get_str_cb, info);
 
 	return TRUE;
 }
@@ -2069,7 +2070,8 @@ typedef struct
 static void
 show_help_line (session *sess, help_list *hl, char *name, char *usage)
 {
-	int j, len, max;
+	size_t len, max;
+	int j;
 	char *p;
 
 	if (name[0] == '.')	/* hidden command? */
@@ -2181,7 +2183,7 @@ cmd_help (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		buf[2] = 0;
 		hl.t = 0;
 		hl.i = 0;
-		plugin_command_foreach (sess, &hl, (void *)show_help_line);
+		plugin_command_foreach (sess, &hl, (plugin_foreach_callback)show_help_line);
 		strcat (buf, "\n");
 		PrintText (sess, buf);
 		free (buf);
@@ -2437,7 +2439,7 @@ static int
 cmd_load (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
 	char *error, *arg, *file;
-	int len;
+	size_t len;
 
 	if (!word[2][0])
 		return FALSE;
@@ -2462,7 +2464,7 @@ cmd_load (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 #if defined(__hpux)
 	if (len > 3 && strcasecmp (".sl", word[2] + len - 3) == 0)
 #elif defined (FE_AQUA)
-    if (len > 3 && strcasecmp (".so", word[2] + len - 3) == 0 || len > 7 && strcasecmp (".bundle", word[2] + len - 7) == 0)
+    if ((len > 3 && strcasecmp (".so", word[2] + len - 3) == 0) || (len > 7 && strcasecmp (".bundle", word[2] + len - 7) == 0))
 #else
 	if (len > 3 && strcasecmp (".so", word[2] + len - 3) == 0)
 #endif
@@ -3204,7 +3206,8 @@ static int
 cmd_unload (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 {
 #ifdef USE_PLUGIN
-	int len, by_file = FALSE;
+	size_t len;
+	int by_file = FALSE;
 
 	len = strlen (word[2]);
 #ifdef WIN32
@@ -3735,7 +3738,7 @@ help (session *sess, char *tbuf, char *helpcmd, int quiet)
  * - this beast is used for UserCommands, UserlistButtons and CTCP replies   */
 
 int
-auto_insert (char *dest, int destlen, unsigned char *src, char *word[],
+auto_insert (char *dest, int destlen, const char *src, char *word[],
 				 char *word_eol[], char *a, char *c, char *d, char *e, char *h,
 				 char *n, char *s)
 {
@@ -3861,7 +3864,7 @@ auto_insert (char *dest, int destlen, unsigned char *src, char *word[],
 			src++;
 		} else
 		{
-			utf_len = g_utf8_skip[src[0]];
+			utf_len = g_utf8_skip[(unsigned char)src[0]];
 
 			if ((dest - orig) + utf_len >= destlen)
 				return 2;
@@ -3890,10 +3893,10 @@ void
 check_special_chars (char *cmd, int do_ascii) /* check for %X */
 {
 	int occur = 0;
-	int len = strlen (cmd);
+	size_t len = strlen (cmd);
 	char *buf, *utf;
 	char tbuf[4];
-	int i = 0, j = 0;
+	long i = 0, j = 0;
 	gsize utf_len;
 
 	if (!len)
@@ -3976,9 +3979,9 @@ check_special_chars (char *cmd, int do_ascii) /* check for %X */
 typedef struct
 {
 	char *nick;
-	int len;
+	size_t len;
 	struct User *best;
-	int bestlen;
+	size_t bestlen;
 	char *space;
 	char *tbuf;
 } nickdata;
@@ -3986,7 +3989,7 @@ typedef struct
 static int
 nick_comp_cb (struct User *user, nickdata *data)
 {
-	int lenu;
+	size_t lenu;
 
 	if (!rfc_ncasecmp (user->nick, data->nick, data->len))
 	{
@@ -4009,7 +4012,7 @@ nick_comp_cb (struct User *user, nickdata *data)
 static void
 perform_nick_completion (struct session *sess, char *cmd, char *tbuf)
 {
-	int len;
+	size_t len;
 	char *space = strchr (cmd, ' ');
 	if (space && space != cmd)
 	{
@@ -4074,8 +4077,8 @@ handle_say (session *sess, char *text, int check_spch)
 	char newcmd_static[1024];
 	char *pdibuf = pdibuf_static;
 	char *newcmd = newcmd_static;
-	int len;
-	int newcmdlen = sizeof newcmd_static;
+	size_t len;
+	size_t newcmdlen = sizeof newcmd_static;
 
 	if (strcmp (sess->channel, "(lastlog)") == 0)
 	{
@@ -4087,8 +4090,10 @@ handle_say (session *sess, char *text, int check_spch)
 	if (len >= sizeof pdibuf_static)
 		pdibuf = malloc (len + 1);
 
-	if (len + NICKLEN >= newcmdlen)
-		newcmd = malloc (newcmdlen = len + NICKLEN + 1);
+	if (len + NICKLEN >= newcmdlen) {
+		newcmdlen = len + NICKLEN + 1;
+		newcmd = malloc (newcmdlen);
+	}
 
 	if (check_spch && prefs.perc_color)
 		check_special_chars (text, prefs.perc_ascii);
@@ -4136,7 +4141,7 @@ handle_say (session *sess, char *text, int check_spch)
 
 	if (sess->server->connected)
 	{
-		unsigned int max;
+		size_t max;
 		unsigned char t = 0;
 
 		/* maximum allowed message text */
@@ -4210,7 +4215,7 @@ handle_command (session *sess, char *cmd, int check_spch)
 	char tbuf_static[TBUFSIZE];
 	char *pdibuf;
 	char *tbuf;
-	int len;
+	size_t len;
 	int ret = TRUE;
 
 	if (command_level > 99)

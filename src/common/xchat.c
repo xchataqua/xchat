@@ -171,7 +171,7 @@ lag_check (void)
 	unsigned long tim;
 	char tbuf[128];
 	time_t now = time (0);
-	int lag;
+	time_t lag;
 
 	tim = make_ping_time ();
 
@@ -183,7 +183,7 @@ lag_check (void)
 			lag = now - serv->ping_recv;
 			if (prefs.pingtimeout && lag > prefs.pingtimeout && lag > 0)
 			{
-				sprintf (tbuf, "%d", lag);
+				sprintf (tbuf, "%ld", lag);
 				EMIT_SIGNAL (XP_TE_PINGTIMEOUT, serv->server_session, tbuf, NULL,
 								 NULL, NULL, 0);
 				if (prefs.autoreconnect)
@@ -231,8 +231,8 @@ doover:
 				/* if we're under 31 WHOs, send another channels worth */
 				if (sent < 31 && !sess->doing_who)
 				{
-					sess->done_away_check = TRUE;
-					sess->doing_who = TRUE;
+					sess->done_away_check = -TRUE;
+					sess->doing_who = -TRUE;
 					/* this'll send a WHO #channel */
 					sess->server->p_away_status (sess->server, sess->channel);
 					sent += sess->total;
@@ -308,7 +308,7 @@ irc_init (session *sess)
 
 	done_init = TRUE;
 
-	plugin_add (sess, NULL, NULL, timer_plugin_init, NULL, NULL, FALSE);
+	plugin_add (sess, NULL, NULL, (void *)timer_plugin_init, NULL, NULL, FALSE);
 
 #ifdef USE_PLUGIN
 	if (!arg_skip_plugins)
@@ -321,10 +321,10 @@ irc_init (session *sess)
 
 	if (prefs.notify_timeout)
 		notify_tag = fe_timeout_add (prefs.notify_timeout * 1000,
-											  notify_checklist, 0);
+									 (void *)notify_checklist, NULL);
 
-	fe_timeout_add (prefs.away_timeout * 1000, away_check, 0);
-	fe_timeout_add (500, xchat_misc_checks, 0);
+	fe_timeout_add (prefs.away_timeout * 1000, (void *)away_check, 0);
+	fe_timeout_add (500, (void *)xchat_misc_checks, 0);
 
 	if (arg_url != NULL)
 	{
@@ -832,7 +832,7 @@ xchat_init (void)
 				new_ircwindow (NULL, NULL, SESS_SERVER, 0);
 		} else
 		{
-			fe_idle_add (xchat_auto_connect, NULL);
+			fe_idle_add ((void *)xchat_auto_connect, NULL);
 		}
 	} else
 	{
@@ -889,7 +889,7 @@ xchat_exec (const char *cmd)
 	if (pid != -1)
 	/* zombie avoiding system. Don't ask! it has to be like this to work
       with zvt (which overrides the default handler) */
-		fe_timeout_add (1000, child_handler, GINT_TO_POINTER (pid));
+		fe_timeout_add (1000, (void *)child_handler, GINT_TO_POINTER (pid));
 #endif
 }
 
@@ -903,7 +903,7 @@ xchat_execv (char * const argv[])
 	if (pid != -1)
 	/* zombie avoiding system. Don't ask! it has to be like this to work
       with zvt (which overrides the default handler) */
-		fe_timeout_add (1000, child_handler, GINT_TO_POINTER (pid));
+		fe_timeout_add (1000, (void *)child_handler, GINT_TO_POINTER (pid));
 #endif
 }
 
@@ -912,7 +912,7 @@ main (int argc, char *argv[])
 {
 	int ret;
 	
-	srand (time (0));	/* CL: do this only once! */
+	srand ((unsigned)time (NULL));	/* CL: do this only once! */
 
 #ifdef SOCKS
 	SOCKSinit (argv[0]);

@@ -95,10 +95,10 @@ extern pxProxyFactory *libproxy_factory;
 /* actually send to the socket. This might do a character translation or
    send via SSL. server/dcc both use this function. */
 
-int
-tcp_send_real (void *ssl, int sok, char *encoding, int using_irc, char *buf, int len)
+ssize_t
+tcp_send_real (void *ssl, int sok, char *encoding, int using_irc, char *buf, gssize len)
 {
-	int ret;
+	ssize_t ret;
 	char *locale;
 	gsize loc_len;
 
@@ -151,8 +151,8 @@ tcp_send_real (void *ssl, int sok, char *encoding, int using_irc, char *buf, int
 	return ret;
 }
 
-static int
-server_send_real (server *serv, char *buf, int len)
+static ssize_t
+server_send_real (server *serv, char *buf, ssize_t len)
 {
 	fe_add_rawlog (serv, buf, len, TRUE);
 
@@ -168,7 +168,9 @@ static int
 tcp_send_queue (server *serv)
 {
 	char *buf, *p;
-	int len, i, pri;
+	size_t len;
+	long i;
+	int pri;
 	GSList *list;
 	time_t now = time (0);
 
@@ -223,8 +225,8 @@ tcp_send_queue (server *serv)
 	return 0;						  /* remove the timeout handler */
 }
 
-int
-tcp_send_len (server *serv, char *buf, int len)
+ssize_t
+tcp_send_len (server *serv, char *buf, size_t len)
 {
 	char *dbuf;
 	int noqueue = !serv->outbound_queue;
@@ -258,7 +260,7 @@ tcp_send_len (server *serv, char *buf, int len)
 	serv->sendq_len += len; /* tcp_send_queue uses strlen */
 
 	if (tcp_send_queue (serv) && noqueue)
-		fe_timeout_add (500, tcp_send_queue, serv);
+		fe_timeout_add (500, (void *)tcp_send_queue, serv);
 
 	return 1;
 }
@@ -276,7 +278,7 @@ tcp_sendf (server *serv, char *fmt, ...)
 	/* keep this buffer in BSS. Converting UTF-8 to ISO-8859-x might make the
       string shorter, so allow alot more than 512 for now. */
 	static char send_buf[1540];	/* good code hey (no it's not overflowable) */
-	int len;
+	ssize_t len;
 
 	va_start (args, fmt);
 	len = vsnprintf (send_buf, sizeof (send_buf) - 1, fmt, args);
@@ -300,13 +302,13 @@ static void
 close_socket (int sok)
 {
 	/* close the socket in 5 seconds so the QUIT message is not lost */
-	fe_timeout_add (5000, close_socket_cb, GINT_TO_POINTER (sok));
+	fe_timeout_add (5000, (void *)close_socket_cb, GINT_TO_POINTER (sok));
 }
 
 /* handle 1 line of text received from the server */
 
 static void
-server_inline (server *serv, char *line, int len)
+server_inline (server *serv, char *line, ssize_t len)
 {
 	char *utf_line_allocated = NULL;
 
@@ -342,7 +344,7 @@ server_inline (server *serv, char *line, int len)
 		if (encoding != NULL)
 		{
 			char *conv_line; /* holds a copy of the original string */
-			int conv_len; /* tells g_convert how much of line to convert */
+			ssize_t conv_len; /* tells g_convert how much of line to convert */
 			gsize utf_len;
 			gsize read_len;
 			GError *err;
@@ -411,7 +413,8 @@ static gboolean
 server_read (GIOChannel *source, GIOCondition condition, server *serv)
 {
 	int sok = serv->sok;
-	int error, i, len;
+	int error, i;
+	ssize_t len;
 	char lbuf[2050];
 
 	while (1)
@@ -488,7 +491,7 @@ server_connected (server * serv)
 	serv->ping_recv = time (0);
 	serv->connected = TRUE;
 	set_nonblocking (serv->sok);
-	serv->iotag = fe_input_add (serv->sok, FIA_READ|FIA_EX, server_read, serv);
+	serv->iotag = fe_input_add (serv->sok, FIA_READ|FIA_EX, (input_callback)server_read, serv);
 	if (!serv->no_login)
 	{
 		EMIT_SIGNAL (XP_TE_CONNECTED, serv->server_session, NULL, NULL, NULL,
@@ -626,13 +629,13 @@ ssl_do_connect (server * serv)
 	if (SSL_connect (serv->ssl) <= 0)
 	{
 		char err_buf[128];
-		int err;
+		unsigned long err;
 
 		g_sess = NULL;
 		if ((err = ERR_get_error ()) > 0)
 		{
 			ERR_error_string (err, err_buf);
-			snprintf (buf, sizeof (buf), "(%d) %s", err, err_buf);
+			snprintf (buf, sizeof (buf), "(%ld) %s", err, err_buf);
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, buf, NULL,
 							 NULL, NULL, 0);
 
@@ -653,7 +656,7 @@ ssl_do_connect (server * serv)
 	{
 		struct cert_info cert_info;
 		struct chiper_info *chiper_info;
-		int verify_error;
+		long verify_error;
 		int i;
 
 		if (!_SSL_get_cert_info (&cert_info, serv->ssl))
@@ -730,7 +733,7 @@ ssl_do_connect (server * serv)
 		case X509_V_ERR_CERT_HAS_EXPIRED:
 			if (serv->accept_invalid_cert)
 			{
-				snprintf (buf, sizeof (buf), "* Verify E: %s.? (%d) -- Ignored",
+				snprintf (buf, sizeof (buf), "* Verify E: %s.? (%ld) -- Ignored",
 							 X509_verify_cert_error_string (verify_error),
 							 verify_error);
 				EMIT_SIGNAL (XP_TE_SSLMESSAGE, serv->server_session, buf, NULL, NULL,
@@ -738,7 +741,7 @@ ssl_do_connect (server * serv)
 				break;
 			}
 		default:
-			snprintf (buf, sizeof (buf), "%s.? (%d)",
+			snprintf (buf, sizeof (buf), "%s.? (%ld)",
 						 X509_verify_cert_error_string (verify_error),
 						 verify_error);
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, buf, NULL, NULL,
@@ -832,7 +835,7 @@ auto_reconnect (server *serv, int send_quit, int err)
 		serv->recondelay_tag = 0;
 	}
 
-	serv->recondelay_tag = fe_timeout_add (del, timeout_auto_reconnect, serv);
+	serv->recondelay_tag = fe_timeout_add (del, (void *)timeout_auto_reconnect, serv);
 	fe_server_event (serv, FE_SE_RECONDELAY, del);
 }
 
@@ -885,7 +888,7 @@ server_connect_success (server *serv)
 		/* it'll be a memory leak, if connection isn't terminated by
 		   server_cleanup() */
 		serv->ssl = _SSL_socket (ctx, serv->sok);
-		if ((err = _SSL_set_verify (ctx, ssl_cb_verify, NULL)))
+		if ((err = _SSL_set_verify (ctx, (void *)ssl_cb_verify, NULL)))
 		{
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, err, NULL,
 							 NULL, NULL, 0);
@@ -896,7 +899,7 @@ server_connect_success (server *serv)
 		/* send(serv->sok, "STLS\r\n", 6, 0); sleep(1); */
 		set_nonblocking (serv->sok);
 		serv->ssl_do_connect_tag = fe_timeout_add (SSLDOCONNTMOUT,
-																 ssl_do_connect, serv);
+												  (void *)ssl_do_connect, serv);
 		return;
 	}
 
@@ -917,7 +920,9 @@ server_read_child (GIOChannel *source, GIOCondition condition, server *serv)
 	char outbuf[512];
 	char host[100];
 	char ip[100];
+	#ifdef USE_MSPROXY
 	char *p;
+	#endif
 
 	waitline2 (source, tbuf, sizeof tbuf);
 
@@ -1190,7 +1195,7 @@ static int
 traverse_socks (int print_fd, int sok, char *serverAddr, int port)
 {
 	struct sock_connect sc;
-	unsigned char buf[256];
+	char buf[256];
 
 	sc.version = 4;
 	sc.type = 1;
@@ -1221,8 +1226,8 @@ traverse_socks5 (int print_fd, int sok, char *serverAddr, int port)
 {
 	struct sock5_connect1 sc1;
 	unsigned char *sc2;
-	unsigned int packetlen, addrlen;
-	unsigned char buf[260];
+	size_t packetlen, addrlen;
+	char buf[260];
 	int auth = prefs.proxy_auth && prefs.proxy_user[0] && prefs.proxy_pass[0];
 
 	sc1.version = 5;
@@ -1247,7 +1252,7 @@ traverse_socks5 (int print_fd, int sok, char *serverAddr, int port)
 
 	if (auth)
 	{
-		int len_u=0, len_p=0;
+		size_t len_u=0, len_p=0;
 
 		/* authentication sub-negotiation (RFC1929) */
 		if (buf[1] != 2)  /* UPA not supported by server */
@@ -1363,7 +1368,7 @@ three_to_four (char *from, char *to)
 	to[1] = tab64 [ ((from[0] << 4) | (from[1] >> 4)) & 63 ];
 	to[2] = tab64 [ ((from[1] << 2) | (from[2] >> 6)) & 63 ];
 	to[3] = tab64 [ from[2] & 63 ];
-};
+}
 
 void
 base64_encode (char *to, char *from, unsigned int len)
@@ -1687,7 +1692,7 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 #ifdef USE_OPENSSL
 	if (!ctx && serv->use_ssl)
 	{
-		if (!(ctx = _SSL_context_init (ssl_cb_info, FALSE)))
+		if (!(ctx = _SSL_context_init ((void *)ssl_cb_info, FALSE)))
 		{
 			fprintf (stderr, "_SSL_context_init failed\n");
 			exit (1);
@@ -1802,7 +1807,7 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 	}
 #endif
 	serv->childpid = pid;
-	serv->iotag = fe_input_add (serv->childread, FIA_READ, server_read_child,
+	serv->iotag = fe_input_add (serv->childread, FIA_READ, (input_callback)server_read_child,
 										 serv);
 }
 

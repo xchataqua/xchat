@@ -98,7 +98,7 @@ struct nbexec
 	int tochannel;					  /* making this int keeps the struct 4-byte aligned */
 	int iotag;
 	char *linebuf;
-	int buffill;
+	size_t buffill;
 	struct session *sess;
 };
 
@@ -161,7 +161,7 @@ struct xchatprefs
 	int max_auto_indent;
 	int dcc_blocksize;
 	int max_lines;
-	int notify_timeout;
+	long notify_timeout;
 	int dcctimeout;
 	int dccstalltimeout;
 	int dcc_global_max_get_cps;
@@ -405,7 +405,7 @@ typedef struct server
 	void (*flush_queue)(struct server *);
 	void (*auto_reconnect)(struct server *, int send_quit, int err);
 	/* irc protocol functions (in proto*.c) */
-	void (*p_inline)(struct server *, char *buf, int len);
+	void (*p_inline)(struct server *, char *buf, size_t len);
 	void (*p_invite)(struct server *, char *channel, char *nick);
 	void (*p_cycle)(struct server *, char *channel, char *key);
 	void (*p_ctcp)(struct server *, char *to, char *msg);
@@ -451,7 +451,7 @@ typedef struct server
 	int id;					/* unique ID number (for plugin API) */
 #ifdef USE_OPENSSL
 	SSL *ssl;
-	int ssl_do_connect_tag;
+	long ssl_do_connect_tag;
 #else
 	void *ssl;
 #endif
@@ -459,8 +459,8 @@ typedef struct server
 	int childwrite;
 	int childpid;
 	int iotag;
-	int recondelay_tag;				/* reconnect delay timeout */
-	int joindelay_tag;				/* waiting before we send JOIN */
+	long recondelay_tag;				/* reconnect delay timeout */
+	long joindelay_tag;				/* waiting before we send JOIN */
 	char hostname[128];				/* real ip number */
 	char servername[128];			/* what the server says is its name */
 	char password[86];
@@ -483,8 +483,8 @@ typedef struct server
 	GSList *outbound_queue;
 	time_t next_send;						/* cptr->since in ircu */
 	time_t prev_now;					/* previous now-time */
-	int sendq_len;						/* queue size */
-	int lag;								/* milliseconds */
+	size_t sendq_len;						/* queue size */
+	unsigned long lag;								/* milliseconds */
 
 	struct session *front_session;	/* front-most window/tab */
 	struct session *server_session;	/* server window/tab */

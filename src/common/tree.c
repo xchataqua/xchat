@@ -13,7 +13,7 @@ a tree, but it could be :)
 
 struct _tree
 {
-	int elements;
+	size_t elements;
 	int array_size;
 	void **array;
 	tree_cmp_func *cmp;
@@ -40,10 +40,11 @@ tree_destroy (tree *t)
 	}
 }
 
-static int
+static long
 tree_find_insertion_pos (tree *t, void *key, int *done)
 {
-	int c, u, l, idx;
+	int c;
+	long l, u, idx;
 
 	if (t->elements < 1)
 	{
@@ -99,9 +100,9 @@ tree_find_insertion_pos (tree *t, void *key, int *done)
 }
 
 static void
-tree_insert_at_pos (tree *t, void *key, int pos)
+tree_insert_at_pos (tree *t, void *key, long pos)
 {
-	int post_bytes;
+	long post_bytes;
 
 	/* append is easy */
 	if (pos != t->elements)
@@ -116,9 +117,10 @@ tree_insert_at_pos (tree *t, void *key, int pos)
 
 static void *
 mybsearch (const void *key, void **array, size_t nmemb,
-			  int (*compar) (const void *, const void *, void *data), void *data, int *pos)
+			  int (*compar) (const void *, const void *, void *data), void *data, long *pos)
 {
-	int l, u, idx;
+	size_t l, u;
+	long idx;
 	int comparison;
 
 	l = 0;
@@ -142,7 +144,7 @@ mybsearch (const void *key, void **array, size_t nmemb,
 }
 
 void *
-tree_find (tree *t, void *key, tree_cmp_func *cmp, void *data, int *pos)
+tree_find (tree *t, void *key, tree_cmp_func *cmp, void *data, long *pos)
 {
 	if (!t || !t->array)
 		return NULL;
@@ -151,9 +153,9 @@ tree_find (tree *t, void *key, tree_cmp_func *cmp, void *data, int *pos)
 }
 
 void
-tree_remove_at_pos (tree *t, int pos)
+tree_remove_at_pos (tree *t, long pos)
 {
-	int post_bytes;
+	size_t post_bytes;
 
 	t->elements--;
 	if (pos != t->elements)
@@ -164,7 +166,7 @@ tree_remove_at_pos (tree *t, int pos)
 }
 
 int
-tree_remove (tree *t, void *key, int *pos)
+tree_remove (tree *t, void *key, long *pos)
 {
 	void *data;
 
@@ -204,10 +206,11 @@ tree_grow (tree *t)
 
 }
 
-int
+long
 tree_insert (tree *t, void *key)
 {
-	int pos, done;
+	long pos;
+	int done;
 
 	if (!t)
 		return -1;
@@ -227,7 +230,7 @@ tree_append (tree *t, void *key)
 	tree_insert_at_pos (t, key, t->elements);
 }
 
-int tree_size (tree *t)
+size_t tree_size (tree *t)
 {
 	return t->elements;
 }

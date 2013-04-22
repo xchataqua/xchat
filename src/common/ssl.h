@@ -23,11 +23,11 @@ struct chiper_info {
     int chiper_bits;
 };
 
-SSL_CTX *_SSL_context_init (void (*info_cb_func), int server);
+SSL_CTX *_SSL_context_init (void *info_cb_func, int server);
 #define _SSL_context_free(a)	SSL_CTX_free(a);
 
 SSL *_SSL_socket (SSL_CTX *ctx, int sd);
-char *_SSL_set_verify (SSL_CTX *ctx, void *(verify_callback), char *cacert);
+char *_SSL_set_verify (SSL_CTX *ctx, void *verify_callback, char *cacert);
 /*
     int SSL_connect(SSL *);
     int SSL_accept(SSL *);
@@ -41,8 +41,8 @@ struct chiper_info *_SSL_get_cipher_info (SSL * ssl);
 /*char *_SSL_add_keypair (SSL_CTX *ctx, char *privkey, char *cert);*/
 /*void _SSL_add_random_keypair(SSL_CTX *ctx, int bits);*/
 
-int _SSL_send (SSL * ssl, char *buf, int len);
-int _SSL_recv (SSL * ssl, char *buf, int len);
+ssize_t _SSL_send (SSL * ssl, char *buf, size_t len);
+ssize_t _SSL_recv (SSL * ssl, char *buf, size_t len);
 
 /* misc */
 /*void broke_oneline (char *oneline, char *parray[]);*/

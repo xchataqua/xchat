@@ -22,7 +22,7 @@ typedef struct
 	char *command;
 	int ref;
 	int repeat;
-	float timeout;
+	double timeout;
 	unsigned int forever:1;
 } timer;
 
@@ -78,7 +78,7 @@ timeout_cb (timer *tim)
 }
 
 static void
-timer_add (int ref, float timeout, int repeat, char *command)
+timer_add (int ref, double timeout, int repeat, char *command)
 {
 	timer *tim;
 	GSList *list;
@@ -107,7 +107,7 @@ timer_add (int ref, float timeout, int repeat, char *command)
 	if (repeat == 0)
 		tim->forever = TRUE;
 
-	tim->hook = xchat_hook_timer (ph, timeout * 1000.0, (void *)timeout_cb, tim);
+	tim->hook = xchat_hook_timer (ph, (int)(timeout * 1000.0), (int(*)(void *))timeout_cb, tim);
 	timer_list = g_slist_append (timer_list, tim);
 }
 
@@ -139,7 +139,7 @@ static int
 timer_cb (char *word[], char *word_eol[], void *userdata)
 {
 	int repeat = 1;
-	float timeout;
+	double timeout;
 	int offset = 0;
 	int ref = 0;
 	int quiet = FALSE;

@@ -68,7 +68,7 @@ struct _xchat_hook
 	void *callback;	/* pointer to xdcc_callback */
 	char *help_text;	/* help_text for commands only */
 	void *userdata;	/* passed to the callback */
-	int tag;				/* for timers & FDs only */
+	long tag;				/* for timers & FDs only */
 	int type;			/* HOOK_* */
 	int pri;	/* fd */	/* priority / fd for HOOK_FD only */
 };
@@ -131,7 +131,7 @@ plugin_free (xchat_plugin *pl, int do_deinit, int allow_refuse)
 	/* run the plugin's deinit routine, if any */
 	if (do_deinit && pl->deinit_callback != NULL)
 	{
-		deinit_func = pl->deinit_callback;
+		deinit_func = (xchat_deinit_func *)pl->deinit_callback;
 		if (!deinit_func (pl) && allow_refuse)
 			return FALSE;
 	}
@@ -407,7 +407,7 @@ plugin_load (session *sess, char *filename, char *arg)
 	dlerror ();		/* Clear any existing error */
 
 	/* find the init routine xchat_plugin_init */
-	init_func = dlsym (handle, "xchat_plugin_init");
+	init_func = (xchat_init_func *) dlsym (handle, "xchat_plugin_init");
 	error = (char *)dlerror ();
 	if (error != NULL)
 	{
@@ -416,12 +416,12 @@ plugin_load (session *sess, char *filename, char *arg)
 	}
 
 	/* find the plugin's deinit routine, if any */
-	deinit_func = dlsym (handle, "xchat_plugin_deinit");
+	deinit_func = (xchat_deinit_func *) dlsym (handle, "xchat_plugin_deinit");
 	error = (char *)dlerror ();
 #endif
 
 	/* add it to our linked list */
-	plugin_add (sess, filename, handle, init_func, deinit_func, arg, FALSE);
+	plugin_add (sess, filename, handle, (void *)init_func, (void *)deinit_func, arg, FALSE);
 
 	return NULL;
 }
@@ -725,7 +725,7 @@ plugin_add_hook (xchat_plugin *pl, int type, int pri, const char *name,
 	plugin_insert_hook (hook);
 
 	if (type == HOOK_TIMER)
-		hook->tag = fe_timeout_add (timeout, plugin_timeout_cb, hook);
+		hook->tag = fe_timeout_add (timeout, (void *)plugin_timeout_cb, hook);
 
 	return hook;
 }
@@ -747,8 +747,7 @@ plugin_command_list(GList *tmp_list)
 }
 
 void
-plugin_command_foreach (session *sess, void *userdata,
-			void (*cb) (session *sess, void *userdata, char *name, char *help))
+plugin_command_foreach (session *sess, void *userdata, plugin_foreach_callback cb)
 {
 	GSList *list;
 	xchat_hook *hook;
@@ -816,7 +815,7 @@ xchat_hook *
 xchat_hook_command (xchat_plugin *ph, const char *name, int pri,
 						  xchat_cmd_cb *callb, const char *help_text, void *userdata)
 {
-	return plugin_add_hook (ph, HOOK_COMMAND, pri, name, help_text, callb, 0,
+	return plugin_add_hook (ph, HOOK_COMMAND, pri, name, help_text, (void *)callb, 0,
 									userdata);
 }
 
@@ -824,21 +823,21 @@ xchat_hook *
 xchat_hook_server (xchat_plugin *ph, const char *name, int pri,
 						 xchat_serv_cb *callb, void *userdata)
 {
-	return plugin_add_hook (ph, HOOK_SERVER, pri, name, 0, callb, 0, userdata);
+	return plugin_add_hook (ph, HOOK_SERVER, pri, name, 0, (void *)callb, 0, userdata);
 }
 
 xchat_hook *
 xchat_hook_print (xchat_plugin *ph, const char *name, int pri,
 						xchat_print_cb *callb, void *userdata)
 {
-	return plugin_add_hook (ph, HOOK_PRINT, pri, name, 0, callb, 0, userdata);
+	return plugin_add_hook (ph, HOOK_PRINT, pri, name, 0, (void *)callb, 0, userdata);
 }
 
 xchat_hook *
 xchat_hook_timer (xchat_plugin *ph, int timeout, xchat_timer_cb *callb,
 					   void *userdata)
 {
-	return plugin_add_hook (ph, HOOK_TIMER, 0, 0, 0, callb, timeout, userdata);
+	return plugin_add_hook (ph, HOOK_TIMER, 0, 0, 0, (void *)callb, timeout, userdata);
 }
 
 xchat_hook *
@@ -847,10 +846,10 @@ xchat_hook_fd (xchat_plugin *ph, int fd, int flags,
 {
 	xchat_hook *hook;
 
-	hook = plugin_add_hook (ph, HOOK_FD, 0, 0, 0, callb, 0, userdata);
+	hook = plugin_add_hook (ph, HOOK_FD, 0, 0, 0, (void *)callb, 0, userdata);
 	hook->pri = fd;
 	/* plugin hook_fd flags correspond exactly to FIA_* flags (fe.h) */
-	hook->tag = fe_input_add (fd, flags, plugin_fd_cb, hook);
+	hook->tag = fe_input_add (fd, flags, (input_callback)plugin_fd_cb, hook);
 
 	return hook;
 }
@@ -885,7 +884,7 @@ void
 xchat_command (xchat_plugin *ph, const char *command)
 {
 	char *conv;
-	int len = -1;
+	ssize_t len = -1;
 
 	if (!is_session (ph->context))
 	{
@@ -1418,21 +1417,21 @@ xchat_list_int (xchat_plugin *ph, xchat_list *xlist, const char *name)
 		case 0x34207553: /* address32 */
 			return ((struct DCC *)data)->addr;
 		case 0x181a6: /* cps */
-			return ((struct DCC *)data)->cps;
+			return (guint32)((struct DCC *)data)->cps & 0xffffffff;
 		case 0x349881: /* port */
 			return ((struct DCC *)data)->port;
 		case 0x1b254: /* pos */
-			return ((struct DCC *)data)->pos & 0xffffffff;
+			return (guint32)((struct DCC *)data)->pos & 0xffffffff;
 		case 0xe8a945f6: /* poshigh */
-			return (((struct DCC *)data)->pos >> 32) & 0xffffffff;
+			return (guint32)(((struct DCC *)data)->pos >> 32) & 0xffffffff;
 		case 0xc84dc82d: /* resume */
-			return ((struct DCC *)data)->resumable & 0xffffffff;
+			return (guint32)((struct DCC *)data)->resumable & 0xffffffff;
 		case 0xded4c74f: /* resumehigh */
-			return (((struct DCC *)data)->resumable >> 32) & 0xffffffff;
+			return (guint32)(((struct DCC *)data)->resumable >> 32) & 0xffffffff;
 		case 0x35e001: /* size */
-			return ((struct DCC *)data)->size & 0xffffffff;
+			return (guint32)((struct DCC *)data)->size & 0xffffffff;
 		case 0x3284d523: /* sizehigh */
-			return (((struct DCC *)data)->size >> 32) & 0xffffffff;
+			return (guint32)(((struct DCC *)data)->size >> 32) & 0xffffffff;
 		case 0xcacdcff2: /* status */
 			return ((struct DCC *)data)->dccstat;
 		case 0x368f3a: /* type */
@@ -1477,11 +1476,11 @@ xchat_list_int (xchat_plugin *ph, xchat_list *xlist, const char *name)
 			tmp |= ((struct session *)data)->server->connected;  /* 0 */
 			return tmp;
 		case 0x1a192: /* lag */
-			return ((struct session *)data)->server->lag;
+			return (guint32)((struct session *)data)->server->lag & 0xffffffff;
 		case 0x1916144c: /* maxmodes */
 			return ((struct session *)data)->server->modes_per_line;
 		case 0x66f1911: /* queue */
-			return ((struct session *)data)->server->sendq_len;
+			return (guint32)((struct session *)data)->server->sendq_len;
 		case 0x368f3a:	/* type */
 			return ((struct session *)data)->type;
 		case 0x6a68e08: /* users */

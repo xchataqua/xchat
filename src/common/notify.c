@@ -36,7 +36,7 @@
 
 
 GSList *notify_list = 0;
-int notify_tag = 0;
+long notify_tag = 0;
 
 
 static char *
@@ -328,7 +328,7 @@ notify_send_watches (server * serv)
 	struct notify *notify;
 	GSList *list;
 	GSList *point;
-	int len;
+	size_t len;
 
 	len = 0;
 	point = list = notify_list;

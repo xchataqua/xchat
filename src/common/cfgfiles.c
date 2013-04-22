@@ -46,7 +46,7 @@ void
 list_addentry (GSList ** list, char *cmd, char *name)
 {
 	struct popup *pop;
-	int cmd_len = 1, name_len;
+	size_t cmd_len = 1, name_len;
 
 	/* remove <2.8.0 stuff */
 	if (!strcmp (cmd, "away") && !strcmp (name, "BACK"))
@@ -72,7 +72,7 @@ list_addentry (GSList ** list, char *cmd, char *name)
 /* read it in from a buffer to our linked list */
 
 static void
-list_load_from_data (GSList ** list, char *ibuf, int size)
+list_load_from_data (GSList ** list, char *ibuf, size_t size)
 {
 	char cmd[384];
 	char name[128];
@@ -126,11 +126,11 @@ list_loadconf (char *file, GSList ** list, char *defaultconf)
 		abort ();
 	}
 
-	ibuf = malloc (st.st_size);
-	read (fh, ibuf, st.st_size);
+	ibuf = malloc ((size_t)st.st_size);
+	read (fh, ibuf, (size_t)st.st_size);
 	close (fh);
 
-	list_load_from_data (list, ibuf, st.st_size);
+	list_load_from_data (list, ibuf, (size_t)st.st_size);
 
 	free (ibuf);
 }
@@ -207,7 +207,7 @@ static int
 cfg_put_str (int fh, char *var, char *value)
 {
 	char buf[512];
-	int len;
+	size_t len;
 
 	snprintf (buf, sizeof buf, "%s = %s\n", var, value);
 	len = strlen (buf);
@@ -218,7 +218,7 @@ int
 cfg_put_color (int fh, int r, int g, int b, char *var)
 {
 	char buf[400];
-	int len;
+	size_t len;
 
 	snprintf (buf, sizeof buf, "%s = %04x %04x %04x\n", var, r, g, b);
 	len = strlen (buf);
@@ -229,7 +229,7 @@ int
 cfg_put_int (int fh, int value, char *var)
 {
 	char buf[400];
-	int len;
+	size_t len;
 
 	if (value == -1)
 		value = 1;
@@ -247,7 +247,7 @@ cfg_get_color (char *cfg, char *var, int *r, int *g, int *b)
 	if (!cfg_get_str (cfg, var, str, sizeof (str)))
 		return 0;
 
-	sscanf (str, "%04x %04x %04x", r, g, b);
+	sscanf (str, "%04x %04x %04x", (unsigned *)r, (unsigned *)g, (unsigned *)b);
 	return 1;
 }
 
@@ -608,7 +608,8 @@ load_config (void)
 	struct stat st;
 	char *cfg, *sp;
 	const char *username, *realname;
-	int res, val, i, fh;
+	int res, val, fh;
+	ssize_t i;
 
 	check_prefs_dir ();
 	username = g_get_user_name ();
@@ -747,9 +748,9 @@ load_config (void)
 	if (fh != -1)
 	{
 		fstat (fh, &st);
-		cfg = malloc (st.st_size + 1);
+		cfg = malloc ((size_t)st.st_size + 1);
 		cfg[0] = '\0';
-		i = read (fh, cfg, st.st_size);
+		i = read (fh, cfg, (size_t)st.st_size);
 		if (i >= 0)
 			cfg[i] = '\0';					/* make sure cfg is NULL terminated */
 		close (fh);
@@ -910,7 +911,9 @@ save_config (void)
 static void
 set_showval (session *sess, const struct prefs *var, char *tbuf)
 {
-	int len, dots, j;
+	size_t len;
+	ssize_t dots;
+	int j;
 
 	len = strlen (var->name);
 	memcpy (tbuf, var->name, len);
