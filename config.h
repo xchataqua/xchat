@@ -2,8 +2,8 @@
 /* config.h.in.  Generated from configure.in by autoheader.  */
 
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
- systems. This function is required for `alloca.c' support on those systems.
- */
+   systems. This function is required for `alloca.c' support on those systems.
+   */
 /* #undef CRAY_STACKSEG_END */
 
 /* Define to 1 if using `alloca.c'. */
@@ -13,7 +13,7 @@
 /* #undef DBUS_SERVICES_DIR */
 
 /* Define to 1 if translation of program messages to the user's native
- language is requested. */
+   language is requested. */
 #define ENABLE_NLS 1
 
 /* Gettext package name */
@@ -23,7 +23,7 @@
 #define HAVE_ALLOCA 1
 
 /* Define to 1 if you have <alloca.h> and it should be used (not on Ultrix).
- */
+   */
 #define HAVE_ALLOCA_H 1
 
 /* Define to 1 if you have the `argz_count' function. */
@@ -44,36 +44,36 @@
 /* Define to 1 if the compiler understands __builtin_expect. */
 #define HAVE_BUILTIN_EXPECT 1
 
-/* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
- CoreFoundation framework. */
+/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+   CoreFoundation framework. */
 #define HAVE_CFLOCALECOPYCURRENT 1
 
-/* Define to 1 if you have the MacOS X function CFPreferencesCopyAppValue in
- the CoreFoundation framework. */
+/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+   the CoreFoundation framework. */
 #define HAVE_CFPREFERENCESCOPYAPPVALUE 1
 
 /* Define if the GNU dcgettext() function is already present or preinstalled.
  */
 /* #undef HAVE_DCGETTEXT */
 
-/* Define to 1 if you have the declaration of `feof_unlocked', and to 0 if you
- don't. */
+/* Define to 1 if you have the declaration of 'feof_unlocked', and to 0 if you
+   don't. */
 #define HAVE_DECL_FEOF_UNLOCKED 1
 
-/* Define to 1 if you have the declaration of `fgets_unlocked', and to 0 if
- you don't. */
+/* Define to 1 if you have the declaration of 'fgets_unlocked', and to 0 if
+   you don't. */
 #define HAVE_DECL_FGETS_UNLOCKED 0
 
-/* Define to 1 if you have the declaration of `getc_unlocked', and to 0 if you
- don't. */
+/* Define to 1 if you have the declaration of 'getc_unlocked', and to 0 if you
+   don't. */
 #define HAVE_DECL_GETC_UNLOCKED 1
 
-/* Define to 1 if you have the declaration of `_snprintf', and to 0 if you
- don't. */
+/* Define to 1 if you have the declaration of '_snprintf', and to 0 if you
+   don't. */
 #define HAVE_DECL__SNPRINTF 0
 
-/* Define to 1 if you have the declaration of `_snwprintf', and to 0 if you
- don't. */
+/* Define to 1 if you have the declaration of '_snwprintf', and to 0 if you
+   don't. */
 #define HAVE_DECL__SNWPRINTF 0
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
@@ -81,6 +81,9 @@
 
 /* Define to 1 if you have the `dlopen' function. */
 #define HAVE_DLOPEN 1
+
+/* Define to 1 if you have the <features.h> header file. */
+/* #undef HAVE_FEATURES_H */
 
 /* Define to 1 if you have the `fwprintf' function. */
 #define HAVE_FWPRINTF 1
@@ -119,7 +122,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define if <inttypes.h> exists, doesn't clash with <sys/types.h>, and
- declares uintmax_t. */
+   declares uintmax_t. */
 #define HAVE_INTTYPES_H_WITH_UINTMAX 1
 
 /* Define if you have <langinfo.h> and nl_langinfo(CODESET). */
@@ -152,8 +155,11 @@
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
 
-/* Define to 1 if the system has the type `long long int'. */
+/* Define to 1 if the system has the type 'long long int'. */
 #define HAVE_LONG_LONG_INT 1
+
+/* Define to 1 if you have the `mbrtowc' function. */
+#define HAVE_MBRTOWC 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -170,9 +176,8 @@
 /* Define to 1 if you have the `munmap' function. */
 #define HAVE_MUNMAP 1
 
-/* Define if you have <langinfo.h> and it defines the NL_LOCALE_NAME macro if
- _GNU_SOURCE is defined. */
-/* #undef HAVE_NL_LOCALE_NAME */
+/* Define to 1 if you have the `newlocale' function. */
+#define HAVE_NEWLOCALE 1
 
 /* Define to 1 if you have the <openssl/ssl.h> header file. */
 /* #undef HAVE_OPENSSL_SSL_H */
@@ -208,7 +213,7 @@
 #define HAVE_STDINT_H 1
 
 /* Define if <stdint.h> exists, doesn't clash with <sys/types.h>, and declares
- uintmax_t. */
+   uintmax_t. */
 #define HAVE_STDINT_H_WITH_UINTMAX 1
 
 /* Define to 1 if you have the <stdlib.h> header file. */
@@ -229,11 +234,17 @@
 /* Define to 1 if you have the <string.h> header file. */
 #define HAVE_STRING_H 1
 
+/* Define to 1 if you have the `strnlen' function. */
+#define HAVE_STRNLEN 1
+
 /* Define to 1 if you have the `strtoul' function. */
 #define HAVE_STRTOUL 1
 
 /* Define to 1 if you have the `strtoull' function. */
 #define HAVE_STRTOULL 1
+
+/* Define to 1 if you have the `symlink' function. */
+#define HAVE_SYMLINK 1
 
 /* Define to 1 if you have the <sys/ipc.h> header file. */
 /* #undef HAVE_SYS_IPC_H */
@@ -259,11 +270,14 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
 
-/* Define to 1 if the system has the type `unsigned long long int'. */
+/* Define to 1 if the system has the type 'unsigned long long int'. */
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
 
+/* Define to 1 if you have the `uselocale' function. */
+#define HAVE_USELOCALE 1
+
 /* Define to 1 or 0, depending whether the compiler supports simple visibility
- declarations. */
+   declarations. */
 #define HAVE_VISIBILITY 1
 
 /* Define to 1 if you have the `vsnprintf' function. */
@@ -272,11 +286,23 @@
 /* Define if you have the 'wchar_t' type. */
 #define HAVE_WCHAR_T 1
 
+/* Define to 1 if you have the `wcrtomb' function. */
+#define HAVE_WCRTOMB 1
+
 /* Define to 1 if you have the `wcslen' function. */
 #define HAVE_WCSLEN 1
 
+/* Define to 1 if you have the `wcsnlen' function. */
+#define HAVE_WCSNLEN 1
+
 /* Define if you have the 'wint_t' type. */
 #define HAVE_WINT_T 1
+
+/* Define to 1 if O_NOATIME works. */
+#define HAVE_WORKING_O_NOATIME 0
+
+/* Define to 1 if O_NOFOLLOW works. */
+#define HAVE_WORKING_O_NOFOLLOW 1
 
 /* Define to 1 if you have the <X11/Xft/Xft.h> header file. */
 /* #undef HAVE_X11_XFT_XFT_H */
@@ -294,7 +320,7 @@
 #define LOOKUPD 1
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
- */
+   */
 #define LT_OBJDIR ".libs/"
 
 /* Define to 1 if your C compiler doesn't accept -c and -o together. */
@@ -323,17 +349,19 @@
 /* #undef PTHREAD_IN_USE_DETECTION_HARD */
 
 /* Define as the maximum value of type 'size_t', if the system doesn't define
- it. */
-/* #undef SIZE_MAX */
+   it. */
+#ifndef SIZE_MAX
+/* # undef SIZE_MAX */
+#endif
 
 /* #undef SOCKS */
 
 /* If using the C implementation of alloca, define if you know the
- direction of stack growth for your system; otherwise it will be
- automatically deduced at runtime.
- STACK_DIRECTION > 0 => grows toward higher addresses
- STACK_DIRECTION < 0 => grows toward lower addresses
- STACK_DIRECTION = 0 => direction of growth unknown */
+   direction of stack growth for your system; otherwise it will be
+   automatically deduced at runtime.
+	STACK_DIRECTION > 0 => grows toward higher addresses
+	STACK_DIRECTION < 0 => grows toward lower addresses
+	STACK_DIRECTION = 0 => direction of growth unknown */
 /* #undef STACK_DIRECTION */
 
 /* Define to 1 if you have the ANSI C header files. */
@@ -344,6 +372,10 @@
 /* #undef USE_GTKSPELL */
 
 #define USE_IPV6 1
+
+/* #undef USE_LIBNOTIFY */
+
+/* #undef USE_LIBPROXY */
 
 #define USE_LIBSEXY 1
 
@@ -361,14 +393,14 @@
 #define USE_POSIX_THREADS 1
 
 /* Define if references to the POSIX multithreading library should be made
- weak. */
+   weak. */
 /* #undef USE_POSIX_THREADS_WEAK */
 
 /* Define if the GNU Pth multithreading library can be used. */
 /* #undef USE_PTH_THREADS */
 
 /* Define if references to the GNU Pth multithreading library should be made
- weak. */
+   weak. */
 /* #undef USE_PTH_THREADS_WEAK */
 
 /* #undef USE_SHM */
@@ -379,7 +411,7 @@
 /* #undef USE_SOLARIS_THREADS */
 
 /* Define if references to the old Solaris multithreading library should be
- made weak. */
+   made weak. */
 /* #undef USE_SOLARIS_THREADS_WEAK */
 
 #ifdef FE_IOS
@@ -411,8 +443,8 @@
 #endif
 
 
-/* Define if the Win32 multithreading API can be used. */
-/* #undef USE_WIN32_THREADS */
+/* Define if the native Windows multithreading API can be used. */
+/* #undef USE_WINDOWS_THREADS */
 
 /* #undef USE_XFT */
 
@@ -430,20 +462,20 @@
 /* #undef _MINIX */
 
 /* Define to 2 if the system does not provide POSIX.1 features except with
- this defined. */
+   this defined. */
 /* #undef _POSIX_1_SOURCE */
 
 /* Define to 1 if you need to in order for `stat' and other things to work. */
 /* #undef _POSIX_SOURCE */
 
 /* Define to `__inline__' or `__inline' if that's what the C compiler
- calls it, or to nothing if 'inline' is not supported under any name.  */
+   calls it, or to nothing if 'inline' is not supported under any name.  */
 #ifndef __cplusplus
 /* #undef inline */
 #endif
 
 /* Define as the type of the result of subtracting two pointers, if the system
- doesn't define it. */
+   doesn't define it. */
 /* #undef ptrdiff_t */
 
 /* Define to `unsigned int' if <sys/types.h> does not define. */
@@ -452,7 +484,7 @@
 /* #undef socklen_t */
 
 /* Define to unsigned long or unsigned long long if <stdint.h> and
- <inttypes.h> don't define. */
+   <inttypes.h> don't define. */
 /* #undef uintmax_t */
 
 
@@ -469,20 +501,29 @@
 #define __libc_lock_lock_recursive                gl_recursive_lock_lock
 #define __libc_lock_unlock_recursive              gl_recursive_lock_unlock
 #define glthread_in_use  libintl_thread_in_use
-#define glthread_lock_init     libintl_lock_init
-#define glthread_lock_lock     libintl_lock_lock
-#define glthread_lock_unlock   libintl_lock_unlock
-#define glthread_lock_destroy  libintl_lock_destroy
-#define glthread_rwlock_init     libintl_rwlock_init
-#define glthread_rwlock_rdlock   libintl_rwlock_rdlock
-#define glthread_rwlock_wrlock   libintl_rwlock_wrlock
-#define glthread_rwlock_unlock   libintl_rwlock_unlock
-#define glthread_rwlock_destroy  libintl_rwlock_destroy
-#define glthread_recursive_lock_init     libintl_recursive_lock_init
-#define glthread_recursive_lock_lock     libintl_recursive_lock_lock
-#define glthread_recursive_lock_unlock   libintl_recursive_lock_unlock
-#define glthread_recursive_lock_destroy  libintl_recursive_lock_destroy
-#define glthread_once                 libintl_once
-#define glthread_once_call            libintl_once_call
+#define glthread_lock_init_func     libintl_lock_init_func
+#define glthread_lock_lock_func     libintl_lock_lock_func
+#define glthread_lock_unlock_func   libintl_lock_unlock_func
+#define glthread_lock_destroy_func  libintl_lock_destroy_func
+#define glthread_rwlock_init_multithreaded     libintl_rwlock_init_multithreaded
+#define glthread_rwlock_init_func              libintl_rwlock_init_func
+#define glthread_rwlock_rdlock_multithreaded   libintl_rwlock_rdlock_multithreaded
+#define glthread_rwlock_rdlock_func            libintl_rwlock_rdlock_func
+#define glthread_rwlock_wrlock_multithreaded   libintl_rwlock_wrlock_multithreaded
+#define glthread_rwlock_wrlock_func            libintl_rwlock_wrlock_func
+#define glthread_rwlock_unlock_multithreaded   libintl_rwlock_unlock_multithreaded
+#define glthread_rwlock_unlock_func            libintl_rwlock_unlock_func
+#define glthread_rwlock_destroy_multithreaded  libintl_rwlock_destroy_multithreaded
+#define glthread_rwlock_destroy_func           libintl_rwlock_destroy_func
+#define glthread_recursive_lock_init_multithreaded     libintl_recursive_lock_init_multithreaded
+#define glthread_recursive_lock_init_func              libintl_recursive_lock_init_func
+#define glthread_recursive_lock_lock_multithreaded     libintl_recursive_lock_lock_multithreaded
+#define glthread_recursive_lock_lock_func              libintl_recursive_lock_lock_func
+#define glthread_recursive_lock_unlock_multithreaded   libintl_recursive_lock_unlock_multithreaded
+#define glthread_recursive_lock_unlock_func            libintl_recursive_lock_unlock_func
+#define glthread_recursive_lock_destroy_multithreaded  libintl_recursive_lock_destroy_multithreaded
+#define glthread_recursive_lock_destroy_func           libintl_recursive_lock_destroy_func
+#define glthread_once_func            libintl_once_func
 #define glthread_once_singlethreaded  libintl_once_singlethreaded
+#define glthread_once_multithreaded   libintl_once_multithreaded
 
