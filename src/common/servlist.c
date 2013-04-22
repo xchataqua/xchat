@@ -677,7 +677,7 @@ servlist_cycle (server *serv)
 				del = 500;				  /* so it doesn't block the gui */
 
 			if (del)
-				serv->recondelay_tag = fe_timeout_add (del, servlist_cycle_cb, serv);
+				serv->recondelay_tag = fe_timeout_add (del, (void *)servlist_cycle_cb, serv);
 			else
 				servlist_connect (serv->server_session, net, TRUE);
 
@@ -923,7 +923,7 @@ servlist_load (void)
 {
 	FILE *fp;
 	char buf[2048];
-	int len;
+	size_t len;
 	char *tmp;
 	ircnet *net = NULL;
 
@@ -1214,7 +1214,7 @@ joinlist_split (char *autojoin, GSList **channels, GSList **keys)
 {
 	char *parta, *partb;
 	char *chan, *key;
-	int len;
+	size_t len;
 
 	*channels = NULL;
 	*keys = NULL;

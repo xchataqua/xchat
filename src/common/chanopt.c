@@ -64,7 +64,9 @@ chanopt_value (guint8 val)
 int
 chanopt_command (session *sess, char *tbuf, char *word[], char *word_eol[])
 {
-	int dots, i = 0, j, p = 0;
+	size_t dots;
+	int i = 0, j;
+	size_t p = 0;
 	guint8 val;
 	int offset = 2;
 	char *find;

@@ -39,13 +39,13 @@ static char err_buf[256];			/* generic error buffer */
 static void
 __SSL_fill_err_buf (char *funcname)
 {
-	int err;
+	unsigned long err;
 	char buf[256];
 
 
 	err = ERR_get_error ();
 	ERR_error_string (err, buf);
-	snprintf (err_buf, sizeof (err_buf), "%s: %s (%d)\n", funcname, buf, err);
+	snprintf (err_buf, sizeof (err_buf), "%s: %s (%ld)\n", funcname, buf, err);
 }
 
 
@@ -76,7 +76,7 @@ _SSL_context_init (void (*info_cb_func), int server)
 	SSL_CTX_set_timeout (ctx, 300);
 
 	/* used in SSL_connect(), SSL_accept() */
-	SSL_CTX_set_info_callback (ctx, info_cb_func);
+	SSL_CTX_set_info_callback (ctx, (void (*)(const SSL*, int, int))info_cb_func);
 
 #ifdef WIN32
 	/* under win32, OpenSSL needs to be seeded with some randomness */
@@ -213,13 +213,13 @@ _SSL_get_cipher_info (SSL * ssl)
 }
 
 
-int
-_SSL_send (SSL * ssl, char *buf, int len)
+ssize_t
+_SSL_send (SSL * ssl, char *buf, size_t len)
 {
 	int num;
 
 
-	num = SSL_write (ssl, buf, len);
+	num = SSL_write (ssl, buf, (int)len);
 
 	switch (SSL_get_error (ssl, num))
 	{
@@ -241,13 +241,13 @@ _SSL_send (SSL * ssl, char *buf, int len)
 }
 
 
-int
-_SSL_recv (SSL * ssl, char *buf, int len)
+ssize_t
+_SSL_recv (SSL * ssl, char *buf, size_t len)
 {
 	int num;
 
 
-	num = SSL_read (ssl, buf, len);
+	num = SSL_read (ssl, buf, (int)len);
 
 	switch (SSL_get_error (ssl, num))
 	{
@@ -308,7 +308,7 @@ _SSL_set_verify (SSL_CTX *ctx, void *verify_callback, char *cacert)
 		}
 	}
 */
-	SSL_CTX_set_verify (ctx, SSL_VERIFY_PEER, verify_callback);
+	SSL_CTX_set_verify (ctx, SSL_VERIFY_PEER, (int (*)(int, X509_STORE_CTX *))verify_callback);
 
 	return (NULL);
 }

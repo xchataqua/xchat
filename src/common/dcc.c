@@ -73,7 +73,7 @@ struct dccstat_info dccstat[] = {
 };
 
 static int dcc_global_throttle;	/* 0x1 = sends, 0x2 = gets */
-/*static*/ int dcc_sendcpssum, dcc_getcpssum;
+/*static*/ DCC_SIZE dcc_sendcpssum, dcc_getcpssum;
 
 static struct DCC *new_dcc (void);
 static void dcc_close (struct DCC *dcc, int dccstat, int destroy);
@@ -122,10 +122,11 @@ static void
 dcc_calc_cps (struct DCC *dcc)
 {
 	GTimeVal now;
-	int oldcps;
+	DCC_SIZE oldcps;
 	double timediff, startdiff;
 	int glob_throttle_bit, wasthrottled;
-	int *cpssum, glob_limit;
+	DCC_SIZE *cpssum;
+	int glob_limit;
 	DCC_SIZE pos, posdiff;
 
 	g_get_current_time (&now);
@@ -473,7 +474,7 @@ struct DCC *
 dcc_write_chat (char *nick, char *text)
 {
 	struct DCC *dcc;
-	int len;
+	size_t len;
 
 	dcc = find_dcc (nick, "", TYPE_CHATRECV);
 	if (!dcc)
@@ -503,7 +504,7 @@ dcc_chat_line (struct DCC *dcc, char *line)
 	char *utf;
 	char *conv;
 	int ret, i;
-	int len;
+	ssize_t len;
 	gsize utf_len;
 	char portbuf[32];
 
@@ -588,7 +589,8 @@ dcc_chat_line (struct DCC *dcc, char *line)
 static gboolean
 dcc_read_chat (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 {
-	int i, len, dead;
+	int i, dead;
+	ssize_t len;
 	char portbuf[32];
 	char lbuf[2050];
 
@@ -602,7 +604,7 @@ dcc_read_chat (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 		}
 
 		if (!dcc->iotag)
-			dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read_chat, dcc);
+			dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read_chat, dcc);
 
 		len = recv (dcc->sok, lbuf, sizeof (lbuf) - 2, 0);
 		if (len < 1)
@@ -666,7 +668,7 @@ static void
 dcc_send_ack (struct DCC *dcc)
 {
 	/* send in 32-bit big endian */
-	guint32 pos = htonl (dcc->pos & 0xffffffff);
+	guint32 pos = htonl ((uint32_t)dcc->pos & 0xffffffff);
 	send (dcc->sok, (char *) &pos, 4, 0);
 }
 
@@ -675,7 +677,7 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 {
 	char *old;
 	char buf[4096];
-	int n;
+	ssize_t n;
 	gboolean need_ack = FALSE;
 
 	if (dcc->fp == -1)
@@ -697,7 +699,7 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 				do
 				{
 					n++;
-					snprintf (buf, sizeof (buf), "%s.%d", dcc->destfile_fs, n);
+					snprintf (buf, sizeof (buf), "%s.%ld", dcc->destfile_fs, n);
 				}
 				while (access (buf, F_OK) == 0);
 
@@ -737,7 +739,7 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 		}
 
 		if (!dcc->iotag)
-			dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read, dcc);
+			dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read, dcc);
 
 		n = recv (dcc->sok, buf, sizeof (buf), 0);
 		if (n < 1)
@@ -780,7 +782,7 @@ dcc_read (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 			dcc_send_ack (dcc);
 			dcc_close (dcc, STAT_DONE, FALSE);
 			dcc_calc_average_cps (dcc);	/* this must be done _after_ dcc_close, or dcc_remove_from_sum will see the wrong value in dcc->cps */
-			sprintf (buf, "%d", dcc->cps);
+			sprintf (buf, "%"DCC_SFMT, dcc->cps);
 			EMIT_SIGNAL (XP_TE_DCCRECVCOMP, dcc->serv->front_session,
 							 dcc->file, dcc->destfile, dcc->nick, buf, 0);
 			return TRUE;
@@ -862,7 +864,7 @@ dcc_connect_finished (GIOChannel *source, GIOCondition condition, struct DCC *dc
 	switch (dcc->type)
 	{
 	case TYPE_RECV:
-		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read, dcc);
+		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read, dcc);
 		EMIT_SIGNAL (XP_TE_DCCCONRECV, dcc->serv->front_session,
 						 dcc->nick, host, dcc->file, NULL, 0);
 		break;
@@ -870,8 +872,8 @@ dcc_connect_finished (GIOChannel *source, GIOCondition condition, struct DCC *dc
 		/* passive send */
 		dcc->fastsend = prefs.fastdccsend;
 		if (dcc->fastsend)
-			dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE, dcc_send_data, dcc);
-		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read_ack, dcc);
+			dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE, (input_callback)dcc_send_data, dcc);
+		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read_ack, dcc);
 		dcc_send_data (NULL, 0, (gpointer)dcc);
 		EMIT_SIGNAL (XP_TE_DCCCONSEND, dcc->serv->front_session,
 						 dcc->nick, host, dcc->file, NULL, 0);
@@ -879,7 +881,7 @@ dcc_connect_finished (GIOChannel *source, GIOCondition condition, struct DCC *dc
 	case TYPE_CHATSEND:	/* pchat */
 		dcc_open_query (dcc->serv, dcc->nick);
 	case TYPE_CHATRECV:	/* normal chat */
-		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read_chat, dcc);
+		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read_chat, dcc);
 		dcc->dccchat = malloc (sizeof (struct dcc_chat));
 		dcc->dccchat->pos = 0;
 		EMIT_SIGNAL (XP_TE_DCCCONCHAT, dcc->serv->front_session,
@@ -899,7 +901,7 @@ read_proxy (struct DCC *dcc)
 	struct proxy_state *proxy = dcc->proxy;
 	while (proxy->bufferused < proxy->buffersize)
 	{
-		int ret = recv (dcc->sok, &proxy->buffer[proxy->bufferused],
+		ssize_t ret = recv (dcc->sok, &proxy->buffer[proxy->bufferused],
 						proxy->buffersize - proxy->bufferused, 0);
 		if (ret > 0)
 			proxy->bufferused += ret;
@@ -929,7 +931,7 @@ write_proxy (struct DCC *dcc)
 	struct proxy_state *proxy = dcc->proxy;
 	while (proxy->bufferused < proxy->buffersize)
 	{
-		int ret = send (dcc->sok, &proxy->buffer[proxy->bufferused],
+		ssize_t ret = send (dcc->sok, &proxy->buffer[proxy->bufferused],
 						proxy->buffersize - proxy->bufferused, 0);
 		if (ret >= 0)
 			proxy->bufferused += ret;
@@ -982,7 +984,7 @@ dcc_wingate_proxy_traverse (GIOChannel *source, GIOCondition condition, struct D
 										dcc->port);
 		proxy->bufferused = 0;
 		dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-									dcc_wingate_proxy_traverse, dcc);
+									(input_callback)dcc_wingate_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 	if (proxy->phase == 1)
@@ -1021,7 +1023,7 @@ dcc_socks_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC
 		proxy->buffersize = 8 + strlen (sc.username) + 1;
 		proxy->bufferused = 0;
 		dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-									dcc_socks_proxy_traverse, dcc);
+									(input_callback)dcc_socks_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1034,7 +1036,7 @@ dcc_socks_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC
 		proxy->bufferused = 0;
 		proxy->buffersize = 8;
 		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX,
-									dcc_socks_proxy_traverse, dcc);
+									(input_callback)dcc_socks_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1081,7 +1083,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		proxy->buffersize = 3;
 		proxy->bufferused = 0;
 		dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-									dcc_socks5_proxy_traverse, dcc);
+									(input_callback)dcc_socks5_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1094,7 +1096,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		proxy->bufferused = 0;
 		proxy->buffersize = 2;
 		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX,
-									dcc_socks5_proxy_traverse, dcc);
+									(input_callback)dcc_socks5_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1112,7 +1114,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		/* Set up authentication I/O */
 		if (auth)
 		{
-			int len_u=0, len_p=0;
+			size_t len_u=0, len_p=0;
 
 			/* authentication sub-negotiation (RFC1929) */
 			if ( proxy->buffer[0] != 5 || proxy->buffer[1] != 2 )  /* UPA not supported by server */
@@ -1137,7 +1139,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 			proxy->buffersize = 3 + len_u + len_p;
 			proxy->bufferused = 0;
 			dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-										dcc_socks5_proxy_traverse, dcc);
+										(input_callback)dcc_socks5_proxy_traverse, dcc);
 			++proxy->phase;
 		}
 		else
@@ -1162,7 +1164,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		proxy->buffersize = 2;
 		proxy->bufferused = 0;
 		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX,
-									dcc_socks5_proxy_traverse, dcc);
+									(input_callback)dcc_socks5_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1201,7 +1203,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		proxy->buffersize = 10;
 		proxy->bufferused = 0;
 		dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-									dcc_socks5_proxy_traverse, dcc);
+									(input_callback)dcc_socks5_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1214,7 +1216,7 @@ dcc_socks5_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DC
 		proxy->buffersize = 4;
 		proxy->bufferused = 0;
 		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX,
-									dcc_socks5_proxy_traverse, dcc);
+									(input_callback)dcc_socks5_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1289,7 +1291,7 @@ dcc_http_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC 
 		proxy->bufferused = 0;
 		memcpy (proxy->buffer, buf, proxy->buffersize);
 		dcc->wiotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX,
-									dcc_http_proxy_traverse, dcc);
+									(input_callback)dcc_http_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1301,7 +1303,7 @@ dcc_http_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC 
 		dcc->wiotag = 0;
 		proxy->bufferused = 0;
 		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX,
-										dcc_http_proxy_traverse, dcc);
+										(input_callback)dcc_http_proxy_traverse, dcc);
 		++proxy->phase;
 	}
 
@@ -1315,7 +1317,7 @@ dcc_http_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC 
 		{
 			fe_input_remove (dcc->iotag);
 			dcc->iotag = 0;
-			PrintText (dcc->serv->front_session, proxy->buffer);
+			PrintText (dcc->serv->front_session, (const char *)proxy->buffer);
 			dcc->dccstat = STAT_FAILED;
 			fe_dcc_update (dcc);
 			return TRUE;
@@ -1337,7 +1339,7 @@ dcc_http_proxy_traverse (GIOChannel *source, GIOCondition condition, struct DCC 
 					break;
 				}
 				if (proxy->bufferused > 1)
-					PrintText (dcc->serv->front_session, proxy->buffer);
+					PrintText (dcc->serv->front_session, (const char *)proxy->buffer);
 				proxy->bufferused = 0;
 			}
 			else
@@ -1421,9 +1423,9 @@ dcc_connect (struct DCC *dcc)
 			return;
 		}
 		if (DCC_USE_PROXY ())
-			dcc->iotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX, dcc_proxy_connect, dcc);
+			dcc->iotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX, (input_callback)dcc_proxy_connect, dcc);
 		else
-			dcc->iotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX, dcc_connect_finished, dcc);
+			dcc->iotag = fe_input_add (dcc->sok, FIA_WRITE|FIA_EX, (input_callback)dcc_connect_finished, dcc);
 	}
 	
 	fe_dcc_update (dcc);
@@ -1433,7 +1435,8 @@ static gboolean
 dcc_send_data (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 {
 	char *buf;
-	int len, sent, sok = dcc->sok;
+	ssize_t len, sent;
+	int sok = dcc->sok;
 
 	if (prefs.dcc_blocksize < 1) /* this is too little! */
 		prefs.dcc_blocksize = 1024;
@@ -1454,7 +1457,7 @@ dcc_send_data (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 			return TRUE;
 	}
 	else if (!dcc->wiotag)
-		dcc->wiotag = fe_input_add (sok, FIA_WRITE, dcc_send_data, dcc);
+		dcc->wiotag = fe_input_add (sok, FIA_WRITE, (input_callback)dcc_send_data, dcc);
 
 	buf = malloc (prefs.dcc_blocksize);
 	if (!buf)
@@ -1524,7 +1527,7 @@ dcc_handle_new_ack (struct DCC *dcc)
 		dcc->ack = dcc->size;	/* force 100% ack for >4 GB */
 		dcc_close (dcc, STAT_DONE, FALSE);
 		dcc_calc_average_cps (dcc);	/* this must be done _after_ dcc_close, or dcc_remove_from_sum will see the wrong value in dcc->cps */
-		sprintf (buf, "%d", dcc->cps);
+		sprintf (buf, "%"DCC_SFMT, dcc->cps);
 		EMIT_SIGNAL (XP_TE_DCCSENDCOMP, dcc->serv->front_session,
 						 file_part (dcc->file), dcc->nick, buf, NULL, 0);
 		done = TRUE;
@@ -1547,7 +1550,7 @@ dcc_handle_new_ack (struct DCC *dcc)
 static gboolean
 dcc_read_ack (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 {
-	int len;
+	ssize_t len;
 
 	while (1)
 	{
@@ -1614,8 +1617,8 @@ dcc_accept (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 	{
 	case TYPE_SEND:
 		if (dcc->fastsend)
-			dcc->wiotag = fe_input_add (sok, FIA_WRITE, dcc_send_data, dcc);
-		dcc->iotag = fe_input_add (sok, FIA_READ|FIA_EX, dcc_read_ack, dcc);
+			dcc->wiotag = fe_input_add (sok, FIA_WRITE, (input_callback)dcc_send_data, dcc);
+		dcc->iotag = fe_input_add (sok, FIA_READ|FIA_EX, (input_callback)dcc_read_ack, dcc);
 		dcc_send_data (NULL, 0, (gpointer)dcc);
 		EMIT_SIGNAL (XP_TE_DCCCONSEND, dcc->serv->front_session,
 						 dcc->nick, host, dcc->file, NULL, 0);
@@ -1623,7 +1626,7 @@ dcc_accept (GIOChannel *source, GIOCondition condition, struct DCC *dcc)
 
 	case TYPE_CHATSEND:
 		dcc_open_query (dcc->serv, dcc->nick);
-		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_read_chat, dcc);
+		dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_read_chat, dcc);
 		dcc->dccchat = malloc (sizeof (struct dcc_chat));
 		dcc->dccchat->pos = 0;
 		EMIT_SIGNAL (XP_TE_DCCCONCHAT, dcc->serv->front_session,
@@ -1741,7 +1744,7 @@ dcc_listen_init (struct DCC *dcc, session *sess)
 	listen (dcc->sok, 1);
 	set_blocking (dcc->sok);
 
-	dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, dcc_accept, dcc);
+	dcc->iotag = fe_input_add (dcc->sok, FIA_READ|FIA_EX, (input_callback)dcc_accept, dcc);
 
 	return TRUE;
 }
@@ -2055,7 +2058,7 @@ is_resumable (struct DCC *dcc)
 		}
 	}
 
-	return dcc->resumable;
+	return dcc->resumable != 0;
 }
 
 void
@@ -2405,7 +2408,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 	if (!strcasecmp (type, "CHAT"))
 	{
 		port = atoi (word[8]);
-		addr = strtoul (word[7], NULL, 10);
+		addr = (guint32)strtoul (word[7], NULL, 10);
 
 		if (port == 0)
 			pasvid = atoi (word[9]);
@@ -2508,7 +2511,7 @@ handle_dcc (struct session *sess, char *nick, char *word[],
 		char *file = file_part (word[6]);
 
 		port = atoi (word[8]);
-		addr = strtoul (word[7], NULL, 10);
+		addr = (guint32)strtoul (word[7], NULL, 10);
 		size = BIG_STR_TO_INT (word[9]);
 
 		if (port == 0) /* Passive dcc requested */

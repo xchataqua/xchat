@@ -8,12 +8,12 @@ typedef int (tree_traverse_func) (const void *key, void *data);
 
 tree *tree_new (tree_cmp_func *cmp, void *data);
 void tree_destroy (tree *t);
-void *tree_find (tree *t, void *key, tree_cmp_func *cmp, void *data, int *pos);
-int tree_remove (tree *t, void *key, int *pos);
-void tree_remove_at_pos (tree *t, int pos);
+void *tree_find (tree *t, void *key, tree_cmp_func *cmp, void *data, long *pos);
+int tree_remove (tree *t, void *key, long *pos);
+void tree_remove_at_pos (tree *t, long pos);
 void tree_foreach (tree *t, tree_traverse_func *func, void *data);
-int tree_insert (tree *t, void *key);
+long tree_insert (tree *t, void *key);
 void tree_append (tree* t, void *key);
-int tree_size (tree *t);
+size_t tree_size (tree *t);
 
 #endif

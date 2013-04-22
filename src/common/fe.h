@@ -25,16 +25,18 @@ typedef struct
 	char *icon;	/* filename */
 } menu_entry;
 
+typedef gboolean (*input_callback) (GIOChannel *source, GIOCondition condition, void *user_data);
+
 int fe_args (int argc, char *argv[]);
 void fe_init (void);
 void fe_main (void);
 void fe_cleanup (void);
 void fe_exit (void);
-int fe_timeout_add (int interval, void *callback, void *userdata);
-void fe_timeout_remove (int tag);
+long fe_timeout_add (long interval, void *callback, void *userdata);
+void fe_timeout_remove (long tag);
 void fe_new_window (struct session *sess, int focus);
 void fe_new_server (struct server *serv);
-void fe_add_rawlog (struct server *serv, char *text, int len, int outbound);
+void fe_add_rawlog (struct server *serv, const char *text, const ssize_t len, int outbound);
 #define FE_MSG_WAIT 1
 #define FE_MSG_INFO 2
 #define FE_MSG_WARN 4
@@ -45,8 +47,8 @@ void fe_message (char *msg, int flags);
 #define FIA_WRITE 2
 #define FIA_EX 4
 #define FIA_FD 8
-int fe_input_add (int sok, int flags, void *func, void *data);
-void fe_input_remove (int tag);
+int fe_input_add (int sok, int flags, input_callback func, void *data);
+void fe_input_remove (long tag);
 void fe_idle_add (void *func, void *data);
 void fe_set_topic (struct session *sess, char *topic, char *stripped_topic);
 void fe_set_hilight (struct session *sess);
@@ -68,12 +70,12 @@ void fe_text_clear (struct session *sess, int lines);
 void fe_close_window (struct session *sess);
 void fe_progressbar_start (struct session *sess);
 void fe_progressbar_end (struct server *serv);
-void fe_print_text (struct session *sess, char *text, time_t stamp);
-void fe_userlist_insert (struct session *sess, struct User *newuser, int row, int sel);
+void fe_print_text (struct session *sess, const char *text, time_t stamp);
+void fe_userlist_insert (struct session *sess, struct User *newuser, long row, int sel);
 int fe_userlist_remove (struct session *sess, struct User *user);
 void fe_userlist_rehash (struct session *sess, struct User *user);
 void fe_userlist_update (struct session *sess, struct User *user);
-void fe_userlist_move (struct session *sess, struct User *user, int new_row);
+void fe_userlist_move (struct session *sess, struct User *user, long new_row);
 void fe_userlist_numbers (struct session *sess);
 void fe_userlist_clear (struct session *sess);
 void fe_userlist_set_selected (struct session *sess);
@@ -99,7 +101,7 @@ void fe_set_nick (struct server *serv, char *newnick);
 void fe_ignore_update (int level);
 void fe_beep (void);
 void fe_lastlog (session *sess, session *lastlog_sess, char *sstr, gboolean regexp);
-void fe_set_lag (server *serv, int lag);
+void fe_set_lag (server *serv, long lag);
 void fe_set_throttle (server *serv);
 void fe_set_away (server *serv);
 void fe_serverlist_open (session *sess);

@@ -25,12 +25,12 @@ int match (const char *mask, const char *string);
 char *file_part (char *file);
 void for_files (char *dirname, char *mask, void callback (char *file));
 int rfc_casecmp (const char *, const char *);
-int rfc_ncasecmp (char *, char *, int);
-int hal_casecomp ( char *s1, char *s2);
-int buf_get_line (char *, char **, int *, int len);
+int rfc_ncasecmp (char *, char *, size_t);
+int hal_casecomp (char *s1, char *s2);
+int buf_get_line (char *, char **, int *, size_t len);
 char *nocasestrstr (const char *text, const char *tofind);
 char *country (char *);
-void country_search (char *pattern, void *ud, void (*print)(void *, char *, ...));
+void country_search (char *pattern, void *ud, void (*print)(session *, const char *, ...));
 char *get_cpu_str (void);
 int util_exec (const char *cmd);
 int util_execv (char * const argv[]);
@@ -39,8 +39,8 @@ int util_execv (char * const argv[]);
 #define STRIP_HIDDEN 4
 #define STRIP_ESCMARKUP 8
 #define STRIP_ALL 7
-gchar *strip_color (const char *text, int len, int flags);
-int strip_color2 (const char *src, int len, char *dst, int flags);
+gchar *strip_color (const char *text, ssize_t len, int flags);
+int strip_color2 (const char *src, ssize_t len, char *dst, int flags);
 int strip_hidden_attribute (char *src, char *dst);
 char *errorstring (int err);
 int waitline (int sok, char *buf, int bufsize, int);
@@ -49,7 +49,7 @@ void move_file_utf8 (char *src_dir, char *dst_dir, char *fname, int dccpermissio
 int mkdir_utf8 (char *dir);
 int token_foreach (char *str, char sep, int (*callback) (char *str, void *ud), void *ud);
 guint32 str_hash (const char *key);
-guint32 str_ihash (const unsigned char *key);
-void safe_strcpy (char *dest, const char *src, int bytes_left);
+guint32 str_ihash (const char *key);
+void safe_strcpy (char *dest, const char *src, size_t bytes_left);
 
 #endif

@@ -81,7 +81,7 @@ nick_cmp (struct User *user1, struct User *user2, server *serv)
   -1: duplicate
 */
 
-static int
+static long
 userlist_insertname (session *sess, struct User *newuser)
 {
 	if (!sess->usertree)
@@ -194,7 +194,7 @@ find_cmp (const char *name, struct User *user, server *serv)
 struct User *
 userlist_find (struct session *sess, char *name)
 {
-	int pos;
+	ssize_t pos;
 
 	if (sess->usertree_alpha)
 		return tree_find (sess->usertree_alpha, name,
@@ -250,7 +250,7 @@ userlist_update_mode (session *sess, char *name, char mode, char sign)
 	int access;
 	int offset = 0;
 	int level;
-	int pos;
+	long pos;
 	char prefix;
 	struct User *user;
 
@@ -302,7 +302,7 @@ int
 userlist_change (struct session *sess, char *oldname, char *newname)
 {
 	struct User *user = userlist_find (sess, oldname);
-	int pos;
+	long pos;
 
 	if (user)
 	{
@@ -338,7 +338,7 @@ userlist_remove (struct session *sess, char *name)
 void
 userlist_remove_user (struct session *sess, struct User *user)
 {
-	int pos;
+	ssize_t pos;
 	if (user->voice)
 		sess->voices--;
 	if (user->op)
@@ -361,7 +361,8 @@ void
 userlist_add (struct session *sess, char *name, char *hostname)
 {
 	struct User *user;
-	int row, prefix_chars;
+	long row;
+	long prefix_chars;
 	unsigned int acc;
 
 	acc = nick_access (sess->server, name, &prefix_chars);

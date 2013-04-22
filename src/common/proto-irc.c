@@ -128,8 +128,8 @@ irc_join_list (server *serv, GSList *channels, GSList *keys)
 	GSList *klist;
 	GString *c = g_string_new (NULL);
 	GString *k = g_string_new (NULL);
-	int len;
-	int add;
+	size_t len;
+	size_t add;
 	int i, j;
 
 	i = j = 0;
@@ -412,7 +412,7 @@ irc_ping (server *serv, char *to, char *timestring)
 static int
 irc_raw (server *serv, char *raw)
 {
-	int len;
+	size_t len;
 	char tbuf[4096];
 	if (*raw)
 	{
@@ -910,7 +910,7 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 	server *serv = sess->server;
 	char ip[128], nick[NICKLEN];
 	char *text, *ex;
-	int len = strlen (type);
+	size_t len = strlen (type);
 
 	/* fill in the "ip" and "nick" buffers */
 	ex = strchr (word[1], '!');
@@ -1053,7 +1053,7 @@ process_named_msg (session *sess, char *type, char *word[], char *word_eol[])
 		case WORDL('P','R','I','V'):
 			{
 				char *to = word[3];
-				int len;
+				size_t len;
 				int id = FALSE;	/* identified */
 				if (*to)
 				{
@@ -1181,7 +1181,7 @@ process_named_servermsg (session *sess, char *buf, char *rawname, char *word_eol
 /* irc_inline() - 1 single line received from serv */
 
 static void
-irc_inline (server *serv, char *buf, int len)
+irc_inline (server *serv, char *buf, size_t len)
 {
 	session *sess, *tmp;
 	char *type, *text;

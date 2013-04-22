@@ -61,7 +61,9 @@ void
 send_channel_modes (session *sess, char *tbuf, char *word[], int wpos,
 						  int end, char sign, char mode, int modes_per_line)
 {
-	int usable_modes, orig_len, len, wlen, i, max;
+	int usable_modes, i;
+	size_t orig_len, len, wlen;
+	ssize_t max;
 	server *serv = sess->server;
 
 	/* sanity check. IRC RFC says three per line. */
@@ -182,7 +184,7 @@ get_nick_prefix (server * serv, unsigned int access)
 	+nick would return 001000 in binary */
 
 unsigned int
-nick_access (server * serv, char *nick, int *modechars)
+nick_access (server * serv, char *nick, long *modechars)
 {
 	int i;
 	unsigned int access = 0;
@@ -243,9 +245,9 @@ record_chan_mode (session *sess, char sign, char mode, char *arg)
 	GString *current = g_string_new(sess->current_modes);
 	gint mode_pos = -1;
 	gchar *current_char = current->str;
-	gint modes_length;
+	glong modes_length;
 	gint argument_num = 0;
-	gint argument_offset = 0;
+	glong argument_offset = 0;
 	gint argument_length = 0;
 	int i = 0;
 	gchar *arguments_start;
@@ -366,7 +368,7 @@ record_chan_mode (session *sess, char sign, char mode, char *arg)
 static char *
 mode_cat (char *str, char *addition)
 {
-	int len;
+	size_t len;
 
 	if (str)
 	{
@@ -626,7 +628,7 @@ handle_mode (server * serv, char *word[], char *word_eol[],
 	char *modes;
 	char *argstr;
 	char sign;
-	int len;
+	size_t len;
 	int arg;
 	int i, num_args;
 	int num_modes;
@@ -799,7 +801,7 @@ inbound_005 (server * serv, char *word[])
 		} else if (strncmp (word[w], "CASEMAPPING=", 12) == 0)
 		{
 			if (strcmp (word[w] + 12, "ascii") == 0)	/* bahamut */
-				serv->p_cmp = (void *)strcasecmp;
+				serv->p_cmp = strcasecmp;
 		} else if (strncmp (word[w], "CHARSET=", 8) == 0)
 		{
 			if (strcasecmp (word[w] + 8, "UTF-8") == 0)

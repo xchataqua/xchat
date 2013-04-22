@@ -271,7 +271,8 @@ ignore_load ()
 	struct ignore *ignore;
 	struct stat st;
 	char *cfg, *my_cfg;
-	int fh, i;
+	int fh;
+	ssize_t i;
 
 	fh = xchat_open_file ("ignore.conf", O_RDONLY, 0, 0);
 	if (fh != -1)
@@ -279,9 +280,9 @@ ignore_load ()
 		fstat (fh, &st);
 		if (st.st_size)
 		{
-			cfg = malloc (st.st_size + 1);
+			cfg = malloc ((size_t)st.st_size + 1);
 			cfg[0] = '\0';
-			i = read (fh, cfg, st.st_size);
+			i = read (fh, cfg, (size_t)st.st_size);
 			if (i >= 0)
 				cfg[i] = '\0';
 			my_cfg = cfg;
@@ -412,7 +413,7 @@ flood_check (char *nick, char *ip, server *serv, session *sess, int what)	/*0=ct
 						/*FIXME: only ignore ctcp or all?, its ignoring ctcps for now */
 						prefs.autodialog = 0;
 						/* turn it back on in 30 secs */
-						fe_timeout_add (30000, flood_autodialog_timeout, NULL);
+						fe_timeout_add (30000, (void *)flood_autodialog_timeout, NULL);
 					}
 					return 0;
 				}

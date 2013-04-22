@@ -276,7 +276,7 @@ path_part (char *file, char *path, int pathlen)
 char *				/* like strstr(), but nocase */
 nocasestrstr (const char *s, const char *wanted)
 {
-	register const int len = strlen (wanted);
+	register const size_t len = strlen (wanted);
 
 	if (len == 0)
 		return (char *)s;
@@ -422,7 +422,7 @@ expand_homedir (char *file)
 }
 
 gchar *
-strip_color (const char *text, int len, int flags)
+strip_color (const char *text, ssize_t len, int flags)
 {
 	char *new_str;
 
@@ -445,7 +445,7 @@ strip_color (const char *text, int len, int flags)
 /* CL: strip_color2 strips src and writes the output at dst; pass the same pointer
 	in both arguments to strip in place. */
 int
-strip_color2 (const char *src, int len, char *dst, int flags)
+strip_color2 (const char *src, ssize_t len, char *dst, int flags)
 {
 	int rcol = 0, bgcol = 0;
 	char *start = dst;
@@ -692,7 +692,7 @@ get_cpu_str (void)
 #endif
 
 int
-buf_get_line (char *ibuf, char **buf, int *position, int len)
+buf_get_line (char *ibuf, char **buf, int *position, size_t len)
 {
 	int pos = *position, spos = pos;
 
@@ -1151,7 +1151,7 @@ country (char *hostname)
 }
 
 void
-country_search (char *pattern, void *ud, void (*print)(void *, char *, ...))
+country_search (char *pattern, void *ud, void (*print)(session *, const char *, ...))
 {
 	const domain_t *dom;
 	int i;
@@ -1182,7 +1182,8 @@ int my_poptParseArgvString(const char * s, int * argcPtr, char *** argvPtr) {
     char ** argv = malloc(sizeof(*argv) * argvAlloced);
     const char ** argv2;
     int argc = 0;
-    int i, buflen;
+    int i;
+	size_t buflen;
 
     buflen = strlen(s) + 1;
 /*    bufStart = buf = alloca(buflen);*/
@@ -1364,10 +1365,10 @@ rfc_casecmp (const char *s1, const char *s2)
 }
 
 int
-rfc_ncasecmp (char *str1, char *str2, int n)
+rfc_ncasecmp (char *str1, char *str2, size_t n)
 {
-	register unsigned char *s1 = (unsigned char *) str1;
-	register unsigned char *s2 = (unsigned char *) str2;
+	register char *s1 = str1;
+	register char *s2 = str2;
 	register int res;
 
 	while ((res = hal_casecomp(s1,s2)) == 0)
@@ -1532,7 +1533,7 @@ copy_file (char *dl_src, char *dl_dest, int permissions)	/* FS encoding */
 	int tmp_src, tmp_dest;
 	gboolean ok = FALSE;
 	char dl_tmp[4096];
-	int return_tmp, return_tmp2;
+	ssize_t return_tmp, return_tmp2;
 
 	if ((tmp_src = open (dl_src, O_RDONLY | OFLAGS)) == -1)
 	{
@@ -1718,7 +1719,7 @@ str_hash (const char *key)
 }
 
 guint32
-str_ihash (const unsigned char *key)
+str_ihash (const char *key)
 {
 	const char *p = key;
 	guint32 h = rfc_tolowertab [(guint)*p];
@@ -1734,7 +1735,7 @@ str_ihash (const unsigned char *key)
 /*           2. "dest" will be left with valid UTF-8 - no partial chars! */
 
 void
-safe_strcpy (char *dest, const char *src, int bytes_left)
+safe_strcpy (char *dest, const char *src, size_t bytes_left)
 {
 	int mbl;
 

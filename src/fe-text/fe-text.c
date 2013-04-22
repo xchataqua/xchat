@@ -146,7 +146,7 @@ timecat (char *buf)
 static const short colconv[] = { 0, 7, 4, 2, 1, 3, 5, 11, 13, 12, 6, 16, 14, 15, 10, 7 };
 
 void
-fe_print_text (struct session *sess, char *text, time_t stamp)
+fe_print_text (struct session *sess, const char *text, time_t stamp)
 {
 	int dotime = FALSE;
 	char num[8];
@@ -307,7 +307,7 @@ fe_print_text (struct session *sess, char *text, time_t stamp)
 }
 
 void
-fe_timeout_remove (int tag)
+fe_timeout_remove (long tag)
 {
 	timerevent *te;
 	GSList *list;
@@ -326,8 +326,8 @@ fe_timeout_remove (int tag)
 	}
 }
 
-int
-fe_timeout_add (int interval, void *callback, void *userdata)
+long
+fe_timeout_add (long interval, void *callback, void *userdata)
 {
 	struct timeval now;
 	timerevent *te = malloc (sizeof (timerevent));
@@ -348,7 +348,7 @@ fe_timeout_add (int interval, void *callback, void *userdata)
 }
 
 void
-fe_input_remove (int tag)
+fe_input_remove (long tag)
 {
 	socketevent *se;
 	GSList *list;
@@ -368,7 +368,7 @@ fe_input_remove (int tag)
 }
 
 int
-fe_input_add (int sok, int flags, void *func, void *data)
+fe_input_add (int sok, int flags, input_callback func, void *data)
 {
 	socketevent *se = malloc (sizeof (socketevent));
 
@@ -568,7 +568,7 @@ fe_beep (void)
 }
 
 void
-fe_add_rawlog (struct server *serv, char *text, int len, int outbound)
+fe_add_rawlog (struct server *serv, const char *text, const ssize_t len, int outbound)
 {
 }
 void
@@ -647,7 +647,7 @@ fe_progressbar_end (struct server *serv)
 {
 }
 void
-fe_userlist_insert (struct session *sess, struct User *newuser, int row, int sel)
+fe_userlist_insert (struct session *sess, struct User *newuser, long row, int sel)
 {
 }
 int
@@ -660,7 +660,7 @@ fe_userlist_rehash (struct session *sess, struct User *user)
 {
 }
 void
-fe_userlist_move (struct session *sess, struct User *user, int new_row)
+fe_userlist_move (struct session *sess, struct User *user, long new_row)
 {
 }
 void
@@ -767,7 +767,7 @@ fe_lastlog (session * sess, session * lastlog_sess, char *sstr, gboolean regexp)
 {
 }
 void
-fe_set_lag (server * serv, int lag)
+fe_set_lag (server * serv, long lag)
 {
 }
 void

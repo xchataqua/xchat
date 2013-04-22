@@ -19,7 +19,7 @@ struct notify_per_server
 };
 
 extern GSList *notify_list;
-extern int notify_tag;
+extern long notify_tag;
 
 /* the WATCH stuff */
 void notify_set_online (server * serv, char *nick);

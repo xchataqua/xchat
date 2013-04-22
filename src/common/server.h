@@ -4,10 +4,10 @@
 extern GSList *serv_list;
 
 /* eventually need to keep the tcp_* functions isolated to server.c */
-int tcp_send_len (server *serv, char *buf, int len);
+ssize_t tcp_send_len (server *serv, char *buf, size_t len);
 int tcp_send (server *serv, char *buf);
 void tcp_sendf (server *serv, char *fmt, ...);
-int tcp_send_real (void *ssl, int sok, char *encoding, int using_irc, char *buf, int len);
+ssize_t tcp_send_real (void *ssl, int sok, char *encoding, int using_irc, char *buf, gssize len);
 
 server *server_new (void);
 int is_server (server *serv);
