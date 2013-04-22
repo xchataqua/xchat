@@ -419,7 +419,9 @@
 #endif
 
 #include "config.package_name.in.h"
-#include "build_number.h"
+#if defined(FE_AQUA) || defined(FE_IOS)
+# include "build_number.h"
+#endif
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
@@ -454,7 +456,11 @@
 
 /* #undef USING_LINUX */
 
-#define XCHATLIBDIR get_appdir_fs()
+#if defined(FE_AQUA) || defined(FE_IOS)
+# define XCHATLIBDIR get_appdir_fs()
+#else
+# define XCHATLIBDIR "/tmp/local/lib/xchat"
+#endif
 
 #define XCHATSHAREDIR "${prefix}/share"
 
