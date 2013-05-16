@@ -263,6 +263,11 @@ scrollback_save (session *sess, const char *text)
 		scrollback_shrink (sess);
 }
 
+#if FE_AQUA
+extern void fe_scrollback_start(struct session *sess);
+extern void fe_scrollback_end(struct session *sess);
+#endif
+
 void
 scrollback_load (session *sess)
 {
@@ -304,6 +309,9 @@ scrollback_load (session *sess)
 	
 	lines = 0;
 	begin = map;
+	#if FE_AQUA
+	fe_scrollback_start(sess);
+	#endif
 	while (begin < end_map)
 	{
 		long n_bytes;
@@ -350,7 +358,9 @@ scrollback_load (session *sess)
 		fe_print_text (sess, buf, 0);
 		/*EMIT_SIGNAL (XP_TE_GENMSG, sess, "*", buf, NULL, NULL, NULL, 0);*/
 	}
-
+	#if FE_AQUA
+	fe_scrollback_end(sess);
+	#endif
 	munmap (map, (size_t)statbuf.st_size);
 	close (fh);
 }
