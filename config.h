@@ -27,16 +27,16 @@
 #define HAVE_ALLOCA_H 1
 
 /* Define to 1 if you have the `argz_count' function. */
-/* #undef HAVE_ARGZ_COUNT */
+#define HAVE_ARGZ_COUNT 1
 
 /* Define to 1 if you have the <argz.h> header file. */
-/* #undef HAVE_ARGZ_H */
+#define HAVE_ARGZ_H 1
 
 /* Define to 1 if you have the `argz_next' function. */
-/* #undef HAVE_ARGZ_NEXT */
+#define HAVE_ARGZ_NEXT 1
 
 /* Define to 1 if you have the `argz_stringify' function. */
-/* #undef HAVE_ARGZ_STRINGIFY */
+#define HAVE_ARGZ_STRINGIFY 1
 
 /* Define to 1 if you have the `asprintf' function. */
 #define HAVE_ASPRINTF 1
@@ -44,35 +44,35 @@
 /* Define to 1 if the compiler understands __builtin_expect. */
 #define HAVE_BUILTIN_EXPECT 1
 
-/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+/* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
    CoreFoundation framework. */
-#define HAVE_CFLOCALECOPYCURRENT 1
+/* #undef HAVE_CFLOCALECOPYCURRENT */
 
-/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+/* Define to 1 if you have the MacOS X function CFPreferencesCopyAppValue in
    the CoreFoundation framework. */
-#define HAVE_CFPREFERENCESCOPYAPPVALUE 1
+/* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
 
 /* Define if the GNU dcgettext() function is already present or preinstalled.
- */
-/* #undef HAVE_DCGETTEXT */
+   */
+#define HAVE_DCGETTEXT 1
 
-/* Define to 1 if you have the declaration of 'feof_unlocked', and to 0 if you
+/* Define to 1 if you have the declaration of `feof_unlocked', and to 0 if you
    don't. */
 #define HAVE_DECL_FEOF_UNLOCKED 1
 
-/* Define to 1 if you have the declaration of 'fgets_unlocked', and to 0 if
+/* Define to 1 if you have the declaration of `fgets_unlocked', and to 0 if
    you don't. */
-#define HAVE_DECL_FGETS_UNLOCKED 0
+#define HAVE_DECL_FGETS_UNLOCKED 1
 
-/* Define to 1 if you have the declaration of 'getc_unlocked', and to 0 if you
+/* Define to 1 if you have the declaration of `getc_unlocked', and to 0 if you
    don't. */
 #define HAVE_DECL_GETC_UNLOCKED 1
 
-/* Define to 1 if you have the declaration of '_snprintf', and to 0 if you
+/* Define to 1 if you have the declaration of `_snprintf', and to 0 if you
    don't. */
 #define HAVE_DECL__SNPRINTF 0
 
-/* Define to 1 if you have the declaration of '_snwprintf', and to 0 if you
+/* Define to 1 if you have the declaration of `_snwprintf', and to 0 if you
    don't. */
 #define HAVE_DECL__SNWPRINTF 0
 
@@ -82,14 +82,11 @@
 /* Define to 1 if you have the `dlopen' function. */
 #define HAVE_DLOPEN 1
 
-/* Define to 1 if you have the <features.h> header file. */
-/* #undef HAVE_FEATURES_H */
-
 /* Define to 1 if you have the `fwprintf' function. */
 #define HAVE_FWPRINTF 1
 
 /* Define to 1 if you have the `getaddrinfo' function. */
-#define HAVE_GETADDRINFO 1
+/* #undef HAVE_GETADDRINFO */
 
 /* Define to 1 if you have the `getcwd' function. */
 #define HAVE_GETCWD 1
@@ -107,7 +104,7 @@
 #define HAVE_GETPAGESIZE 1
 
 /* Define if the GNU gettext() function is already present or preinstalled. */
-/* #undef HAVE_GETTEXT */
+#define HAVE_GETTEXT 1
 
 /* Define to 1 if you have the `getuid' function. */
 #define HAVE_GETUID 1
@@ -150,12 +147,12 @@
 /* #undef HAVE_LIBSOCKET */
 
 /* Define to 1 if you have the `X11' library (-lX11). */
-/* #undef HAVE_LIBX11 */
+#define HAVE_LIBX11 1
 
 /* Define to 1 if you have the <limits.h> header file. */
 #define HAVE_LIMITS_H 1
 
-/* Define to 1 if the system has the type 'long long int'. */
+/* Define to 1 if the system has the type `long long int'. */
 #define HAVE_LONG_LONG_INT 1
 
 /* Define to 1 if you have the `mbrtowc' function. */
@@ -165,10 +162,10 @@
 #define HAVE_MEMORY_H 1
 
 /* Define to 1 if you have the `mempcpy' function. */
-/* #undef HAVE_MEMPCPY */
+#define HAVE_MEMPCPY 1
 
 /* Define to 1 if you have the `memrchr' function. */
-/* #undef HAVE_MEMRCHR */
+#define HAVE_MEMRCHR 1
 
 /* Define to 1 if you have a working `mmap' system call. */
 #define HAVE_MMAP 1
@@ -243,9 +240,6 @@
 /* Define to 1 if you have the `strtoull' function. */
 #define HAVE_STRTOULL 1
 
-/* Define to 1 if you have the `symlink' function. */
-#define HAVE_SYMLINK 1
-
 /* Define to 1 if you have the <sys/ipc.h> header file. */
 /* #undef HAVE_SYS_IPC_H */
 
@@ -270,7 +264,7 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
 
-/* Define to 1 if the system has the type 'unsigned long long int'. */
+/* Define to 1 if the system has the type `unsigned long long int'. */
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
 
 /* Define to 1 if you have the `uselocale' function. */
@@ -299,7 +293,7 @@
 #define HAVE_WINT_T 1
 
 /* Define to 1 if O_NOATIME works. */
-#define HAVE_WORKING_O_NOATIME 0
+#define HAVE_WORKING_O_NOATIME 1
 
 /* Define to 1 if O_NOFOLLOW works. */
 #define HAVE_WORKING_O_NOFOLLOW 1
@@ -308,7 +302,7 @@
 /* #undef HAVE_X11_XFT_XFT_H */
 
 /* Define to 1 if you have the `__fsetlocking' function. */
-/* #undef HAVE___FSETLOCKING */
+#define HAVE___FSETLOCKING 1
 
 /* Define as const if the declaration of iconv() needs const. */
 #define ICONV_CONST 
@@ -317,7 +311,7 @@
 #define INTDIV0_RAISES_SIGFPE 1
 
 /* Define to 1 if the system uses lookupd */
-#define LOOKUPD 1
+/* #undef LOOKUPD */
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
    */
@@ -329,18 +323,24 @@
 #define OLD_PERL 1
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "https://github.com/xchataqua/xchataqua/issues"
+#define PACKAGE_BUGREPORT "http://www.xchat.org/"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "XChat"
+
+/* Define to the full name and version of this package. */
+#define PACKAGE_STRING "XChat 2.8.8"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "xchat"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "http://xchataqua.github.com/"
+#define PACKAGE_URL ""
 
-#define PREFIX "/tmp/local"
+/* Define to the version of this package. */
+#define PACKAGE_VERSION "2.8.8"
+
+#define PREFIX "/usr/local"
 
 /* Define if <inttypes.h> exists and defines unusable PRI* macros. */
 /* #undef PRI_MACROS_BROKEN */
@@ -371,7 +371,7 @@
 
 /* #undef USE_GTKSPELL */
 
-#define USE_IPV6 1
+/* #undef USE_IPV6 */
 
 /* #undef USE_LIBNOTIFY */
 
@@ -383,9 +383,7 @@
 
 /* #undef USE_MSPROXY */
 
-#ifndef FE_IOS
-# define USE_OPENSSL 1
-#endif
+#define USE_OPENSSL 1
 
 #define USE_PLUGIN 1
 
@@ -394,7 +392,7 @@
 
 /* Define if references to the POSIX multithreading library should be made
    weak. */
-/* #undef USE_POSIX_THREADS_WEAK */
+#define USE_POSIX_THREADS_WEAK 1
 
 /* Define if the GNU Pth multithreading library can be used. */
 /* #undef USE_PTH_THREADS */
@@ -413,15 +411,6 @@
 /* Define if references to the old Solaris multithreading library should be
    made weak. */
 /* #undef USE_SOLARIS_THREADS_WEAK */
-
-#ifdef FE_IOS
-# define FORK_DISABLED 1
-#endif
-
-#include "config.package_name.in.h"
-#if defined(FE_AQUA) || defined(FE_IOS)
-# include "build_number.h"
-#endif
 
 /* Enable extensions on AIX 3, Interix.  */
 #ifndef _ALL_SOURCE
@@ -445,22 +434,18 @@
 #endif
 
 
-/* Define if the native Windows multithreading API can be used. */
-/* #undef USE_WINDOWS_THREADS */
+/* Define if the Win32 multithreading API can be used. */
+/* #undef USE_WIN32_THREADS */
 
 /* #undef USE_XFT */
 
-/* #undef USE_XLIB */
+#define USE_XLIB 1
 
 /* #undef USING_FREEBSD */
 
-/* #undef USING_LINUX */
+#define USING_LINUX 1
 
-#if defined(FE_AQUA) || defined(FE_IOS)
-# define XCHATLIBDIR get_appdir_fs()
-#else
-# define XCHATLIBDIR "/tmp/local/lib/xchat"
-#endif
+#define XCHATLIBDIR "/usr/local/lib/xchat"
 
 #define XCHATSHAREDIR "${prefix}/share"
 
