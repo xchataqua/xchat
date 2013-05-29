@@ -336,6 +336,7 @@ cmd_away (struct session *sess, char *tbuf, char *word[], char *word_eol[])
 		{
 			if (sess->server->last_away_reason)
 				PrintTextf (sess, _("Already marked away: %s\n"), sess->server->last_away_reason);
+				PrintTextf (sess, _("Use BACK to return from away.\n"));
 			return FALSE;
 		}
 
