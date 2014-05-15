@@ -414,9 +414,7 @@
    made weak. */
 /* #undef USE_SOLARIS_THREADS_WEAK */
 
-#ifdef FE_IOS
 # define FORK_DISABLED 1
-#endif
 
 #include "config.package_name.in.h"
 #if defined(FE_AQUA) || defined(FE_IOS)
