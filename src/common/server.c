@@ -584,42 +584,6 @@ server_stopconnecting (server * serv)
 
 #ifdef USE_OPENSSL
 #define	SSLTMOUT	90				  /* seconds */
-static void
-ssl_cb_info (SSL * s, int where, int ret)
-{
-/*	char buf[128];*/
-
-
-	return;							  /* FIXME: make debug level adjustable in serverlist or settings */
-
-/*	snprintf (buf, sizeof (buf), "%s (%d)", SSL_state_string_long (s), where);
-	if (g_sess)
-		EMIT_SIGNAL (XP_TE_SSLMESSAGE, g_sess, buf, NULL, NULL, NULL, 0);
-	else
-		fprintf (stderr, "%s\n", buf);*/
-}
-
-static int
-ssl_cb_verify (int ok, X509_STORE_CTX * ctx)
-{
-	char subject[256];
-	char issuer[256];
-	char buf[512];
-
-
-	X509_NAME_oneline (X509_get_subject_name (ctx->current_cert), subject,
-							 sizeof (subject));
-	X509_NAME_oneline (X509_get_issuer_name (ctx->current_cert), issuer,
-							 sizeof (issuer));
-
-	snprintf (buf, sizeof (buf), "* Subject: %s", subject);
-	EMIT_SIGNAL (XP_TE_SSLMESSAGE, g_sess, buf, NULL, NULL, NULL, 0);
-	snprintf (buf, sizeof (buf), "* Issuer: %s", issuer);
-	EMIT_SIGNAL (XP_TE_SSLMESSAGE, g_sess, buf, NULL, NULL, NULL, 0);
-
-	return (TRUE);					  /* always ok */
-}
-
 static int
 ssl_do_connect (server * serv)
 {
@@ -888,7 +852,7 @@ server_connect_success (server *serv)
 		/* it'll be a memory leak, if connection isn't terminated by
 		   server_cleanup() */
 		serv->ssl = _SSL_socket (ctx, serv->sok);
-		if ((err = _SSL_set_verify (ctx, (void *)ssl_cb_verify, NULL)))
+		if ((err = _SSL_set_verify (ctx, NULL, NULL)))
 		{
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, err, NULL,
 							 NULL, NULL, 0);
@@ -1692,7 +1656,7 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 #ifdef USE_OPENSSL
 	if (!ctx && serv->use_ssl)
 	{
-		if (!(ctx = _SSL_context_init ((void *)ssl_cb_info, FALSE)))
+		if (!(ctx = _SSL_context_init (NULL, FALSE)))
 		{
 			fprintf (stderr, "_SSL_context_init failed\n");
 			exit (1);
