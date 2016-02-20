@@ -851,14 +851,16 @@ server_connect_success (server *serv)
 
 		/* it'll be a memory leak, if connection isn't terminated by
 		   server_cleanup() */
-		serv->ssl = _SSL_socket (ctx, serv->sok);
-		if ((err = _SSL_set_verify (ctx, NULL, NULL)))
+		if ((err = _SSL_set_verify (ctx, NULL)))
 		{
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, err, NULL,
 							 NULL, NULL, 0);
 			server_cleanup (serv);	/* ->connecting = FALSE */
 			return;
 		}
+		
+		serv->ssl = _SSL_socket (ctx, serv->sok);
+
 		/* FIXME: it'll be needed by new servers */
 		/* send(serv->sok, "STLS\r\n", 6, 0); sleep(1); */
 		set_nonblocking (serv->sok);
