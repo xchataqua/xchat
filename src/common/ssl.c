@@ -70,7 +70,7 @@ _SSL_context_init (void (*info_cb_func), int server)
 
 	SSLeay_add_ssl_algorithms ();
 	SSL_load_error_strings ();
-	ctx = SSL_CTX_new (server ? TLSv1_server_method() : TLSv1_client_method ());
+	ctx = SSL_CTX_new (server ? SSLv23_server_method() : SSLv23_client_method ());
 	SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
 	SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv3);
 
