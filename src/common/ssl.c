@@ -68,9 +68,7 @@ _SSL_context_init (void (*info_cb_func), int server)
 	int i, r;
 #endif
 
-	SSLeay_add_ssl_algorithms ();
-	SSL_load_error_strings ();
-	ctx = SSL_CTX_new (server ? SSLv23_server_method() : SSLv23_client_method ());
+	ctx = SSL_CTX_new (server ? TLS_server_method() : TLS_client_method ());
 	SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv2);
 	SSL_CTX_set_options(ctx, SSL_OP_NO_SSLv3);
 
@@ -157,8 +155,8 @@ _SSL_get_cert_info (struct cert_info *cert_info, SSL * ssl)
 	broke_oneline (cert_info->subject, cert_info->subject_word);
 	broke_oneline (cert_info->issuer, cert_info->issuer_word);
 
-	alg = OBJ_obj2nid (peer_cert->cert_info->key->algor->algorithm);
-	sign_alg = OBJ_obj2nid (peer_cert->sig_alg->algorithm);
+	alg = EVP_PKEY_id (X509_get0_pubkey (peer_cert));
+	sign_alg = X509_get_signature_nid (peer_cert);
 	ASN1_TIME_snprintf (notBefore, sizeof (notBefore),
 							  X509_get_notBefore (peer_cert));
 	ASN1_TIME_snprintf (notAfter, sizeof (notAfter),
@@ -283,10 +281,10 @@ _SSL_socket (SSL_CTX *ctx, int sd)
 		__SSL_critical_error ("SSL_new");
 
 	SSL_set_fd (ssl, sd);
-	if (ctx->method == SSLv23_client_method())
+	if (!SSL_is_server (ssl))
 		SSL_set_connect_state (ssl);
 	else
-	        SSL_set_accept_state(ssl);
+		SSL_set_accept_state(ssl);
 
 	return (ssl);
 }
@@ -322,5 +320,4 @@ _SSL_close (SSL * ssl)
 {
 	SSL_set_shutdown (ssl, SSL_SENT_SHUTDOWN | SSL_RECEIVED_SHUTDOWN);
 	SSL_free (ssl);
-	ERR_remove_state (0);		  /* free state buffer */
 }

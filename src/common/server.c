@@ -724,7 +724,7 @@ ssl_do_connect (server * serv)
 		return (0);					  /* remove it (0) */
 	} else
 	{
-		if (serv->ssl->session && serv->ssl->session->time + SSLTMOUT < time (NULL))
+		if (SSL_get_session(serv->ssl) && SSL_SESSION_get_time(SSL_get_session(serv->ssl)) + SSLTMOUT < time (NULL))
 		{
 			snprintf (buf, sizeof (buf), "SSL handshake timed out");
 			EMIT_SIGNAL (XP_TE_CONNFAIL, serv->server_session, buf, NULL,
@@ -1448,6 +1448,15 @@ traverse_proxy (int proxy_type, int print_fd, int sok, char *ip, int port, struc
 	return 1;
 }
 
+static int server_child (server * serv);
+
+static void *
+server_child_pthread (void *arg)
+{
+	server_child ((server *)arg);
+	return NULL;
+}
+
 /* this is the child process making the connection attempt */
 
 static int
@@ -1754,7 +1763,7 @@ server_connect (server *serv, char *hostname, int port, int no_login)
 										serv, 0, (DWORD *)&pid));
 #elif defined (FORK_DISABLED)
     t = malloc(sizeof(pthread_t));
-    pthread_create(t, NULL, &server_child, serv);
+    pthread_create(t, NULL, &server_child_pthread, serv);
     pid = t;
 #else
 #ifdef LOOKUPD
